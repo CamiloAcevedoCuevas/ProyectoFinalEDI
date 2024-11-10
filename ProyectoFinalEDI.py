@@ -4,7 +4,6 @@
 
 # Universidad del Norte
 
-
 import cv2 # Se importa la librería OpenCV para la gestión de videos
 
 class Escena:
@@ -35,7 +34,6 @@ class Escenas:
                 current = current.next
             current.next = new_escena
 
-
     def show_escena(self, indice):
         """Muestra una escena
 
@@ -56,7 +54,6 @@ class Escenas:
                 break
             current = current.next
 
-
 def main():
     escenas = Escenas()
 
@@ -64,10 +61,8 @@ def main():
         escena = cv2.VideoCapture(f'escena{i}.mp4')
         escenas.add_escena(escena, i)
 
-    
     escenas.show_escena(1)
     escenas.show_escena(2)
-
 
 if __name__ == '__main__':
     main()
