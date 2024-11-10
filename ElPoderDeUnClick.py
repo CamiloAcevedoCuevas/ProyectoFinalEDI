@@ -1,30 +1,21 @@
-# Proyecto final de Estructura de Datos I
+# El poder de un click
 
-# Realizado por Paula Gómez, Ronald Arrieta, Antonella Giamaria y Camilo Acevedo
+# Desarrollado por Nebula Games ©
 
-# Universidad del Norte
-
-import cv2 # Se importa la librería OpenCV para la gestión de videos
+import cv2
+from tkinter import *
 
 class Escena:
-    """Clase que representa una escena del juego"""
     def __init__(self, escena, indice):
         self.escena = escena
         self.indice = indice
         self.next = None
 
 class Escenas:
-    """Clase que representa la lista de escenas"""
     def __init__(self):
         self.head = None
 
     def add_escena(self, escena, indice):
-        """Añade una escena
-
-        Args:
-            escena (VideoCapture): Escena
-            indice (int): Índice de la escena
-        """
         new_escena = Escena(escena, indice)
         if self.head is None:
             self.head = new_escena
@@ -35,11 +26,6 @@ class Escenas:
             current.next = new_escena
 
     def show_escena(self, indice):
-        """Muestra una escena
-
-        Args:
-            indice (int): índice de la escena
-        """
         current = self.head
         while current is not None:
             if current.indice == indice:
@@ -54,6 +40,10 @@ class Escenas:
                 break
             current = current.next
 
+    def close_escena(self):
+        raiz = Tk()
+        raiz.destroy()
+
 def main():
     escenas = Escenas()
 
@@ -61,8 +51,29 @@ def main():
         escena = cv2.VideoCapture(f'escena{i}.mp4')
         escenas.add_escena(escena, i)
 
-    escenas.show_escena(1)
-    escenas.show_escena(2)
+    # escenas.show_escena(1)
+    # escenas.show_escena(2)
+
+    raiz = Tk()
+    raiz.geometry('1024x576')
+    raiz.title('Proyecto Final EDI')
+
+    captureFrame = Frame()
+    captureFrame.config(width = 1024, height = 576)
+    captureFrame.place(x = 0, y = 0)
+
+    btnFrame = Frame()
+    btnFrame.config(width = 1024, height = 100)
+    btnFrame.place(x = 0, y = 0)
+
+    captureLabel = Label(captureFrame)
+    captureLabel.place(x = 0, y = 0)
+
+    btnCerrar = Button(btnFrame, text = 'Cerrar', command = print("XD"))
+    #btnCerrar.place(x = 100, y = 40)
+    btnCerrar.pack()
+
+    raiz.mainloop()
 
 if __name__ == '__main__':
     main()
