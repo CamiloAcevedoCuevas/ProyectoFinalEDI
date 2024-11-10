@@ -1,21 +1,27 @@
-# El poder de un click
-
 # Desarrollado por Nebula Games ©
 
-import cv2
-from tkinter import *
+import cv2 # Manejo de video
+from tkinter import * # Interfaz gráfica
 
 class Escena:
+    """Escena del juego"""
     def __init__(self, escena, indice):
         self.escena = escena
         self.indice = indice
         self.next = None
 
 class Escenas:
+    """Lista de escenas"""
     def __init__(self):
         self.head = None
 
     def add_escena(self, escena, indice):
+        """Añadir escena
+
+        Args:
+            escena (VideoCapture): _description_
+            indice (int): _description_
+        """
         new_escena = Escena(escena, indice)
         if self.head is None:
             self.head = new_escena
@@ -26,6 +32,11 @@ class Escenas:
             current.next = new_escena
 
     def show_escena(self, indice):
+        """Mostrar escena
+
+        Args:
+            indice (int): _description_
+        """
         current = self.head
         while current is not None:
             if current.indice == indice:
@@ -40,10 +51,6 @@ class Escenas:
                 break
             current = current.next
 
-    def close_escena(self):
-        raiz = Tk()
-        raiz.destroy()
-
 def main():
     escenas = Escenas()
 
@@ -54,26 +61,25 @@ def main():
     # escenas.show_escena(1)
     # escenas.show_escena(2)
 
-    raiz = Tk()
-    raiz.geometry('1024x576')
-    raiz.title('Proyecto Final EDI')
+    window = Tk()
 
-    captureFrame = Frame()
-    captureFrame.config(width = 1024, height = 576)
-    captureFrame.place(x = 0, y = 0)
+    # window.iconbitmap('icon.ico')
+    window.title('El Poder De Un Click')
+    window.geometry('1024x576')
+    window.resizable(False, False)
 
-    btnFrame = Frame()
-    btnFrame.config(width = 1024, height = 100)
-    btnFrame.place(x = 0, y = 0)
+    startLabel = Label(window, text = 'El Poder De Un Click', font = ('Arial', 24))
+    startLabel.place(x = 370, y = 100)
 
-    captureLabel = Label(captureFrame)
-    captureLabel.place(x = 0, y = 0)
+    def start():
+        window.destroy()
+        escenas.show_escena(1)
 
-    btnCerrar = Button(btnFrame, text = 'Cerrar', command = print("XD"))
-    #btnCerrar.place(x = 100, y = 40)
-    btnCerrar.pack()
+    btnStart = Button(window, text = 'Start', command = start)
+    btnStart.place(x = 512, y = 288)
+    btnStart.pack()
 
-    raiz.mainloop()
+    window.mainloop()
 
 if __name__ == '__main__':
     main()
