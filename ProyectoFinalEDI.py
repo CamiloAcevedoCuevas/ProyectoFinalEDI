@@ -24,11 +24,11 @@ class Escenas:
             current.escena = Escena(escena, indice)
 
     def show_escena(self, indice):
-        current_escena = self.head
-        while current_escena is not None:
-            if current_escena.indice == indice:
-                while current_escena.isOpened():
-                    ret, frame = current_escena.read()
+        current = self.head
+        while current is not None:
+            if current.indice == indice:
+                while current.escena.isOpened():
+                    ret, frame = current.escena.read()
                     if not ret:
                         break
                     cv2.imshow('', frame)
