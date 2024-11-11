@@ -47,7 +47,9 @@ class Scenes:
                 break
             current = current.next
 
-    def set_scene(self):
+    def set_exit_scene(self):
+        """Establish The Exit Scene"""
+        self.get_scene(self.scene)
         self.scene = Tk()
         def exit():
             self.scene.destroy()

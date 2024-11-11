@@ -18,7 +18,7 @@ def main():
         scenes.scene = 1
         menu.destroy()
     gui = GUI(menu)
-    gui.set_window('El Poder De Un Click', 'Iniciar Partida', None, start, None)
+    gui.set_window('El Poder De Un Click', 'Nueva Partida', None, start, None)
     menu.mainloop()
 
     if scenes.scene == 1:
@@ -31,7 +31,7 @@ def main():
             scenes.scene = 3
             first_scene.destroy()
         gui = GUI(first_scene)
-        gui.set_window('Debes elegir si Javier invierte o no su dinero', 'Invertir', 'No Invertir', second_scene, third_scene)
+        gui.set_window('Invertir Dinero', 'Si', 'No', second_scene, third_scene)
         first_scene.mainloop()
 
         if scenes.scene == 2:
@@ -40,11 +40,12 @@ def main():
             def fourth_scene():
                 scenes.scene = 4
                 second_scene.destroy()
+                scenes.set_exit_scene()
             def fifth_scene():
                 scenes.scene = 5
                 second_scene.destroy()
             gui = GUI(second_scene)
-            gui.set_window('Debes elegir si Javier reporta a la policia o no', 'Reportar', 'No Reportar', fourth_scene, fifth_scene)
+            gui.set_window('Llamar a la policía', 'Si', 'No', fourth_scene, fifth_scene)
             second_scene.mainloop()
 
         elif scenes.scene == 3:
@@ -53,56 +54,43 @@ def main():
             def sixth_scene():
                 scenes.scene = 6
                 third_scene.destroy()
+                scenes.set_exit_scene()
             def seventh_scene():
                 scenes.scene = 7
                 third_scene.destroy()
             gui = GUI(third_scene)
-            gui.set_window('Debes elegir si Javier abre el correo o no', 'Abrir', 'No Abrir', sixth_scene, seventh_scene)
+            gui.set_window('Abrir el correo', 'Si', 'No', sixth_scene, seventh_scene)
             third_scene.mainloop()
 
-        if scenes.scene == 4:
-            scenes.set_scene()
-
-        elif scenes.scene == 5:
+        if scenes.scene == 5:
             scenes.get_scene(5)
             fifth_scene = Tk()
             def eighth_scene():
                 scenes.scene = 8
                 fifth_scene.destroy()
+                scenes.set_exit_scene()
             def ninth_scene():
                 scenes.scene = 9
                 fifth_scene.destroy()
+                scenes.set_exit_scene()
             gui = GUI(fifth_scene)
-            gui.set_window('Debes elegir si Javier acepta la propuesta o no', 'Aceptar', 'No Aceptar', eighth_scene, ninth_scene)
+            gui.set_window('Aceptar la propuesta', 'Si', 'No', eighth_scene, ninth_scene)
             fifth_scene.mainloop()
 
-            if scenes.scene == 8:
-                scenes.set_scene()
-
-            elif scenes.scene == 9:
-                scenes.set_scene()
-
-        elif scenes.scene == 6:
-            scenes.set_scene()
-        
         elif scenes.scene == 7:
             scenes.get_scene(7)
             seventh_scene = Tk()
             def tenth_scene():
                 scenes.scene = 10
                 seventh_scene.destroy()
+                scenes.set_exit_scene()
             def eleventh_scene():
                 scenes.scene = 11
                 seventh_scene.destroy()
+                scenes.set_exit_scene()
             gui = GUI(seventh_scene)
-            gui.set_window('Decide se Javier instala el programa o no', 'Instalar', 'No Instalar', tenth_scene, eleventh_scene)
+            gui.set_window('Instalar el programa', 'Si', 'No', tenth_scene, eleventh_scene)
             seventh_scene.mainloop()
-
-            if scenes.scene == 10:
-                scenes.set_scene()
-
-            elif scenes.scene == 11:
-                scenes.set_scene()
 
 if __name__ == '__main__':
     main()
