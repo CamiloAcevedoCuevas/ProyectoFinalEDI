@@ -76,7 +76,7 @@ class GUI ():
         self.window.resizable(False, False)
         # Window Components
         label = Label(self.window, text = text_label, fg = 'salmon', bg = 'beige', font = ('Arial', 22))
-        label.place(x = 300, y = 170)
+        label.place(relx = 0.5, rely = 0.3, anchor = CENTER)
         if text_btn2 is None:
             x = 430
         else:
