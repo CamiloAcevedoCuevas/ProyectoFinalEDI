@@ -64,17 +64,18 @@ def main():
 
     # window.iconbitmap('icon.ico')
     window.title('El Poder De Un Click')
+    window.configure(background = 'gray')
     window.geometry('1024x576')
     window.resizable(False, False)
 
-    startLabel = Label(window, text = 'El Poder De Un Click', font = ('Arial', 24))
+    startLabel = Label(window, text = 'El Poder De Un Click', fg = 'black', bg = 'gray', font = ('Arial', 24))
     startLabel.place(x = 370, y = 100)
     def start():
         window.destroy()
-        winsound.PlaySound('audio1.wav', winsound.SND_FILENAME)
+        winsound.PlaySound('audio1.wav', 0)
         escenas.get_escena(1)
     
-    btnStart = Button(window, text = 'Start', command = start)
+    btnStart = Button(window, text = 'Start', fg = 'black', bg = 'white', font = ('Arial', 12), command = start)
     btnStart.place(x = 470, y = 200, width = 100, height = 30)
 
     window.mainloop()
