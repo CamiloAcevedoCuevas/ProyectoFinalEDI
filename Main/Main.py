@@ -39,6 +39,7 @@ class Scenes:
         Args:
             index (int): Scene number
         """
+        winsound.PlaySound(f'Assets/Audios/Audio{index}', winsound.SND_ASYNC)
         current = self.head
         while current is not None:
             if current.index == index:
@@ -85,25 +86,22 @@ class GUI ():
 def main():
     scenes = Scenes()
 
-    for i in range(1, 3): # Scenes Buffering
+    for i in range(1, 11): # Scenes Buffering
         scene = cv2.VideoCapture(f'Assets/scenes/scene{i}.mp4')
         scenes.add_scene(scene, i)
 
     menu = Tk()
     def scene1(): # Scene 1
         menu.destroy()
-        winsound.PlaySound('Assets/audios/aud1.wav', 0)
         scenes.get_scene(1)
         scene1 = Tk()
         def scene2(): # Scene 2
             scene1.destroy()
-            winsound.PlaySound('Assets/audios/aud2.wav', 0)
             scenes.get_scene(2)
             scene2 = Tk()
             gui = GUI(scene2)
             def scene4(): # Scene 4
                 scene2.destroy()
-                winsound.PlaySound('Assets/audios/aud4.wav', 0)
                 scenes.get_scene(4)
                 scene4 = Tk()
                 def exit():
@@ -114,12 +112,10 @@ def main():
                 gui.get_button('Salir', 0, 20, 120, 40, exit)
             def scene5(): # Scene 5
                 scene2.destroy()
-                winsound.PlaySound('Assets/audios/aud5.wav', 0)
                 scenes.get_scene(5)
                 scene5 = Tk()
                 def scene8(): # Scene 8
                     scene5.destroy()
-                    winsound.PlaySound('Assets/audios/aud8.wav', 0)
                     scenes.get_scene(8)
                     scene8 = Tk()
                     def exit():
@@ -130,7 +126,6 @@ def main():
                     gui.get_button('Salir', 0, 20, 120, 40, exit)
                 def scene9(): # Scene 9
                     scene5.destroy()
-                    winsound.PlaySound('Assets/audios/aud9.wav', 0)
                     scenes.get_scene(9)
                     scene9 = Tk()
                     def exit():
@@ -151,12 +146,10 @@ def main():
             gui.get_button('No Reportar', 0, 60, 120, 40, scene5) # No Reportar
         def scene3(): # Scene 3
             scene1.destroy()
-            winsound.PlaySound('Assets/audios/aud3.wav', 0)
             scenes.get_scene(3)
             scene3 = Tk()
             def scene6(): # Scene 6
                 scene3.destroy()
-                winsound.PlaySound('Assets/audios/aud6.wav', 0)
                 scenes.get_scene(6)
                 scene6 = Tk()
                 def exit():
@@ -167,12 +160,10 @@ def main():
                 gui.get_button('Salir', 0, 20, 120, 40, exit)
             def scene7(): # Scene 7
                 scene3.destroy()
-                winsound.PlaySound('Assets/audios/aud7.wav', 0)
                 scenes.get_scene(7)
                 scene7 = Tk()
                 def scene10(): # Scene 10
                     scene7.destroy()
-                    winsound.PlaySound('Assets/audios/aud10.wav', 0)
                     scenes.get_scene(10)
                     scene10 = Tk()
                     def exit():
@@ -183,7 +174,6 @@ def main():
                     gui.get_button('Salir', 0, 20, 120, 40, exit)
                 def scene11(): # Scene 11
                     scene7.destroy()
-                    winsound.PlaySound('Assets/audios/aud11.wav', 0)
                     scenes.get_scene(11)
                     scene11 = Tk()
                     def exit():
@@ -211,6 +201,7 @@ def main():
     gui.get_window()
     gui.get_label('El Poder De Un Click', 370, 100, 24)
     gui.get_button('Start', 460, 250, 120, 40, scene1)
+    
     gui.window.mainloop() # Main Loop
 
 if __name__ == '__main__':
