@@ -30,10 +30,10 @@ class Scenes:
         Args:
             index (int): Scene number
         """
-        winsound.PlaySound(f'Assets/Audios/Audio{index}', winsound.SND_ASYNC)
         current = self.head
         while current is not None:
             if current.index == index:
+                winsound.PlaySound(f'Assets/Audios/Audio{index}', winsound.SND_ASYNC)
                 while True:
                     ret, frame = current.scene.read()
                     if ret:

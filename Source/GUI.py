@@ -26,7 +26,6 @@ class GUI ():
         label.place(relx = 0.5, rely = 0.35, anchor = CENTER)
         if text_btn2 is None:
             x = 0.5
-            text_btn2 = text_btn1
         else:
             x = 0.35
             button = Button(self.window, text = text_btn2, fg = 'salmon', bg = 'beige', font = ('Algerian', 12), command = command_2)
