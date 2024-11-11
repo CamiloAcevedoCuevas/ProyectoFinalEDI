@@ -5,6 +5,7 @@ import winsound
 class Scenes:
     """Game Scenes"""
     def __init__(self):
+        self.scene = None
         self.head = None
 
     def add_scene(self, scene, index):
@@ -39,6 +40,7 @@ class Scenes:
                         cv2.imshow('', frame)
                         cv2.waitKey(15)
                     else:
+                        cv2.destroyAllWindows()
                         break
                 break
             current = current.next
