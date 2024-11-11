@@ -47,8 +47,7 @@ class Scenes:
                     ret, frame = current.scene.read()
                     if ret:
                         cv2.imshow('', frame)
-                        if cv2.waitKey(15) == 27:
-                            break
+                        cv2.waitKey(15)
                     else:
                         break
                 break
@@ -59,35 +58,30 @@ class GUI ():
     def __init__(self, window):
         self.window = window
 
-    def get_window(self):
+    def set_window(self, text_label, text_btn1, text_btn2, command_1, command_2):
         """Return New Window"""
         self.window.iconbitmap('Assets/Logo/icon.ico')
         self.window.title('El Poder De Un Click')
-        self.window.configure(background = 'white')
+        self.window.configure(background = 'beige')
         self.window.geometry('1024x576')
         self.window.resizable(False, False)
-
-    def get_label(self, text, x, y, size):
-        """Return New Label
-
-        Args:
-            text (str): Label Text
-            x (int): X Position
-            y (int): Y Position
-            size (int): Font Size
-        """
-        label = Label(self.window, text = text, fg = 'black', bg = 'white', font = ('Arial', size))
-        label.place(x = x, y = y)
-
-    def get_button(self, text, x, y, width, height, command):
-        button = Button(self.window, text = text, fg = 'black', bg = 'white', font = ('Arial', 12), command = command)
-        button.place(x = x, y = y, width = width, height = height)
+        label = Label(self.window, text = text_label, fg = 'salmon', bg = 'beige', font = ('Arial', 22))
+        label.place(x = 300, y = 170)
+        if text_btn2 is None:
+            x = 430
+        else:
+            x = 310
+        button = Button(self.window, text = text_btn1, fg = 'salmon', bg = 'beige', font = ('Arial', 12), command = command_1)
+        button.place(x = x, y = 280, width = 150, height = 40)
+        if text_btn2 is not None:
+            button = Button(self.window, text = text_btn2, fg = 'salmon', bg = 'beige', font = ('Arial', 12), command = command_2)
+            button.place(x = 530, y = 280, width = 150, height = 40)
 
 def main():
     scenes = Scenes()
 
     for i in range(1, 11): # Scenes Buffering
-        scene = cv2.VideoCapture(f'Assets/scenes/scene{i}.mp4')
+        scene = cv2.VideoCapture(f'Assets/Scenes/Scene{i}.mp4')
         scenes.add_scene(scene, i)
 
     menu = Tk()
@@ -137,13 +131,13 @@ def main():
                 gui = GUI(scene5)
                 gui.get_window()
                 gui.get_label('Decide si Javier acepta la propuesta o no', 370, 100, 24)
-                gui.get_button('Aceptar', 0, 20, 120, 40, scene8) # Aceptar
-                gui.get_button('No Aceptar', 0, 60, 120, 40, scene9) # No Aceptar
+                gui.get_button('Aceptar', 310, 280, 150, 40, scene8) # Aceptar
+                gui.get_button('No Aceptar', 530, 280, 150, 40, scene9) # No Aceptar
             gui = GUI(scene2)
             gui.get_window()
             gui.get_label('Debes elegir si Javier reporta la esta a la policia o no', 0, 0, 12)
-            gui.get_button('Reportar', 0, 20, 120, 40, scene4) # Reportar
-            gui.get_button('No Reportar', 0, 60, 120, 40, scene5) # No Reportar
+            gui.get_button('Reportar', 310, 280, 150, 40, scene4) # Reportar
+            gui.get_button('No Reportar', 530, 280, 150, 40, scene5) # No Reportar
         def scene3(): # Scene 3
             scene1.destroy()
             scenes.get_scene(3)
@@ -185,23 +179,23 @@ def main():
                 gui = GUI(scene7)
                 gui.get_window()
                 gui.get_label('Decide se Javier instala el programa o no', 370, 100, 24)
-                gui.get_button('Instalar', 0, 20, 120, 40, scene10) # Instalar
-                gui.get_button('No Instalar', 0, 60, 120, 40, scene11) # No Instalar
+                gui.get_button('Instalar', 310, 280, 150, 40, scene10) # Instalar
+                gui.get_button('No Instalar', 530, 280, 150, 40, scene11) # No Instalar
             gui = GUI(scene3)
             gui.get_window()
             gui.get_label('Debes elegir si Javier abre el correo o no', 0, 0, 12)
-            gui.get_button('Abrir', 0, 20, 120, 40, scene6) # Abrir
-            gui.get_button('No Abrir', 0, 60, 120, 40, scene7) # No Abrir
+            gui.get_button('Abrir', 310, 280, 150, 40, scene6) # Abrir
+            gui.get_button('No Abrir', 530, 280, 150, 40, scene7) # No Abrir
         gui = GUI(scene1)
         gui.get_window()
-        gui.get_label('Debes elegir si Javier invierte o no su dinero', 0, 0, 12)
-        gui.get_button('Invertir', 0, 20, 120, 40, scene2) # Invertir
-        gui.get_button('No Invertir', 0, 60, 120, 40, scene3) # No Invertir
+        gui.get_label('Debes elegir si Javier invierte o no su dinero', 260, 200, 18)
+        gui.get_button('Invertir', 310, 280, 150, 40, scene2) # Invertir
+        gui.get_button('No Invertir', 530, 280, 150, 40, scene3) # No Invertir
     gui = GUI(menu)
     gui.get_window()
-    gui.get_label('El Poder De Un Click', 370, 100, 24)
-    gui.get_button('Start', 460, 250, 120, 40, scene1)
-    
+    gui.get_label('El Poder De Un Click', 350, 150, 24)
+    gui.get_button('Start', 430, 270, 120, 40, scene1)
+
     gui.window.mainloop() # Main Loop
 
 if __name__ == '__main__':
