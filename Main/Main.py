@@ -59,12 +59,22 @@ class GUI ():
         self.window = window
 
     def set_window(self, text_label, text_btn1, text_btn2, command_1, command_2):
-        """Return New Window"""
+        """Establish A New Window
+
+        Args:
+            text_label (str): Label Text
+            text_btn1 (str): First Button Text
+            text_btn2 (str): Second Button Text
+            command_1 (function): First Button Command
+            command_2 (function): Second Button Command
+        """
+        # Window Configuration
         self.window.iconbitmap('Assets/Logo/icon.ico')
         self.window.title('El Poder De Un Click')
         self.window.configure(background = 'beige')
         self.window.geometry('1024x576')
         self.window.resizable(False, False)
+        # Window Components
         label = Label(self.window, text = text_label, fg = 'salmon', bg = 'beige', font = ('Arial', 22))
         label.place(x = 300, y = 170)
         if text_btn2 is None:
@@ -101,9 +111,7 @@ def main():
                 def exit():
                     scene4.destroy()
                 gui = GUI(scene4)
-                gui.get_window()
-                gui.get_label('Gracias por jugar El Poder De Un Click', 370, 100, 24)
-                gui.get_button('Salir', 0, 20, 120, 40, exit)
+                gui.set_window('Gracias por jugar El Poder De Un Click', 'Salir', None, exit, None)
             def scene5(): # Scene 5
                 scene2.destroy()
                 scenes.get_scene(5)
@@ -115,9 +123,7 @@ def main():
                     def exit():
                         scene8.destroy()
                     gui = GUI(scene8)
-                    gui.get_window()
-                    gui.get_label('Gracias por jugar El Poder De Un Click', 370, 100, 24)
-                    gui.get_button('Salir', 0, 20, 120, 40, exit)
+                    gui.set_window('Gracias por jugar El Poder De Un Click', 'Salir', None, exit, None)
                 def scene9(): # Scene 9
                     scene5.destroy()
                     scenes.get_scene(9)
@@ -125,19 +131,11 @@ def main():
                     def exit():
                         scene9.destroy()
                     gui = GUI(scene9)
-                    gui.get_window()
-                    gui.get_label('Gracias por jugar El Poder De Un Click', 370, 100, 24)
-                    gui.get_button('Salir', 0, 20, 120, 40, exit)
+                    gui.set_window('Gracias por jugar El Poder De Un Click', 'Salir', None, exit, None)
                 gui = GUI(scene5)
-                gui.get_window()
-                gui.get_label('Decide si Javier acepta la propuesta o no', 370, 100, 24)
-                gui.get_button('Aceptar', 310, 280, 150, 40, scene8) # Aceptar
-                gui.get_button('No Aceptar', 530, 280, 150, 40, scene9) # No Aceptar
+                gui.set_window('Debes elegir si Javier acepta la propuesta o no', 'Aceptar', 'No Aceptar', scene8, scene9) # Aceptar / No Aceptar
             gui = GUI(scene2)
-            gui.get_window()
-            gui.get_label('Debes elegir si Javier reporta la esta a la policia o no', 0, 0, 12)
-            gui.get_button('Reportar', 310, 280, 150, 40, scene4) # Reportar
-            gui.get_button('No Reportar', 530, 280, 150, 40, scene5) # No Reportar
+            gui.set_window('Debes elegir si Javier reporta la esta a la policia o no', 'Reportar', 'No Reportar', scene4, scene5) # Reportar / No Reportar
         def scene3(): # Scene 3
             scene1.destroy()
             scenes.get_scene(3)
@@ -149,9 +147,7 @@ def main():
                 def exit():
                     scene6.destroy()
                 gui = GUI(scene6)
-                gui.get_window()
-                gui.get_label('Gracias por jugar El Poder De Un Click', 370, 100, 24)
-                gui.get_button('Salir', 0, 20, 120, 40, exit)
+                gui.set_window('Gracias por jugar El Poder De Un Click', 'Salir', None, exit, None)
             def scene7(): # Scene 7
                 scene3.destroy()
                 scenes.get_scene(7)
@@ -163,9 +159,7 @@ def main():
                     def exit():
                         scene10.destroy()
                     gui = GUI(scene10)
-                    gui.get_window()
-                    gui.get_label('Gracias por jugar El Poder De Un Click', 370, 100, 24)
-                    gui.get_button('Salir', 0, 20, 120, 40, exit)
+                    gui.set_window('Gracias por jugar El Poder De Un Click', 'Salir', None, exit, None)
                 def scene11(): # Scene 11
                     scene7.destroy()
                     scenes.get_scene(11)
@@ -173,28 +167,15 @@ def main():
                     def exit():
                         scene11.destroy()
                     gui = GUI(scene11)
-                    gui.get_window()
-                    gui.get_label('Gracias por jugar El Poder De Un Click', 370, 100, 24)
-                    gui.get_button('Salir', 0, 20, 120, 40, exit)
+                    gui.set_window('Gracias por jugar El Poder De Un Click', 'Salir', None, exit, None)
                 gui = GUI(scene7)
-                gui.get_window()
-                gui.get_label('Decide se Javier instala el programa o no', 370, 100, 24)
-                gui.get_button('Instalar', 310, 280, 150, 40, scene10) # Instalar
-                gui.get_button('No Instalar', 530, 280, 150, 40, scene11) # No Instalar
+                gui.set_window('Decide se Javier instala el programa o no', 'Instalar', 'No Instalar', scene10, scene11) # Instalar / No Instalar
             gui = GUI(scene3)
-            gui.get_window()
-            gui.get_label('Debes elegir si Javier abre el correo o no', 0, 0, 12)
-            gui.get_button('Abrir', 310, 280, 150, 40, scene6) # Abrir
-            gui.get_button('No Abrir', 530, 280, 150, 40, scene7) # No Abrir
+            gui.set_window('Debes elegir si Javier abre el correo o no', 'Abrir', 'No Abrir', scene6, scene7) # Abrir / No Abrir
         gui = GUI(scene1)
-        gui.get_window()
-        gui.get_label('Debes elegir si Javier invierte o no su dinero', 260, 200, 18)
-        gui.get_button('Invertir', 310, 280, 150, 40, scene2) # Invertir
-        gui.get_button('No Invertir', 530, 280, 150, 40, scene3) # No Invertir
+        gui.set_window('Debes elegir si Javier invierte o no su dinero', 'Invertir', 'No Invertir', scene2, scene3) # Invertir / No Invertir
     gui = GUI(menu)
-    gui.get_window()
-    gui.get_label('El Poder De Un Click', 350, 150, 24)
-    gui.get_button('Start', 430, 270, 120, 40, scene1)
+    gui.set_window('El Poder De Un Click', 'Start', None, scene1, None)
 
     gui.window.mainloop() # Main Loop
 
