@@ -76,16 +76,16 @@ class GUI ():
         self.window.resizable(False, False)
         # Window Components
         label = Label(self.window, text = text_label, fg = 'salmon', bg = 'beige', font = ('Arial', 22))
-        label.place(relx = 0.5, rely = 0.3, anchor = CENTER)
+        label.place(relx = 0.5, rely = 0.35, anchor = CENTER)
         if text_btn2 is None:
-            x = 430
+            x = 0.5
+            text_btn2 = text_btn1
         else:
-            x = 310
-        button = Button(self.window, text = text_btn1, fg = 'salmon', bg = 'beige', font = ('Arial', 12), command = command_1)
-        button.place(x = x, y = 280, width = 150, height = 40)
-        if text_btn2 is not None:
+            x = 0.35
             button = Button(self.window, text = text_btn2, fg = 'salmon', bg = 'beige', font = ('Arial', 12), command = command_2)
-            button.place(x = 530, y = 280, width = 150, height = 40)
+            button.place(relx = 0.65, rely = 0.55, width = 150, height = 40, anchor = CENTER)
+        button = Button(self.window, text = text_btn1, fg = 'salmon', bg = 'beige', font = ('Arial', 12), command = command_1)
+        button.place(relx = x, rely = 0.55, width = 150, height = 40, anchor = CENTER)
 
 def main():
     scenes = Scenes()
