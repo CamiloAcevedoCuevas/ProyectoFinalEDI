@@ -1,12 +1,12 @@
 # El Poder De Un Click
-# By Nebula Games ®
+# By Nebula Games®
 
 import cv2 # Video Management
 from tkinter import * # GUI
 import winsound # Audio Management
 
 class Scene:
-    """A Game Scene"""
+    """Represents A Game Scene"""
     def __init__(self, scene, index):
         self.scene = scene
         self.index = index
@@ -90,47 +90,127 @@ def main():
         scenes.add_scene(scene, i)
 
     menu = Tk()
-    gui = GUI(menu)
-    def escena1():
+    def scene1(): # Scene 1
+        menu.destroy()
         winsound.PlaySound('Assets/audios/aud1.wav', 0)
         scenes.get_scene(1)
-        escena1 = Tk()
-        gui = GUI(escena1)
-        def escena2():
+        scene1 = Tk()
+        def scene2(): # Scene 2
+            scene1.destroy()
             winsound.PlaySound('Assets/audios/aud2.wav', 0)
             scenes.get_scene(2)
-            escena2 = Tk()
-            gui = GUI(escena2)
-            def escena4():
-                pass
-            def escena5():
-                pass
+            scene2 = Tk()
+            gui = GUI(scene2)
+            def scene4(): # Scene 4
+                scene2.destroy()
+                winsound.PlaySound('Assets/audios/aud4.wav', 0)
+                scenes.get_scene(4)
+                scene4 = Tk()
+                def exit():
+                    scene4.destroy()
+                gui = GUI(scene4)
+                gui.get_window()
+                gui.get_label('Gracias por jugar El Poder De Un Click', 370, 100, 24)
+                gui.get_button('Salir', 0, 20, 120, 40, exit)
+            def scene5(): # Scene 5
+                scene2.destroy()
+                winsound.PlaySound('Assets/audios/aud5.wav', 0)
+                scenes.get_scene(5)
+                scene5 = Tk()
+                def scene8(): # Scene 8
+                    scene5.destroy()
+                    winsound.PlaySound('Assets/audios/aud8.wav', 0)
+                    scenes.get_scene(8)
+                    scene8 = Tk()
+                    def exit():
+                        scene8.destroy()
+                    gui = GUI(scene8)
+                    gui.get_window()
+                    gui.get_label('Gracias por jugar El Poder De Un Click', 370, 100, 24)
+                    gui.get_button('Salir', 0, 20, 120, 40, exit)
+                def scene9(): # Scene 9
+                    scene5.destroy()
+                    winsound.PlaySound('Assets/audios/aud9.wav', 0)
+                    scenes.get_scene(9)
+                    scene9 = Tk()
+                    def exit():
+                        scene9.destroy()
+                    gui = GUI(scene9)
+                    gui.get_window()
+                    gui.get_label('Gracias por jugar El Poder De Un Click', 370, 100, 24)
+                    gui.get_button('Salir', 0, 20, 120, 40, exit)
+                gui = GUI(scene5)
+                gui.get_window()
+                gui.get_label('Decide si Javier acepta la propuesta o no', 370, 100, 24)
+                gui.get_button('Aceptar', 0, 20, 120, 40, scene8) # Aceptar
+                gui.get_button('No Aceptar', 0, 60, 120, 40, scene9) # No Aceptar
+            gui = GUI(scene2)
             gui.get_window()
             gui.get_label('Debes elegir si Javier reporta la esta a la policia o no', 0, 0, 12)
-            gui.get_button('Reportar', 0, 20, 120, 40, escena4) # Reportar
-            gui.get_button('No Reportar', 0, 60, 120, 40, escena5) # No Reportar
-            escena1.destroy()
-        def escena3():
+            gui.get_button('Reportar', 0, 20, 120, 40, scene4) # Reportar
+            gui.get_button('No Reportar', 0, 60, 120, 40, scene5) # No Reportar
+        def scene3(): # Scene 3
+            scene1.destroy()
             winsound.PlaySound('Assets/audios/aud3.wav', 0)
             scenes.get_scene(3)
-            escena3 = Tk()
-            gui = GUI(escena3)
-            def escena6():
-                pass
-            def escena7():
-                pass
+            scene3 = Tk()
+            def scene6(): # Scene 6
+                scene3.destroy()
+                winsound.PlaySound('Assets/audios/aud6.wav', 0)
+                scenes.get_scene(6)
+                scene6 = Tk()
+                def exit():
+                    scene6.destroy()
+                gui = GUI(scene6)
+                gui.get_window()
+                gui.get_label('Gracias por jugar El Poder De Un Click', 370, 100, 24)
+                gui.get_button('Salir', 0, 20, 120, 40, exit)
+            def scene7(): # Scene 7
+                scene3.destroy()
+                winsound.PlaySound('Assets/audios/aud7.wav', 0)
+                scenes.get_scene(7)
+                scene7 = Tk()
+                def scene10(): # Scene 10
+                    scene7.destroy()
+                    winsound.PlaySound('Assets/audios/aud10.wav', 0)
+                    scenes.get_scene(10)
+                    scene10 = Tk()
+                    def exit():
+                        scene10.destroy()
+                    gui = GUI(scene10)
+                    gui.get_window()
+                    gui.get_label('Gracias por jugar El Poder De Un Click', 370, 100, 24)
+                    gui.get_button('Salir', 0, 20, 120, 40, exit)
+                def scene11(): # Scene 11
+                    scene7.destroy()
+                    winsound.PlaySound('Assets/audios/aud11.wav', 0)
+                    scenes.get_scene(11)
+                    scene11 = Tk()
+                    def exit():
+                        scene11.destroy()
+                    gui = GUI(scene11)
+                    gui.get_window()
+                    gui.get_label('Gracias por jugar El Poder De Un Click', 370, 100, 24)
+                    gui.get_button('Salir', 0, 20, 120, 40, exit)
+                gui = GUI(scene7)
+                gui.get_window()
+                gui.get_label('Decide se Javier instala el programa o no', 370, 100, 24)
+                gui.get_button('Instalar', 0, 20, 120, 40, scene10) # Instalar
+                gui.get_button('No Instalar', 0, 60, 120, 40, scene11) # No Instalar
+            gui = GUI(scene3)
             gui.get_window()
             gui.get_label('Debes elegir si Javier abre el correo o no', 0, 0, 12)
-            gui.get_button('Abrir', 0, 20, 120, 40, escena6) # Abrir
-            gui.get_button('No Abrir', 0, 60, 120, 40, escena7) # No Abrir
+            gui.get_button('Abrir', 0, 20, 120, 40, scene6) # Abrir
+            gui.get_button('No Abrir', 0, 60, 120, 40, scene7) # No Abrir
+        gui = GUI(scene1)
         gui.get_window()
         gui.get_label('Debes elegir si Javier invierte o no su dinero', 0, 0, 12)
-        gui.get_button('Invertir', 0, 20, 120, 40, escena2)
-        gui.get_button('No Invertir', 0, 60, 120, 40, escena3)
-        menu.destroy()
+        gui.get_button('Invertir', 0, 20, 120, 40, scene2) # Invertir
+        gui.get_button('No Invertir', 0, 60, 120, 40, scene3) # No Invertir
+    gui = GUI(menu)
     gui.get_window()
     gui.get_label('El Poder De Un Click', 370, 100, 24)
-    gui.get_button('escena2', 0, 0, 120, 40, escena1)
+    gui.get_button('Start', 460, 250, 120, 40, scene1)
     gui.window.mainloop() # Main Loop
 
 if __name__ == '__main__':
