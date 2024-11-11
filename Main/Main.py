@@ -57,12 +57,12 @@ def main():
     scenes = Scenes()
 
     for i in range(1, 3): # Scenes Buffering
-        scene = cv2.VideoCapture(f'scene{i}.mp4')
+        scene = cv2.VideoCapture(f'Assets/scenes/scene{i}.mp4')
         scenes.add_scene(scene, i)
 
     window = Tk()
 
-    # window.iconbitmap('icon.ico')
+    window.iconbitmap('Assets/logo/icon.ico')
     window.title('El Poder De Un Click')
     window.configure(background = 'gray')
     window.geometry('1024x576')
@@ -72,7 +72,7 @@ def main():
     startLabel.place(x = 370, y = 100)
     def start():
         window.destroy()
-        winsound.PlaySound('aud1.wav', 0)
+        winsound.PlaySound('Assets/audios/aud1.wav', 0)
         scenes.get_scene(1)
     
     btnStart = Button(window, text = 'Start', fg = 'black', bg = 'white', font = ('Arial', 12), command = start)
