@@ -52,6 +52,26 @@ class Scenes:
                         break
                 break
             current = current.next
+    
+class GUI ():
+    """Graphical User Interface"""
+    def __init__(self):
+        self.window = Tk()
+
+    def get_window(self):
+        self.window.iconbitmap('Assets/logo/icon.ico')
+        self.window.title('El Poder De Un Click')
+        self.window.configure(background = 'white')
+        self.window.geometry('1024x576')
+        self.window.resizable(False, False)
+
+    def get_label(self, text, x, y, size):
+        label = Label(self.window, text = text, fg = 'black', bg = 'white', font = ('Arial', size))
+        label.place(x = x, y = y)
+
+    def get_button(self, text, x, y, width, height, command):
+        button = Button(self.window, text = text, fg = 'black', bg = 'white', font = ('Arial', 12), command = command)
+        button.place(x = x, y = y, width = width, height = height)
 
 def main():
     scenes = Scenes()
@@ -60,25 +80,19 @@ def main():
         scene = cv2.VideoCapture(f'Assets/scenes/scene{i}.mp4')
         scenes.add_scene(scene, i)
 
-    window = Tk()
+    gui = GUI()
 
-    window.iconbitmap('Assets/logo/icon.ico')
-    window.title('El Poder De Un Click')
-    window.configure(background = 'gray')
-    window.geometry('1024x576')
-    window.resizable(False, False)
-
-    startLabel = Label(window, text = 'El Poder De Un Click', fg = 'black', bg = 'gray', font = ('Arial', 24))
-    startLabel.place(x = 370, y = 100)
-    def start():
-        window.destroy()
+    gui.get_window()
+    gui.get_label('El Poder De Un Click', 370, 100, 24)
+    
+    def start ():
+        gui.window.destroy()
         winsound.PlaySound('Assets/audios/aud1.wav', 0)
         scenes.get_scene(1)
-    
-    btnStart = Button(window, text = 'Start', fg = 'black', bg = 'white', font = ('Arial', 12), command = start)
-    btnStart.place(x = 470, y = 200, width = 100, height = 30)
 
-    window.mainloop()
+    gui.get_button('Start', 450, 200, 120, 40, start)
+
+    gui.window.mainloop()
 
 if __name__ == '__main__':
     main()
