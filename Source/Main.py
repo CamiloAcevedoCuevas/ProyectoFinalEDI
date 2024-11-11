@@ -3,8 +3,8 @@
 
 import cv2
 from tkinter import *
-from Scenes import *
-from GUI import *
+from Scenes import Scenes
+from GUI import GUI
 
 def main():
     scenes = Scenes()

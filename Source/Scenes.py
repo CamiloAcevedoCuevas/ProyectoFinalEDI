@@ -1,4 +1,4 @@
-from Scene import *
+from Scene import Scene
 import cv2
 import winsound
 
