@@ -1,7 +1,9 @@
-# Desarrollado por Nebula Games ©
+# El Poder De Un Click
+# Desarrollado por: Nebula Games ®
 
-import cv2 # Manejo de video
-from tkinter import * # Interfaz gráfica
+import cv2 # Video Management
+from tkinter import * # GUI
+import winsound # Audio Management
 
 class Escena:
     """Escena del juego"""
@@ -19,8 +21,8 @@ class Escenas:
         """Añadir escena
 
         Args:
-            escena (VideoCapture): _description_
-            indice (int): _description_
+            escena (VideoCapture): 
+            indice (int): 
         """
         new_escena = Escena(escena, indice)
         if self.head is None:
@@ -31,11 +33,11 @@ class Escenas:
                 current = current.next
             current.next = new_escena
 
-    def show_escena(self, indice):
+    def get_escena(self, indice):
         """Mostrar escena
 
         Args:
-            indice (int): _description_
+            indice (int): 
         """
         current = self.head
         while current is not None:
@@ -58,9 +60,6 @@ def main():
         escena = cv2.VideoCapture(f'escena{i}.mp4')
         escenas.add_escena(escena, i)
 
-    # escenas.show_escena(1)
-    # escenas.show_escena(2)
-
     window = Tk()
 
     # window.iconbitmap('icon.ico')
@@ -70,14 +69,13 @@ def main():
 
     startLabel = Label(window, text = 'El Poder De Un Click', font = ('Arial', 24))
     startLabel.place(x = 370, y = 100)
-
     def start():
         window.destroy()
-        escenas.show_escena(1)
-
+        winsound.PlaySound('audio1.wav', winsound.SND_FILENAME)
+        escenas.get_escena(1)
+    
     btnStart = Button(window, text = 'Start', command = start)
-    btnStart.place(x = 512, y = 288)
-    btnStart.pack()
+    btnStart.place(x = 470, y = 200, width = 100, height = 30)
 
     window.mainloop()
 
