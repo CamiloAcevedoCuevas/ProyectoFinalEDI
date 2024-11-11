@@ -1,28 +1,28 @@
 # El Poder De Un Click
-# Desarrollado por: Nebula Games ®
+# By Nebula Games ®
 
 import cv2 # Video Management
 from tkinter import * # GUI
 import winsound # Audio Management
 
 class Scene:
-    """Game Scene"""
+    """A Game Scene"""
     def __init__(self, scene, index):
         self.scene = scene
         self.index = index
         self.next = None
 
 class Scenes:
-    """Scenes"""
+    """Game Scenes"""
     def __init__(self):
         self.head = None
 
     def add_scene(self, scene, index):
-        """Add scene
+        """Add an scene
 
         Args:
             scene (VideoCapture): 
-            index (int): 
+            index (int): Scene number
         """
         new_scene = Scene(scene, index)
         if self.head is None:
@@ -34,10 +34,10 @@ class Scenes:
             current.next = new_scene
 
     def get_scene(self, index):
-        """Play scene
+        """Play an scene
 
         Args:
-            index (int): 
+            index (int): Scene number
         """
         current = self.head
         while current is not None:
@@ -55,17 +55,26 @@ class Scenes:
     
 class GUI ():
     """Graphical User Interface"""
-    def __init__(self):
-        self.window = Tk()
+    def __init__(self, window):
+        self.window = window
 
     def get_window(self):
-        self.window.iconbitmap('Assets/logo/icon.ico')
+        """Return New Window"""
+        self.window.iconbitmap('Assets/Logo/icon.ico')
         self.window.title('El Poder De Un Click')
         self.window.configure(background = 'white')
         self.window.geometry('1024x576')
         self.window.resizable(False, False)
 
     def get_label(self, text, x, y, size):
+        """Return New Label
+
+        Args:
+            text (str): Label Text
+            x (int): X Position
+            y (int): Y Position
+            size (int): Font Size
+        """
         label = Label(self.window, text = text, fg = 'black', bg = 'white', font = ('Arial', size))
         label.place(x = x, y = y)
 
@@ -80,19 +89,49 @@ def main():
         scene = cv2.VideoCapture(f'Assets/scenes/scene{i}.mp4')
         scenes.add_scene(scene, i)
 
-    gui = GUI()
-
-    gui.get_window()
-    gui.get_label('El Poder De Un Click', 370, 100, 24)
-    
-    def start ():
-        gui.window.destroy()
+    menu = Tk()
+    gui = GUI(menu)
+    def escena1():
         winsound.PlaySound('Assets/audios/aud1.wav', 0)
         scenes.get_scene(1)
-
-    gui.get_button('Start', 450, 200, 120, 40, start)
-
-    gui.window.mainloop()
+        escena1 = Tk()
+        gui = GUI(escena1)
+        def escena2():
+            winsound.PlaySound('Assets/audios/aud2.wav', 0)
+            scenes.get_scene(2)
+            escena2 = Tk()
+            gui = GUI(escena2)
+            def escena4():
+                pass
+            def escena5():
+                pass
+            gui.get_window()
+            gui.get_label('Debes elegir si Javier reporta la esta a la policia o no', 0, 0, 12)
+            gui.get_button('Reportar', 0, 20, 120, 40, escena4) # Reportar
+            gui.get_button('No Reportar', 0, 60, 120, 40, escena5) # No Reportar
+            escena1.destroy()
+        def escena3():
+            winsound.PlaySound('Assets/audios/aud3.wav', 0)
+            scenes.get_scene(3)
+            escena3 = Tk()
+            gui = GUI(escena3)
+            def escena6():
+                pass
+            def escena7():
+                pass
+            gui.get_window()
+            gui.get_label('Debes elegir si Javier abre el correo o no', 0, 0, 12)
+            gui.get_button('Abrir', 0, 20, 120, 40, escena6) # Abrir
+            gui.get_button('No Abrir', 0, 60, 120, 40, escena7) # No Abrir
+        gui.get_window()
+        gui.get_label('Debes elegir si Javier invierte o no su dinero', 0, 0, 12)
+        gui.get_button('Invertir', 0, 20, 120, 40, escena2)
+        gui.get_button('No Invertir', 0, 60, 120, 40, escena3)
+        menu.destroy()
+    gui.get_window()
+    gui.get_label('El Poder De Un Click', 370, 100, 24)
+    gui.get_button('escena2', 0, 0, 120, 40, escena1)
+    gui.window.mainloop() # Main Loop
 
 if __name__ == '__main__':
     main()
