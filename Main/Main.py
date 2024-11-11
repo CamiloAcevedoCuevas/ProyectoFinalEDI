@@ -75,16 +75,16 @@ class GUI ():
         self.window.geometry('1024x576')
         self.window.resizable(False, False)
         # Window Components
-        label = Label(self.window, text = text_label, fg = 'salmon', bg = 'beige', font = ('Arial', 22))
+        label = Label(self.window, text = text_label, fg = 'salmon', bg = 'beige', font = ('Algerian', 22))
         label.place(relx = 0.5, rely = 0.35, anchor = CENTER)
         if text_btn2 is None:
             x = 0.5
             text_btn2 = text_btn1
         else:
             x = 0.35
-            button = Button(self.window, text = text_btn2, fg = 'salmon', bg = 'beige', font = ('Arial', 12), command = command_2)
+            button = Button(self.window, text = text_btn2, fg = 'salmon', bg = 'beige', font = ('Algerian', 12), command = command_2)
             button.place(relx = 0.65, rely = 0.55, width = 150, height = 40, anchor = CENTER)
-        button = Button(self.window, text = text_btn1, fg = 'salmon', bg = 'beige', font = ('Arial', 12), command = command_1)
+        button = Button(self.window, text = text_btn1, fg = 'salmon', bg = 'beige', font = ('Algerian', 12), command = command_1)
         button.place(relx = x, rely = 0.55, width = 150, height = 40, anchor = CENTER)
 
 def main():
@@ -103,7 +103,6 @@ def main():
             scene1.destroy()
             scenes.get_scene(2)
             scene2 = Tk()
-            gui = GUI(scene2)
             def scene4(): # Scene 4
                 scene2.destroy()
                 scenes.get_scene(4)
@@ -135,7 +134,7 @@ def main():
                 gui = GUI(scene5)
                 gui.set_window('Debes elegir si Javier acepta la propuesta o no', 'Aceptar', 'No Aceptar', scene8, scene9) # Aceptar / No Aceptar
             gui = GUI(scene2)
-            gui.set_window('Debes elegir si Javier reporta la esta a la policia o no', 'Reportar', 'No Reportar', scene4, scene5) # Reportar / No Reportar
+            gui.set_window('Debes elegir si Javier reporta a la policia o no', 'Reportar', 'No Reportar', scene4, scene5) # Reportar / No Reportar
         def scene3(): # Scene 3
             scene1.destroy()
             scenes.get_scene(3)
