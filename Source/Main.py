@@ -13,7 +13,7 @@ def main():
         scene = cv2.VideoCapture(f'Assets/Scenes/Scene{i}.mp4')
         scenes.add_scene(scene, i)
 
-    menu = Tk()
+    menu = Tk() # Main Menu
     def start():
         scenes.scene = 1
         menu.destroy()
