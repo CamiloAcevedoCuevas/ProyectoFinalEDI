@@ -61,13 +61,7 @@ def main():
             third_scene.mainloop()
 
         if scenes.scene == 4:
-            scenes.get_scene(4)
-            fourth_scene = Tk()
-            def exit():
-                fourth_scene.destroy()
-            gui = GUI(fourth_scene)
-            gui.set_window('Gracias por jugar El Poder De Un Click', 'Salir', None, exit, None)
-            fourth_scene.mainloop()
+            scenes.set_scene()
 
         elif scenes.scene == 5:
             scenes.get_scene(5)
@@ -83,31 +77,13 @@ def main():
             fifth_scene.mainloop()
 
             if scenes.scene == 8:
-                scenes.get_scene(8)
-                eighth_scene = Tk()
-                def exit():
-                    eighth_scene.destroy()
-                gui = GUI(eighth_scene)
-                gui.set_window('Gracias por jugar El Poder De Un Click', 'Salir', None, exit, None)
-                eighth_scene.mainloop()
+                scenes.set_scene()
 
             elif scenes.scene == 9:
-                scenes.get_scene(9)
-                ninth_scene = Tk()
-                def exit():
-                    ninth_scene.destroy()
-                gui = GUI(ninth_scene)
-                gui.set_window('Gracias por jugar El Poder De Un Click', 'Salir', None, exit, None)
-                ninth_scene.mainloop()
+                scenes.set_scene()
 
         elif scenes.scene == 6:
-            scenes.get_scene(6)
-            sixth_scene = Tk()
-            def exit():
-                sixth_scene.destroy()
-            gui = GUI(sixth_scene)
-            gui.set_window('Gracias por jugar El Poder De Un Click', 'Salir', None, exit, None)
-            sixth_scene.mainloop()
+            scenes.set_scene()
         
         elif scenes.scene == 7:
             scenes.get_scene(7)
@@ -123,22 +99,10 @@ def main():
             seventh_scene.mainloop()
 
             if scenes.scene == 10:
-                scenes.get_scene(10)
-                tenth_scene = Tk()
-                def exit():
-                    tenth_scene.destroy()
-                gui = GUI(tenth_scene)
-                gui.set_window('Gracias por jugar El Poder De Un Click', 'Salir', None, exit, None)
-                tenth_scene.mainloop()
+                scenes.set_scene()
 
             elif scenes.scene == 11:
-                scenes.get_scene(11)
-                eleventh_scene = Tk()
-                def exit():
-                    eleventh_scene.destroy()
-                gui = GUI(eleventh_scene)
-                gui.set_window('Gracias por jugar El Poder De Un Click', 'Salir', None, exit, None)
-                eleventh_scene.mainloop()
+                scenes.set_scene()
 
 if __name__ == '__main__':
     main()

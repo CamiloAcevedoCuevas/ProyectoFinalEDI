@@ -1,6 +1,8 @@
 from Scene import Scene
 import cv2
 import winsound
+from tkinter import *
+from GUI import GUI
 
 class Scenes:
     """Game Scenes"""
@@ -44,3 +46,11 @@ class Scenes:
                         break
                 break
             current = current.next
+
+    def set_scene(self):
+        self.scene = Tk()
+        def exit():
+            self.scene.destroy()
+        gui = GUI(self.scene)
+        gui.set_window('Gracias por jugar El Poder De Un Click', 'Salir', None, exit, None)
+        self.scene.mainloop()
