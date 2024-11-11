@@ -1,9 +1,9 @@
 # El Poder De Un Click
 # By Nebula Games®
 
-import cv2 # Video Management
+import cv2            # Video Management
 from tkinter import * # GUI
-import winsound # Audio Management
+import winsound       # Audio Management
 
 class Scene:
     """Represents A Game Scene"""
@@ -18,11 +18,11 @@ class Scenes:
         self.head = None
 
     def add_scene(self, scene, index):
-        """Add an scene
+        """Add An Scene
 
         Args:
             scene (VideoCapture): 
-            index (int): Scene number
+            index (int): Scene Number
         """
         new_scene = Scene(scene, index)
         if self.head is None:
@@ -34,7 +34,7 @@ class Scenes:
             current.next = new_scene
 
     def get_scene(self, index):
-        """Play an scene
+        """Play An Scene
 
         Args:
             index (int): Scene number
