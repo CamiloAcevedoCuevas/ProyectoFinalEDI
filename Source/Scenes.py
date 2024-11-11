@@ -40,7 +40,7 @@ class Scenes:
                     ret, frame = current.scene.read()
                     if ret:
                         cv2.imshow('', frame)
-                        cv2.waitKey(15)
+                        cv2.waitKey(30)
                     else:
                         cv2.destroyAllWindows()
                         break

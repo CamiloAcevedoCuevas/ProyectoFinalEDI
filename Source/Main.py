@@ -48,7 +48,7 @@ def main():
             gui.set_window('Llamar a la policía', 'Si', 'No', fourth_scene, fifth_scene)
             second_scene.mainloop()
 
-        elif scenes.scene == 3:
+        else:
             scenes.get_scene(3)
             third_scene = Tk()
             def sixth_scene():
@@ -77,7 +77,7 @@ def main():
             gui.set_window('Aceptar la propuesta', 'Si', 'No', eighth_scene, ninth_scene)
             fifth_scene.mainloop()
 
-        elif scenes.scene == 7:
+        else:
             scenes.get_scene(7)
             seventh_scene = Tk()
             def tenth_scene():
