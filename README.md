@@ -2,8 +2,6 @@
     pip install opencv-python
 
 # Used Libraries:
-    openCV : Video Manage
-    winsound : Audio Manage
-    tkinter : GUI
-
-# Assets are not included in this repository
+    openCV : video management
+    winsound : audio management
+    tkinter : graphic user interface

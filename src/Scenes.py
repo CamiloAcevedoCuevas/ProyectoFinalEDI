@@ -35,12 +35,12 @@ class Scenes:
         current = self.head
         while current is not None:
             if current.index == index:
-                winsound.PlaySound(f'assets/audios/audio{index}', winsound.SND_ASYNC)
+                winsound.PlaySound(f'assets/audios/audio{index}.wav', winsound.SND_ASYNC)
                 while True:
                     ret, frame = current.scene.read()
                     if ret:
                         cv2.imshow('', frame)
-                        cv2.waitKey(15)
+                        cv2.waitKey(20)
                     else:
                         cv2.destroyAllWindows()
                         break
