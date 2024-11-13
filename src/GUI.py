@@ -16,12 +16,15 @@ class GUI ():
             command2 (function): Second Button Command
         """
         # Window Configuration
+
         self.window.iconbitmap('assets/logo/logo.ico')
         self.window.title('El Poder De Un Click')
         self.window.configure(background = 'DodgerBlue4')
         self.window.geometry('1280x720')
         self.window.resizable(False, False)
+
         # Window Components
+        
         label = Label(self.window, text = label_text, fg = 'goldenrod', bg = 'DodgerBlue4', font = ('Georgia', 22, 'bold'))
         label.place(relx = 0.5, rely = 0.35, anchor = CENTER)
         if text2 is None:
@@ -30,5 +33,6 @@ class GUI ():
             x = 0.35
             button = Button(self.window, text = text2, fg = 'gold', bg = 'DodgerBlue3', font = ('Georgia', 12, 'bold'), command = command2)
             button.place(relx = 0.65, rely = 0.55, width = 150, height = 40, anchor = CENTER)
+
         button = Button(self.window, text = text1, fg = 'gold', bg = 'DodgerBlue3', font = ('Georgia', 12, 'bold'), command = command1)
         button.place(relx = x, rely = 0.55, width = 150, height = 40, anchor = CENTER)
