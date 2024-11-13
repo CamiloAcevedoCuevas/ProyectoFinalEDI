@@ -5,3 +5,5 @@
     openCV : Video Manage
     winsound : Audio Manage
     tkinter : GUI
+
+# Assets are not included in this repository
