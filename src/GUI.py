@@ -16,7 +16,7 @@ class GUI ():
             command2 (function): Second Button Command
         """
         # Window Configuration
-        # self.window.iconbitmap('assets/logo/icon.ico')
+        # self.window.iconbitmap('assets/logo/logo.ico')
         self.window.title('El Poder De Un Click')
         self.window.configure(background = 'beige')
         self.window.geometry('1280x720')
