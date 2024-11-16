@@ -5,15 +5,19 @@ class GUI ():
     def __init__(self):
         self.window = None
 
-    def set_window(self):
-        """Establish The Window Configuration"""
+    def set_window(self, bc):
+        """Establish The Window Configuration
+
+        Args:
+            bc (str): Background Color
+        """
         self.window.iconbitmap('assets/icon/logo.ico')
         self.window.title('El Poder De Un Click')
-        self.window.configure(background = 'DodgerBlue4')
+        self.window.configure(background = bc)
         self.window.geometry('1024x576')
         self.window.resizable(False, False)
 
-    def set_label(self, text, font_size, relx, rely):
+    def set_label(self, text, font_size, relx, rely, bg):
         """Establish A Label
 
         Args:
@@ -21,11 +25,12 @@ class GUI ():
             font_size (int): Font Size
             relx (float): X Position
             rely (float): Y Position
+            bg (str): Label Background Color
         """
-        label = Label(self.window, text = text, fg = 'goldenrod', bg = 'dodgerBlue4', font = ('Georgia', font_size, 'bold'))
+        label = Label(self.window, text = text, fg = 'goldenrod', bg = bg, font = ('Georgia', font_size, 'bold'))
         label.place(relx = relx, rely = rely, anchor = CENTER)
 
-    def set_button(self, text, command, relx, rely, width, height):
+    def set_button(self, text, command, relx, rely, width, height, bg):
         """Establish A Button
 
         Args:
@@ -33,8 +38,9 @@ class GUI ():
             command (function): Button Command
             relx (float): X Position
             rely (float): Y Position
-            width (int): Width size
-            height (int): Height size
+            width (int): Width Size
+            height (int): Height Size
+            bg (str): Button Background Color
         """
-        button = Button(self.window, text = text, fg = 'goldenrod', bg = 'dodgerBlue4', font = ('Georgia', 12, 'bold'), command = command)
+        button = Button(self.window, text = text, fg = 'goldenrod', bg = bg, font = ('Georgia', 12, 'bold'), command = command)
         button.place(relx = relx, rely = rely, width = width, height = height, anchor = CENTER)
