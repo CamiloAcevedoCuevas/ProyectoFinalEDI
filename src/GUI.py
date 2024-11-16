@@ -34,5 +34,5 @@ class GUI ():
             relx (float): X Position
             rely (float): Y Position
         """
-        button = Button(self.window, text = text, fg = 'gold', bg = 'dodgerBlue3', font = ('Georgia', 12, 'bold'), command = command)
+        button = Button(self.window, text = text, fg = 'goldenrod', bg = 'dodgerBlue4', font = ('Georgia', 12, 'bold'), command = command)
         button.place(relx = relx, rely = rely, width = 150, height = 40, anchor = CENTER)
