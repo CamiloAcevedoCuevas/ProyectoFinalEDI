@@ -1,8 +1,6 @@
 from Scene import Scene
 import cv2
 import winsound
-from tkinter import *
-from GUI import GUI
 
 class Scenes:
     """Game Scenes"""
@@ -39,20 +37,10 @@ class Scenes:
                 while True:
                     ret, frame = current.scene.read()
                     if ret:
-                        cv2.imshow('', frame)
+                        cv2.imshow('El Poder De Un Click', frame)
                         cv2.waitKey(20)
                     else:
-                        cv2.destroyAllWindows()
                         break
+                cv2.destroyAllWindows()
                 break
             current = current.next
-
-    def set_exit_scene(self):
-        """Establish The Exit Scene"""
-        self.get_scene(self.scene)
-        self.scene = Tk()
-        def exit():
-            self.scene.destroy()
-        gui = GUI(self.scene)
-        gui.set_window('Gracias por jugar El Poder De Un Click', 'Salir', None, exit, None)
-        self.scene.mainloop()
