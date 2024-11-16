@@ -51,6 +51,9 @@ def main():
             scene1 = Tk()
             gui.window = scene1
             gui.set_window()
+            image = PhotoImage(file="assets/backgrounds/scene1.png")
+            background = Label(scene1, image = image)
+            background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
             gui.set_label('¿Usted haría lo mismo que Javier? ', 22, 0.5, 0.2)
             def scene2():
                 scenes.scene = 2
@@ -58,8 +61,8 @@ def main():
             def scene3():
                 scenes.scene = 3
                 scene1.destroy()
-            gui.set_button('SÍ, cualquier red de internet me sirve lo importante es reunirme a hablar de trabajo, no hay ningún riesgo', scene2, 0.5, 0.5, 950, 40)
-            gui.set_button('No, es muy sospechoso', scene3, 0.5, 0.65, 300, 40)
+            gui.set_button('SÍ, cualquier red de internet me sirve lo importante es reunirme a hablar de trabajo, no hay ningún riesgo', scene2, 0.5, 0.5, 930, 40)
+            gui.set_button('No, es muy sospechoso', scene3, 0.5, 0.65, 250, 40)
             scene1.mainloop()
 
 if __name__ == '__main__':
