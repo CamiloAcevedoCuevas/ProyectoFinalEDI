@@ -5,9 +5,7 @@ import cv2
 from tkinter import *
 from Scenes import Scenes
 from GUI import GUI
-import tkinter as tk
 from tkinter import ttk
-import time
 
 def main():
     scenes = Scenes()
@@ -20,7 +18,7 @@ def main():
     menu = Tk() # main menu
     gui.window = menu
     gui.set_window()
-    image = tk.PhotoImage(file="assets/images/newyork.png")
+    image = PhotoImage(file="assets/images/newyork.png")
     label = ttk.Label(menu, image=image)
     label.place(relx = 0.5, rely = 0.5, anchor = CENTER)
     gui.set_label('El Poder De Un Click', 22, 0.5, 0.35)
@@ -34,7 +32,7 @@ def main():
     menu.mainloop()
 
     if scenes.scene == 'start':
-        start = tk.Tk()
+        start = Tk()
         gui.window = start
         gui.set_window()
         #image = tk.PhotoImage(file="assets/images/javier.png")
