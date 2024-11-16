@@ -1,4 +1,4 @@
-# To install openCV:
+# To install OpenCV:
     pip install opencv-python
 
 # Used Libraries:

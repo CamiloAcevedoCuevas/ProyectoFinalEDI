@@ -1,38 +1,41 @@
 from tkinter import *
+import tkinter as tk
+from tkinter import ttk
+import time
 
 class GUI ():
     """Graphical User Interface"""
-    def __init__(self, window):
-        self.window = window
+    def __init__(self):
+        self.window = None
 
-    def set_window(self, label_text, text1, text2, command1, command2):
-        """Establish A New Window
-
-        Args:
-            label_text (str): Label Text
-            text1 (str): First Button Text
-            text2 (str): Second Button Text
-            command1 (function): First Button Command
-            command2 (function): Second Button Command
-        """
-        # Window Configuration
-
-        self.window.iconbitmap('assets/logo/logo.ico')
+    def set_window(self):
+        """Establish The Window Configuration"""
+        self.window.iconbitmap('assets/images/logo.ico')
         self.window.title('El Poder De Un Click')
         self.window.configure(background = 'DodgerBlue4')
-        self.window.geometry('1280x720')
+        self.window.geometry('1024x576')
         self.window.resizable(False, False)
 
-        # Window Components
-        
-        label = Label(self.window, text = label_text, fg = 'goldenrod', bg = 'DodgerBlue4', font = ('Georgia', 22, 'bold'))
-        label.place(relx = 0.5, rely = 0.35, anchor = CENTER)
-        if text2 is None:
-            x = 0.5
-        else:
-            x = 0.35
-            button = Button(self.window, text = text2, fg = 'gold', bg = 'DodgerBlue3', font = ('Georgia', 12, 'bold'), command = command2)
-            button.place(relx = 0.65, rely = 0.55, width = 150, height = 40, anchor = CENTER)
+    def set_label(self, text, font_size, relx, rely):
+        """Establish A Label
 
-        button = Button(self.window, text = text1, fg = 'gold', bg = 'DodgerBlue3', font = ('Georgia', 12, 'bold'), command = command1)
-        button.place(relx = x, rely = 0.55, width = 150, height = 40, anchor = CENTER)
+        Args:
+            text (str): Label Text
+            font_size (int): Font Size
+            relx (float): X Position
+            rely (float): Y Position
+        """
+        label = Label(self.window, text = text, fg = 'goldenrod', bg = 'dodgerBlue4', font = ('Georgia', font_size, 'bold'))
+        label.place(relx = relx, rely = rely, anchor = CENTER)
+
+    def set_button(self, text, command, relx, rely):
+        """Establish A Button
+
+        Args:
+            text (str): Button Text
+            command (function): Button Command
+            relx (float): X Position
+            rely (float): Y Position
+        """
+        button = Button(self.window, text = text, fg = 'gold', bg = 'dodgerBlue3', font = ('Georgia', 12, 'bold'), command = command)
+        button.place(relx = relx, rely = rely, width = 150, height = 40, anchor = CENTER)
