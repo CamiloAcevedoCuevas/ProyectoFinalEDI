@@ -3,7 +3,7 @@ import cv2
 import winsound
 
 class Scenes:
-    """List of scenes."""
+    """List Of Scenes"""
     def __init__(self):
         self.scene = None
         self.head = None
@@ -12,7 +12,7 @@ class Scenes:
         """Add A Scene
 
         Args:
-            scene (VideoCapture): Scene Video
+            scene (cv2.VideoCapture): Scene Video
             index (int): Scene Number
         """
         new_scene = Scene(scene, index)
