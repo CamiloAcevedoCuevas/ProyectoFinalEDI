@@ -11,7 +11,7 @@ class GUI ():
         Args:
             bc (str): Background Color
         """
-        self.window.iconbitmap('assets/icon/logo.ico')
+        self.window.iconbitmap('assets/images/logo.ico')
         self.window.title('El Poder De Un Click')
         self.window.configure(background = bc)
         self.window.geometry('1024x576')

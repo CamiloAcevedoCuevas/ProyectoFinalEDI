@@ -18,7 +18,7 @@ def main():
     menu = Tk() # main menu
     gui.window = menu
     gui.set_window(None)
-    image = PhotoImage(file = 'assets/backgrounds/mainmenu.png')
+    image = PhotoImage(file = 'assets/images/backgrounds/mainmenu.png')
     background = Label(menu, image = image)
     background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
     gui.set_label('El Poder De Un Click', 24, 0.5, 0.15, 'goldenrod', 'dodgerBlue4')
@@ -51,7 +51,7 @@ def main():
             scene1 = Tk()
             gui.window = scene1
             gui.set_window(None)
-            image = PhotoImage(file = 'assets/backgrounds/scene1.png')
+            image = PhotoImage(file = 'assets/images/backgrounds/scene1.png')
             background = Label(scene1, image = image)
             background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
             gui.set_label('¿Usted haría lo mismo que Javier?', 22, 0.5, 0.2, 'goldenrod', 'gray2')
@@ -94,9 +94,21 @@ def main():
                 def cookies():
                     gui.set_label('Las cookies son pequeños archivos de texto que los sitios web guardan en tu dispositivo cuando los visitas.\n Sirven para almacenar información sobre tu actividad en línea', 12, 0.5, 0.72, 'goldenrod', 'dodgerBlue4')
                     winsound.PlaySound('assets/audios/cookies.wav', winsound.SND_ASYNC) # Reproduce el audio con la explicación de las cookies.
+                    scenes.scene = 4
                     scene3.after(5000, scene3.destroy)
                 gui.set_button('¿Cookies?', cookies, 0.5, 0.5, 150, 40, 'goldenrod', 'dodgerBlue4')
                 scene3.mainloop()
+
+            if scenes.scene == 4:
+                scenes.play_scene(4) # Muestra la escena donde Javier encuentra Axi.
+                scene4 = Tk()
+                gui.window = scene4
+                gui.set_window('dodgerBlue4')
+                gui.set_label('Hay algo extraño en esta página, identifíquelo:', 12, 0.5, 0.04, 'goldenrod', 'dodgerBlue4')
+                image = PhotoImage(file = 'assets/images/axi.png')
+                page = Label(scene4, image = image)
+                page.place(relx = 0.5, rely = 0.53, anchor = CENTER)
+                scene4.mainloop()
 
 
 if __name__ == '__main__':
