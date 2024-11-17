@@ -131,23 +131,23 @@ def main():
                             gui.set_btn('Sin Protocolo de transferencia seguro (https)', next, 0.28, 0.17, 380, 19, 'black', 'brown1')
                             scene4.mainloop()
 
-                            if scenes.scene == 'window':
-                                window = Tk()
-                                scenes.scene = None
-                                gui.window = window
-                                gui.set_window()
-                                img = PhotoImage(file = 'assets/images/background.png')
-                                background = Label(window, image = img)
-                                background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
-                                gui.set_lbl('¿Invirtiría usted en esta página?', 22, 0.5, 0.2, 'goldenrod', 'gray2')
-                                def reset():
-                                    scenes.scene = 4
-                                    window.destroy()
-                                def xd():
-                                    window.destroy()
-                                gui.set_btn('SÍ, es una página segura', reset, 0.35, 0.5, 260, 40, 'goldenrod', 'gray10')
-                                gui.set_btn('No, es muy sospechoso', xd, 0.65, 0.5, 250, 40, 'goldenrod', 'gray10')
-                                window.mainloop()
+                        if scenes.scene == 'window':
+                            window = Tk()
+                            scenes.scene = None
+                            gui.window = window
+                            gui.set_window()
+                            img = PhotoImage(file = 'assets/images/background.png')
+                            background = Label(window, image = img)
+                            background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
+                            gui.set_lbl('¿Invirtiría usted en esta página?', 22, 0.5, 0.2, 'goldenrod', 'gray2')
+                            def reset():
+                                scenes.scene = 4
+                                window.destroy()
+                            def xd():
+                                window.destroy()
+                            gui.set_btn('SÍ, es una página segura', reset, 0.35, 0.5, 260, 40, 'goldenrod', 'gray10')
+                            gui.set_btn('No, es muy sospechoso', xd, 0.65, 0.5, 250, 40, 'goldenrod', 'gray10')
+                            window.mainloop()
                         else:
                             break
 
