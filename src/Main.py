@@ -87,15 +87,15 @@ def main():
 
             if scenes.scene == 3:
                 scenes.play_scene(3) # Muestra la secuencia donde se felicita al jugador por haber identificado la actividad sospechosa.
-                winsound.PlaySound('assets/audios/transicion.wav', winsound.SND_ASYNC) # Reproduce el audio donde explica que las cookies de Javier fueron robadas.
+                winsound.PlaySound('assets/audios/transicion.wav', 0) # Reproduce el audio donde explica que las cookies de Javier fueron robadas.
                 scene3 = Tk()
                 gui.window = scene3
                 gui.set_window('dodgerBlue4')
                 def cookies():
                     gui.set_label('Las cookies son pequeños archivos de texto que los sitios web guardan en tu dispositivo cuando los visitas.\n Sirven para almacenar información sobre tu actividad en línea', 12, 0.5, 0.72, 'goldenrod', 'dodgerBlue4')
-                    winsound.PlaySound('assets/audios/cookies.wav', winsound.SND_ASYNC) # Reproduce el audio con la explicación de las cookies.
+                    winsound.PlaySound('assets/audios/cookies.wav', 0) # Reproduce el audio con la explicación de las cookies.
                     scenes.scene = 4
-                    scene3.after(5000, scene3.destroy)
+                    scene3.destroy()
                 gui.set_button('¿Cookies?', cookies, 0.5, 0.5, 150, 40, 'goldenrod', 'dodgerBlue4')
                 scene3.mainloop()
 
