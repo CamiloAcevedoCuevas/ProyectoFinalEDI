@@ -12,7 +12,7 @@ class GUI ():
         self.window.geometry('1024x576')
         self.window.resizable(False, False)
 
-    def set_label(self, text, font_size, relx, rely, fg, bg):
+    def set_lbl(self, text, font_size, relx, rely, fg, bg):
         """Establish A Label
 
         Args:
@@ -26,7 +26,7 @@ class GUI ():
         label = Label(self.window, text = text, fg = fg, bg = bg, font = ('Georgia', font_size, 'bold'))
         label.place(relx = relx, rely = rely, anchor = CENTER)
 
-    def set_button(self, text, command, relx, rely, width, height, fg, bg):
+    def set_btn(self, text, command, relx, rely, width, height, fg, bg):
         """Establish A Button
 
         Args:

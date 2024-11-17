@@ -21,14 +21,14 @@ def main():
     image = PhotoImage(file = 'assets/images/background.png')
     background = Label(menu, image = image)
     background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
-    gui.set_label('El Poder De Un Click', 24, 0.5, 0.15, 'goldenrod', 'gray2')
+    gui.set_lbl('El Poder De Un Click', 24, 0.5, 0.15, 'goldenrod', 'gray2')
     def start():
         scenes.scene = 'start'
         menu.destroy()
     def exit():
         menu.destroy()
-    gui.set_button('Iniciar Partida', start, 0.4, 0.8, 150, 40, 'goldenrod', 'gray10')
-    gui.set_button('Salir', exit, 0.6, 0.8, 150, 40, 'goldenrod', 'gray10')
+    gui.set_btn('Iniciar Partida', start, 0.4, 0.8, 150, 40, 'goldenrod', 'gray10')
+    gui.set_btn('Salir', exit, 0.6, 0.8, 150, 40, 'goldenrod', 'gray10')
     menu.mainloop()
 
     if scenes.scene == 'start':
@@ -38,7 +38,7 @@ def main():
         image = PhotoImage(file = 'assets/images/background.png')
         background = Label(start, image = image)
         background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
-        gui.set_label('Él es Javier. Javier es un excéntrico empresario de bienes raíces.\n Lleva una vida de ensueño en la ciudad de Nueva York y cuenta con innumerables inversiones exitosas. \nPero un día, todo eso cambió... Javier tiene un defecto, no sabe mucho sobre la seguridad en internet. \nTu deberás identificar si las acciones de Javier fueron las mejores o si aún tiene cosas que aprender.', 12, 0.5, 0.85, 'goldenrod', 'gray2')
+        gui.set_lbl('Él es Javier. Javier es un excéntrico empresario de bienes raíces.\n Lleva una vida de ensueño en la ciudad de Nueva York y cuenta con innumerables inversiones exitosas. \nPero un día, todo eso cambió... Javier tiene un defecto, no sabe mucho sobre la seguridad en internet. \nTu deberás identificar si las acciones de Javier fueron las mejores o si aún tiene cosas que aprender.', 12, 0.5, 0.85, 'goldenrod', 'gray2')
         winsound.PlaySound('assets/audios/javier.wav', winsound.SND_ASYNC) # Reproduce el audio donde se presenta a Javier.
         def scene1():
             scenes.scene = 1
@@ -54,15 +54,15 @@ def main():
             image = PhotoImage(file = 'assets/images/background.png')
             background = Label(scene1, image = image)
             background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
-            gui.set_label('¿Usted haría lo mismo que Javier?', 22, 0.5, 0.2, 'goldenrod', 'gray2')
+            gui.set_lbl('¿Usted haría lo mismo que Javier?', 22, 0.5, 0.2, 'goldenrod', 'gray2')
             def scene2():
                 scenes.scene = 2
                 scene1.destroy()
             def scene3():
                 scenes.scene = 3
                 scene1.destroy()
-            gui.set_button('SÍ, cualquier red de internet me sirve lo importante es reunirme a hablar de trabajo, no hay ningún riesgo', scene2, 0.5, 0.5, 930, 40, 'goldenrod', 'gray10')
-            gui.set_button('No, es muy sospechoso', scene3, 0.5, 0.65, 250, 40, 'goldenrod', 'gray10')
+            gui.set_btn('SÍ, cualquier red de internet me sirve lo importante es reunirme a hablar de trabajo, no hay ningún riesgo', scene2, 0.5, 0.5, 930, 40, 'goldenrod', 'gray10')
+            gui.set_btn('No, es muy sospechoso', scene3, 0.5, 0.65, 250, 40, 'goldenrod', 'gray10')
             scene1.mainloop()
 
             while True:
@@ -75,15 +75,15 @@ def main():
                     image = PhotoImage(file = 'assets/images/background.png')
                     background = Label(scene2, image = image)
                     background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
-                    gui.set_label('¿Está seguro de que fue lo correcto?', 22, 0.5, 0.2, 'goldenrod', 'gray2')
+                    gui.set_lbl('¿Está seguro de que fue lo correcto?', 22, 0.5, 0.2, 'goldenrod', 'gray2')
                     def reset():
                         scenes.scene = 2
                         scene2.destroy()
                     def scene3():
                         scenes.scene = 3
                         scene2.destroy()
-                    gui.set_button('SÍ, cualquier red de internet me sirve lo importante es reunirme a hablar de trabajo, no hay ningún riesgo', reset, 0.5, 0.5, 930, 40, 'goldenrod', 'gray10')
-                    gui.set_button('No, es muy sospechoso', scene3, 0.5, 0.65, 250, 40, 'goldenrod', 'gray10')
+                    gui.set_btn('SÍ, cualquier red de internet me sirve lo importante es reunirme a hablar de trabajo, no hay ningún riesgo', reset, 0.5, 0.5, 930, 40, 'goldenrod', 'gray10')
+                    gui.set_btn('No, es muy sospechoso', scene3, 0.5, 0.65, 250, 40, 'goldenrod', 'gray10')
                     scene2.mainloop()
                 else:
                     break
@@ -98,11 +98,11 @@ def main():
                 background = Label(scene3, image = image)
                 background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
                 def cookies():
-                    gui.set_label('Las cookies son pequeños archivos de texto que los sitios web guardan en tu dispositivo cuando los visitas.\n Sirven para almacenar información sobre tu actividad en línea', 12, 0.5, 0.72, 'goldenrod', 'gray2')
+                    gui.set_lbl('Las cookies son pequeños archivos de texto que los sitios web guardan en tu dispositivo cuando los visitas.\n Sirven para almacenar información sobre tu actividad en línea', 12, 0.5, 0.72, 'goldenrod', 'gray2')
                     winsound.PlaySound('assets/audios/cookies.wav', winsound.SND_ASYNC) # Reproduce el audio con la explicación de las cookies.
                     scenes.scene = 4
                     scene3.after(5000, scene3.destroy)
-                gui.set_button('¿Cookies?', cookies, 0.5, 0.5, 150, 40, 'goldenrod', 'gray10')
+                gui.set_btn('¿Cookies?', cookies, 0.5, 0.5, 150, 40, 'goldenrod', 'gray10')
                 scene3.mainloop()
 
             if scenes.scene == 4:
@@ -113,12 +113,17 @@ def main():
                 img = PhotoImage(file = 'assets/images/background.png')
                 background = Label(scene4, image = img)
                 background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
-                gui.set_label('Hay algo extraño en esta página, identifíquelo:', 12, 0.5, 0.04, 'goldenrod', 'gray2')
+                gui.set_lbl('Hay algo extraño en esta página, identifíquelo:', 12, 0.5, 0.04, 'goldenrod', 'gray2')
                 image = PhotoImage(file = 'assets/images/axi.png')
                 page = Label(scene4, image = image)
                 page.place(relx = 0.5, rely = 0.53, anchor = CENTER)
-            
-                gui.set_button('Sin Protocolo de transferencia seguro (https)', None, 0.28, 0.17, 380, 19, 'black', 'brown1')
+                def next():
+                    def next():
+                        def next():
+                            scene4.destroy()
+                        gui.set_btn('Logo\nmodificado', next, 0.13, 0.26, 98, 38, 'black', 'brown1')
+                    gui.set_btn('Escudo modificado', next, 0.4, 0.3, 160, 19, 'black', 'brown1')
+                gui.set_btn('Sin Protocolo de transferencia seguro (https)', next, 0.28, 0.17, 380, 19, 'black', 'brown1')
                 scene4.mainloop()
 
 if __name__ == '__main__':
