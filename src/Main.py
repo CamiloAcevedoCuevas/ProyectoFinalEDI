@@ -46,49 +46,47 @@ def main():
         winsound.PlaySound('assets/audios/startaudio.wav', winsound.SND_ASYNC) # Aquí se reproduce el audio donde se dice quién es Javier.
         start.mainloop()
 
-        while True:
-            if scenes.scene == 1:
-                scenes.scene = None
-                scenes.play_scene(1) # Aquí se reproduce la escena donde Javier se conecta al wifi.
-                scene1 = Tk()
-                gui.window = scene1
-                gui.set_window(None)
-                image = PhotoImage(file = 'assets/backgrounds/scene1.png')
-                background = Label(scene1, image = image)
-                background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
-                gui.set_label('¿Usted haría lo mismo que Javier?', 22, 0.5, 0.2, 'gray2')
-                def scene2():
-                    scenes.scene = 2
-                    scene1.destroy()
-                def scene3():
-                    scenes.scene = 3
-                    scene1.destroy()
-                gui.set_button("SÍ, cualquier red de internet me sirve lo importante es reunirme a hablar de trabajo, no hay ningún riesgo", scene2, 0.5, 0.5, 930, 40, 'gray10')
-                gui.set_button("No, es muy sospechoso", scene3, 0.5, 0.65, 250, 40, 'gray10')
-                scene1.mainloop()
+        if scenes.scene == 1:
+            scenes.play_scene(1) # Aquí se reproduce la escena donde Javier se conecta al wifi.
+            scene1 = Tk()
+            gui.window = scene1
+            gui.set_window(None)
+            image = PhotoImage(file = 'assets/backgrounds/scene1.png')
+            background = Label(scene1, image = image)
+            background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
+            gui.set_label('¿Usted haría lo mismo que Javier?', 22, 0.5, 0.2, 'gray2')
+            def scene2():
+                scenes.scene = 2
+                scene1.destroy()
+            def scene3():
+                scenes.scene = 3
+                scene1.destroy()
+            gui.set_button("SÍ, cualquier red de internet me sirve lo importante es reunirme a hablar de trabajo, no hay ningún riesgo", scene2, 0.5, 0.5, 930, 40, 'gray10')
+            gui.set_button("No, es muy sospechoso", scene3, 0.5, 0.65, 250, 40, 'gray10')
+            scene1.mainloop()
 
+            while True:
                 if scenes.scene == 2:
+                    scenes.scene = None
                     scenes.play_scene(2) # Aquí se muestra la escena donde Javier recuerda la conversación con su primo Juan.
                     scene2 = Tk()
                     gui.window = scene2
                     gui.set_window('burlywood3')
                     gui.set_label("¿Está seguro de que fue lo correcto?", 22, 0.5, 0.2, 'burlywood2')
-                    def scene1():
-                        scenes.scene = 1
+                    def reset():
                         scene2.destroy()
                     def scene3():
                         scenes.scene = 3
                         scene2.destroy()
-                    gui.set_button("SÍ, cualquier red de internet me sirve lo importante es reunirme a hablar de trabajo, no hay ningún riesgo", scene1, 0.5, 0.5, 930, 40, 'burlywood1')
+                    gui.set_button("SÍ, cualquier red de internet me sirve lo importante es reunirme a hablar de trabajo, no hay ningún riesgo", reset, 0.5, 0.5, 930, 40, 'burlywood1')
                     gui.set_button("No, es muy sospechoso", scene3, 0.5, 0.65, 250, 40, 'burlywood1')
                     scene2.mainloop()
+                else:
+                    break
 
-            else:
-                break
-
-        if scenes.scene == 3:
-            scenes.play_scene(3) # Aquí se muestra la escena donde Javier es hackeado.
-            print("xd")
+            if scenes.scene == 3:
+                scenes.play_scene(3) # Aquí se muestra la escena donde Javier es hackeado.
+                print("xd")
 
 
 if __name__ == '__main__':
