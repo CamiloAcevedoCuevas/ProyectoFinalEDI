@@ -5,15 +5,10 @@ class GUI ():
     def __init__(self):
         self.window = None
 
-    def set_window(self, bc):
-        """Establish A Window
-
-        Args:
-            bc (str): Background Color
-        """
+    def set_window(self):
+        """Establish A Window."""
         self.window.iconbitmap('assets/images/logo.ico')
         self.window.title('El Poder De Un Click')
-        self.window.configure(background = bc)
         self.window.geometry('1024x576')
         self.window.resizable(False, False)
 
