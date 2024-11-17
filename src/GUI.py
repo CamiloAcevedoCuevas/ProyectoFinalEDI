@@ -1,8 +1,7 @@
 from tkinter import *
 
 class GUI ():
-    """Graphical User Interface
-    """
+    """Graphical User Interface Class."""
     def __init__(self):
         self.window = None
 

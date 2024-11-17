@@ -3,13 +3,13 @@ import cv2
 import winsound
 
 class Scenes:
-    """Class that stores the scenes of the game."""
+    """List of scenes."""
     def __init__(self):
         self.scene = None
         self.head = None
 
     def add_scene(self, scene, index):
-        """Function to add a scene to the list.
+        """Add A Scene
 
         Args:
             scene (VideoCapture): Scene Video
@@ -25,7 +25,7 @@ class Scenes:
             current.next = new_scene
 
     def play_scene(self, index):
-        """This function plays the scene video.
+        """Play A Scene
 
         Args:
             index (int): Scene Number
