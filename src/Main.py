@@ -38,16 +38,16 @@ def main():
         #image = tk.PhotoImage(file = "assets/images/javier.png")
         #label = ttk.Label(start, image = image)
         #label.place(relx = 0.5, rely = 0.5, anchor = CENTER)
-        gui.set_label('Él es Javier. Javier es un excéntrico empresario de bienes raíces.\n Lleva una vida de ensueño en la ciudad de Nueva York y cuenta con innumerables inversiones exitosas. \nPero un día, todo eso cambió... Javier tiene un defecto, no sabe mucho sobre la seguridad en internet. \nTu deberás identificar si las acciones de Javier fueron las mejores o si aún tiene cosas que aprender.', 12, 0.5, 0.72, 'goldenrod', 'dodgerBlue4')
+        gui.set_label('Él es Javier. Javier es un excéntrico empresario de bienes raíces.\n Lleva una vida de ensueño en la ciudad de Nueva York y cuenta con innumerables inversiones exitosas. \nPero un día, todo eso cambió... Javier tiene un defecto, no sabe mucho sobre la seguridad en internet. \nTu deberás identificar si las acciones de Javier fueron las mejores o si aún tiene cosas que aprender.', 12, 0.5, 0.85, 'goldenrod', 'dodgerBlue4')
+        winsound.PlaySound('assets/audios/javier.wav', winsound.SND_ASYNC) # Reproduce el audio donde se presenta a Javier.
         def scene1():
             scenes.scene = 1
             start.destroy()
-        gui.set_button('Continuar', scene1, 0.5, 0.85, 150, 40, 'goldenrod', 'dodgerBlue4')
-        winsound.PlaySound('assets/audios/startaudio.wav', winsound.SND_ASYNC) # Aquí se reproduce el audio donde se dice quién es Javier.
+        start.after(5000, scene1)
         start.mainloop()
 
         if scenes.scene == 1:
-            scenes.play_scene(1) # Aquí se reproduce la escena donde Javier se conecta al wifi.
+            scenes.play_scene(1) # Reproduce la escena donde Javier se conecta al wifi.
             scene1 = Tk()
             gui.window = scene1
             gui.set_window(None)
@@ -68,7 +68,7 @@ def main():
             while True:
                 if scenes.scene == 2:
                     scenes.scene = None
-                    scenes.play_scene(2) # Aquí se muestra la escena donde Javier recuerda la conversación con su primo Juan.
+                    scenes.play_scene(2) # Muestra la secuencia donde Javier recuerda la conversación con su primo Juan.
                     scene2 = Tk()
                     gui.window = scene2
                     gui.set_window('gray72')
@@ -86,8 +86,17 @@ def main():
                     break
 
             if scenes.scene == 3:
-                scenes.play_scene(3) # Aquí se muestra la escena donde se felicita al jugador por haber identificado la actividad sospechosa.
-                
+                scenes.play_scene(3) # Muestra la secuencia donde se felicita al jugador por haber identificado la actividad sospechosa.
+                winsound.PlaySound('assets/audios/transicion.wav', winsound.SND_ASYNC) # Reproduce el audio donde explica que las cookies de Javier fueron robadas.
+                scene3 = Tk()
+                gui.window = scene3
+                gui.set_window('dodgerBlue4')
+                def cookies():
+                    gui.set_label('Las cookies son pequeños archivos de texto que los sitios web guardan en tu dispositivo cuando los visitas.\n Sirven para almacenar información sobre tu actividad en línea', 12, 0.5, 0.72, 'goldenrod', 'dodgerBlue4')
+                    winsound.PlaySound('assets/audios/cookies.wav', winsound.SND_ASYNC) # Reproduce el audio con la explicación de las cookies.
+                    scene3.after(5000, scene3.destroy)
+                gui.set_button('¿Cookies?', cookies, 0.5, 0.5, 150, 40, 'goldenrod', 'dodgerBlue4')
+                scene3.mainloop()
 
 
 if __name__ == '__main__':
