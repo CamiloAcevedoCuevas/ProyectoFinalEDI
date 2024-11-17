@@ -18,8 +18,8 @@ def main():
     menu = Tk() # main menu
     gui.window = menu
     gui.set_window()
-    image = PhotoImage(file = 'assets/images/background.png')
-    background = Label(menu, image = image)
+    img = PhotoImage(file = 'assets/images/background.png')
+    background = Label(menu, image = img)
     background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
     gui.set_lbl('El Poder De Un Click', 24, 0.5, 0.15, 'goldenrod', 'gray2')
     def start():
@@ -35,8 +35,8 @@ def main():
         start = Tk()
         gui.window = start
         gui.set_window()
-        image = PhotoImage(file = 'assets/images/background.png')
-        background = Label(start, image = image)
+        img = PhotoImage(file = 'assets/images/background.png')
+        background = Label(start, image = img)
         background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
         gui.set_lbl('Él es Javier. Javier es un excéntrico empresario de bienes raíces.\n Lleva una vida de ensueño en la ciudad de Nueva York y cuenta con innumerables inversiones exitosas. \nPero un día, todo eso cambió... Javier tiene un defecto, no sabe mucho sobre la seguridad en internet. \nTu deberás identificar si las acciones de Javier fueron las mejores o si aún tiene cosas que aprender.', 12, 0.5, 0.85, 'goldenrod', 'gray2')
         winsound.PlaySound('assets/audios/javier.wav', winsound.SND_ASYNC) # Reproduce el audio donde se presenta a Javier.
@@ -51,8 +51,8 @@ def main():
             scene1 = Tk()
             gui.window = scene1
             gui.set_window()
-            image = PhotoImage(file = 'assets/images/background.png')
-            background = Label(scene1, image = image)
+            img = PhotoImage(file = 'assets/images/background.png')
+            background = Label(scene1, image = img)
             background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
             gui.set_lbl('¿Usted haría lo mismo que Javier?', 22, 0.5, 0.2, 'goldenrod', 'gray2')
             def scene2():
@@ -72,8 +72,8 @@ def main():
                     scene2 = Tk()
                     gui.window = scene2
                     gui.set_window()
-                    image = PhotoImage(file = 'assets/images/background.png')
-                    background = Label(scene2, image = image)
+                    img = PhotoImage(file = 'assets/images/background.png')
+                    background = Label(scene2, image = img)
                     background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
                     gui.set_lbl('¿Está seguro de que fue lo correcto?', 22, 0.5, 0.2, 'goldenrod', 'gray2')
                     def reset():
@@ -94,8 +94,8 @@ def main():
                 scene3 = Tk()
                 gui.window = scene3
                 gui.set_window()
-                image = PhotoImage(file = 'assets/images/background.png')
-                background = Label(scene3, image = image)
+                img = PhotoImage(file = 'assets/images/background.png')
+                background = Label(scene3, image = img)
                 background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
                 def cookies():
                     gui.set_lbl('Las cookies son pequeños archivos de texto que los sitios web guardan en tu dispositivo cuando los visitas.\n Sirven para almacenar información sobre tu actividad en línea', 12, 0.5, 0.72, 'goldenrod', 'gray2')
@@ -105,26 +105,48 @@ def main():
                 gui.set_btn('¿Cookies?', cookies, 0.5, 0.5, 150, 40, 'goldenrod', 'gray10')
                 scene3.mainloop()
 
-            if scenes.scene == 4:
-                scenes.play_scene(4) # Muestra la escena donde Javier encuentra Axi.
-                scene4 = Tk()
-                gui.window = scene4
-                gui.set_window()
-                img = PhotoImage(file = 'assets/images/background.png')
-                background = Label(scene4, image = img)
-                background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
-                gui.set_lbl('Hay algo extraño en esta página, identifíquelo:', 12, 0.5, 0.04, 'goldenrod', 'gray2')
-                image = PhotoImage(file = 'assets/images/axi.png')
-                page = Label(scene4, image = image)
-                page.place(relx = 0.5, rely = 0.53, anchor = CENTER)
-                def next():
+            while True:
+                if scenes.scene == 4:
+                    scenes.scene = None
+                    scenes.play_scene(4) # Muestra la escena donde Javier encuentra Axi.
+                    scene4 = Tk()
+                    gui.window = scene4
+                    gui.set_window()
+                    img = PhotoImage(file = 'assets/images/background.png')
+                    background = Label(scene4, image = img)
+                    background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
+                    gui.set_lbl('Hay algo extraño en esta página, identifíquelo:', 12, 0.5, 0.04, 'goldenrod', 'gray2')
+                    im = PhotoImage(file = 'assets/images/axi.png')
+                    page = Label(scene4, image = im)
+                    page.place(relx = 0.5, rely = 0.53, anchor = CENTER)
                     def next():
                         def next():
-                            scene4.destroy()
-                        gui.set_btn('Logo\nmodificado', next, 0.13, 0.26, 98, 38, 'black', 'brown1')
-                    gui.set_btn('Escudo modificado', next, 0.4, 0.3, 160, 19, 'black', 'brown1')
-                gui.set_btn('Sin Protocolo de transferencia seguro (https)', next, 0.28, 0.17, 380, 19, 'black', 'brown1')
-                scene4.mainloop()
+                            def next():
+                                scenes.scene = 'window'
+                                scene4.destroy()
+                            gui.set_btn('Logo\nmodificado', next, 0.13, 0.26, 98, 38, 'black', 'brown1')
+                        gui.set_btn('Escudo modificado', next, 0.4, 0.3, 160, 19, 'black', 'brown1')
+                    gui.set_btn('Sin Protocolo de transferencia seguro (https)', next, 0.28, 0.17, 380, 19, 'black', 'brown1')
+                    scene4.mainloop()
+
+                elif scenes.scene == 'window':
+                    window = Tk()
+                    gui.window = window
+                    gui.set_window()
+                    img = PhotoImage(file = 'assets/images/background.png')
+                    background = Label(window, image = img)
+                    background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
+                    gui.set_lbl('¿Invirtiría usted en esta página?', 22, 0.5, 0.2, 'goldenrod', 'gray2')
+                    def reset():
+                        scenes.scene = 4
+                        window.destroy()
+                    def xd():
+                        window.destroy()
+                    gui.set_btn('SÍ, es una página segura', reset, 0.35, 0.5, 260, 40, 'goldenrod', 'gray10')
+                    gui.set_btn('No, es muy sospechoso', xd, 0.65, 0.5, 250, 40, 'goldenrod', 'gray10')
+                    window.mainloop()
+                else:
+                    break
 
 if __name__ == '__main__':
     main()
