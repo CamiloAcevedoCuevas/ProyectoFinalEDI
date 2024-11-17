@@ -28,7 +28,7 @@ class Scenes:
         """Play An Scene
 
         Args:
-            index (int): Scene number
+            index (int): Scene Number
         """
         current = self.head
         while current is not None:
