@@ -1,12 +1,13 @@
 from tkinter import *
 
 class GUI ():
-    """Graphical User Interface"""
+    """Graphical User Interface
+    """
     def __init__(self):
         self.window = None
 
     def set_window(self, bc):
-        """Establish The Window Configuration
+        """Establish A Window
 
         Args:
             bc (str): Background Color

@@ -49,7 +49,7 @@ def main():
         while True:
             if scenes.scene == 1:
                 scenes.scene = None
-                scenes.get_scene(1) # Aquí se reproduce la escena donde Javier se conecta al wifi.
+                scenes.play_scene(1) # Aquí se reproduce la escena donde Javier se conecta al wifi.
                 scene1 = Tk()
                 gui.window = scene1
                 gui.set_window(None)
@@ -68,7 +68,7 @@ def main():
                 scene1.mainloop()
 
                 if scenes.scene == 2:
-                    scenes.get_scene(2) # Aquí se muestra la escena donde Javier recuerda la conversación con su primo Juan.
+                    scenes.play_scene(2) # Aquí se muestra la escena donde Javier recuerda la conversación con su primo Juan.
                     scene2 = Tk()
                     gui.window = scene2
                     gui.set_window('burlywood3')
@@ -87,7 +87,7 @@ def main():
                 break
 
         if scenes.scene == 3:
-            scenes.get_scene(3) # Aquí se muestra la escena donde Javier es hackeado.
+            scenes.play_scene(3) # Aquí se muestra la escena donde Javier es hackeado.
             print("xd")
 
 

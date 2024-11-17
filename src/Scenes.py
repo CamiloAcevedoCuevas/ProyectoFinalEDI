@@ -3,16 +3,16 @@ import cv2
 import winsound
 
 class Scenes:
-    """Game Scenes"""
+    """Class that stores the scenes of the game."""
     def __init__(self):
         self.scene = None
         self.head = None
 
     def add_scene(self, scene, index):
-        """Add An Scene
+        """Function to add a scene to the list.
 
         Args:
-            scene (VideoCapture): 
+            scene (VideoCapture): Scene Video
             index (int): Scene Number
         """
         new_scene = Scene(scene, index)
@@ -24,8 +24,8 @@ class Scenes:
                 current = current.next
             current.next = new_scene
 
-    def get_scene(self, index):
-        """Play An Scene
+    def play_scene(self, index):
+        """This function plays the scene video.
 
         Args:
             index (int): Scene Number
@@ -33,7 +33,7 @@ class Scenes:
         current = self.head
         while current is not None:
             if current.index == index:
-                winsound.PlaySound(f'assets/audios/audio{index}.wav', winsound.SND_ASYNC)
+                winsound.PlaySound(f'assets/audios/audio{index}.wav', winsound.SND_ASYNC) # Here the audio of the scene is played.
                 while True:
                     ret, frame = current.scene.read()
                     if ret:

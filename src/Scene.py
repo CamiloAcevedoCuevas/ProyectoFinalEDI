@@ -1,10 +1,5 @@
 class Scene:
-    """Represents A Game Scene
-
-    Args:
-        scene (VideoCapture): Scene
-        index (int): Scene Number
-    """
+    """Represents a scene in the game"""
     def __init__(self, scene, index):
         self.scene = scene
         self.index = index
