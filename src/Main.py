@@ -190,33 +190,32 @@ def main():
                         gui.set_btn('No, es muy sospechoso', next, 0.65, 0.5, 230, 40, 'goldenrod', 'gray10')
                         scene5.mainloop()
 
-                        if scenes.scene == 'window':
-                            while True:
-                                if scenes.scene == 'window':
-                                    scenes.scene = None
-                                    window = Tk()
-                                    gui.window = window
-                                    gui.set_window()
-                                    img = PhotoImage(file = 'assets/images/background.png')
-                                    background = Label(window, image = img)
-                                    background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
-                                    gui.set_lbl('¡Ups! Parece que has tomado una mala decisión.\nEl enlace que acabas de hacer clic no era un bono legítimo, sino una trampa diseñada\npara robar tus datos. Las estafas en línea pueden ser muy\nengañosas, y este tipo de fraude es más común de lo que parece.\n\n¿Por qué es una estafa?\n\n-Los enlaces que prometen bonos irresistibles suelen ser intentos de robar tu\ninformación personal o financiera.\n\n-Las empresas legítimas nunca pedirán tus datos por medio de enlaces\no correos sospechosos.', 12, 0.5, 0.2, 'goldenrod', 'gray2')
-                                    gui.set_lbl('¿Reinvirtiría usted en esta página?', 22, 0.5, 0.7, 'goldenrod', 'gray2')
-                                    def reset():
-                                        scenes.scene = 'window'
-                                        scenes.play_scene(5)
-                                        window.destroy()
-                                    def next():
-                                        scenes.scene = 'next'
-                                        window.destroy()
-                                    gui.set_btn('Si, y acepto el bono de inversión', reset, 0.35, 0.9, 270, 40, 'goldenrod', 'gray10')
-                                    gui.set_btn('No, es muy sospechoso', next, 0.65, 0.9, 250, 40, 'goldenrod', 'gray10')
-                                    window.mainloop()
-                                else:
-                                    break
+                        while True:
+                            if scenes.scene == 'window':
+                                scenes.scene = None
+                                window = Tk()
+                                gui.window = window
+                                gui.set_window()
+                                img = PhotoImage(file = 'assets/images/background.png')
+                                background = Label(window, image = img)
+                                background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
+                                gui.set_lbl('¡Ups! Parece que has tomado una mala decisión.\nEl enlace que acabas de hacer clic no era un bono legítimo, sino una trampa diseñada\npara robar tus datos. Las estafas en línea pueden ser muy\nengañosas, y este tipo de fraude es más común de lo que parece.\n\n¿Por qué es una estafa?\n\n-Los enlaces que prometen bonos irresistibles suelen ser intentos de robar tu\ninformación personal o financiera.\n\n-Las empresas legítimas nunca pedirán tus datos por medio de enlaces\no correos sospechosos.', 12, 0.5, 0.25, 'goldenrod', 'gray2')
+                                gui.set_lbl('¿Reinvirtiría usted en esta página?', 22, 0.5, 0.7, 'goldenrod', 'gray2')
+                                def reset():
+                                    scenes.scene = 'window'
+                                    scenes.play_scene(5)
+                                    window.destroy()
+                                def next():
+                                    scenes.scene = 'next'
+                                    window.destroy()
+                                gui.set_btn('Si, y acepto el bono de inversión', reset, 0.35, 0.9, 270, 40, 'goldenrod', 'gray10')
+                                gui.set_btn('No, es muy sospechoso', next, 0.65, 0.9, 250, 40, 'goldenrod', 'gray10')
+                                window.mainloop()
+                            else:
+                                break
 
-                            if scenes.scene == 'next':
-                                print("xd")
+                        if scenes.scene == 'next':
+                            pass
 
 if __name__ == '__main__':
     main()
