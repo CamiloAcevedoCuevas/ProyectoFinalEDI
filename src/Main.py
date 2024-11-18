@@ -15,10 +15,18 @@ def main():
         scene = cv2.VideoCapture(f'assets/videos/video{i}.mp4')
         scenes.addScene(scene, i)
 
+    bgPath = 'assets/images/background.png'
+    txt = ['Él es Javier. Javier es un excéntrico empresario de bienes raíces.\nLleva una vida de ensueño en la ciudad de Nueva York y cuenta con innumerables inversiones exitosas.\nPero un día, todo eso cambió... Javier tiene un defecto, no sabe mucho sobre la seguridad en internet.\nTu deberás identificar si las acciones de Javier fueron las mejores o si aún tiene cosas que aprender.',
+            'SÍ, cualquier red de internet me sirve lo importante es reunirme a hablar de trabajo, no hay ningún riesgo',
+            'Las cookies son pequeños archivos de texto que los sitios web guardan en tu dispositivo cuando los visitas.\n Sirven para almacenar información sobre tu actividad en línea',
+            '¡Ups! Parece que has tomado una mala decisión.\n\nEl enlace que acabas de hacer clic no era un bono legítimo, sino una trampa diseñada\npara robar tus datos. Las estafas en línea pueden ser muy\nengañosas, y este tipo de fraude es más común de lo que parece.\n\n¿Por qué es una estafa?\n\n1. Los enlaces que prometen bonos irresistibles suelen ser intentos de robar tu\ninformación personal o financiera.\n\n2. Las empresas legítimas nunca pedirán tus datos por medio de enlaces\no correos sospechosos.',
+            '¡Ahora sabes cómo identificar una estafa!\n\nPara avanzar en este juego, asegúrate de tomar decisiones más sabias y proteger tus recursos.\nSi haces clic en ofertas dudosas, podrías perder más que solo dinero.\n\n¡Ten cuidado y no dejes que te engañen, recuerda que lo mejor es DENUNCIAR!']
+    
+
     menu = Tk() # main menu
     gui.window = menu
     gui.setWindow()
-    bg = PhotoImage(file = 'assets/images/background.png')
+    bg = PhotoImage(file = bgPath)
     gui.setImg(bg, 0.5, 0.5)
     gui.setLbl('El Poder De Un Click', 24, 0.5, 0.15, 'goldenrod', 'gray2')
     def start():
@@ -34,11 +42,11 @@ def main():
         start = Tk()
         gui.window = start
         gui.setWindow()
-        bg = PhotoImage(file = 'assets/images/background.png')
+        bg = PhotoImage(file = bgPath)
         gui.setImg(bg, 0.5, 0.5)
         # jvr = PhotoImage(file = 'assets/images/javier.png') # Javier's image
         # gui.setImg(jvr, 0.5, 0.3)
-        gui.setLbl('Él es Javier. Javier es un excéntrico empresario de bienes raíces.\nLleva una vida de ensueño en la ciudad de Nueva York y cuenta con innumerables inversiones exitosas.\nPero un día, todo eso cambió... Javier tiene un defecto, no sabe mucho sobre la seguridad en internet.\nTu deberás identificar si las acciones de Javier fueron las mejores o si aún tiene cosas que aprender.', 12, 0.5, 0.85, 'goldenrod', 'gray2')
+        gui.setLbl(txt[0], 12, 0.5, 0.85, 'goldenrod', 'gray2')
         winsound.PlaySound('assets/audios/javier.wav', winsound.SND_ASYNC) # Reproduce el audio donde se presenta a Javier.
         def scene1():
             scenes.scene = 1
@@ -51,7 +59,7 @@ def main():
             scene1 = Tk()
             gui.window = scene1
             gui.setWindow()
-            bg = PhotoImage(file = 'assets/images/background.png')
+            bg = PhotoImage(file = bgPath)
             gui.setImg(bg, 0.5, 0.5)
             gui.setLbl('¿Usted haría lo mismo que Javier?', 22, 0.5, 0.2, 'goldenrod', 'gray2')
             def scene2():
@@ -60,7 +68,7 @@ def main():
             def scene3():
                 scenes.scene = 3
                 scene1.destroy()
-            gui.setBtn('SÍ, cualquier red de internet me sirve lo importante es reunirme a hablar de trabajo, no hay ningún riesgo', scene2, 0.5, 0.5, 930, 40, 'goldenrod', 'gray10')
+            gui.setBtn(txt[1], scene2, 0.5, 0.5, 930, 40, 'goldenrod', 'gray10')
             gui.setBtn('No, es muy sospechoso', scene3, 0.5, 0.65, 250, 40, 'goldenrod', 'gray10')
             scene1.mainloop()
 
@@ -72,7 +80,7 @@ def main():
                         scene2 = Tk()
                         gui.window = scene2
                         gui.setWindow()
-                        bg = PhotoImage(file = 'assets/images/background.png')
+                        bg = PhotoImage(file = bgPath)
                         gui.setImg(bg, 0.5, 0.5)
                         gui.setLbl('¿Está seguro de que fue lo correcto?', 22, 0.5, 0.2, 'goldenrod', 'gray2')
                         def reset():
@@ -81,7 +89,7 @@ def main():
                         def scene3():
                             scenes.scene = 3
                             scene2.destroy()
-                        gui.setBtn('SÍ, cualquier red de internet me sirve lo importante es reunirme a hablar de trabajo, no hay ningún riesgo', reset, 0.5, 0.5, 930, 40, 'goldenrod', 'gray10')
+                        gui.setBtn(txt[1], reset, 0.5, 0.5, 930, 40, 'goldenrod', 'gray10')
                         gui.setBtn('No, es muy sospechoso', scene3, 0.5, 0.65, 250, 40, 'goldenrod', 'gray10')
                         scene2.mainloop()
                     else:
@@ -93,10 +101,10 @@ def main():
                 scene3 = Tk()
                 gui.window = scene3
                 gui.setWindow()
-                bg = PhotoImage(file = 'assets/images/background.png')
+                bg = PhotoImage(file = bgPath)
                 gui.setImg(bg, 0.5, 0.5)
                 def cookies():
-                    gui.setLbl('Las cookies son pequeños archivos de texto que los sitios web guardan en tu dispositivo cuando los visitas.\n Sirven para almacenar información sobre tu actividad en línea', 12, 0.5, 0.72, 'goldenrod', 'gray2')
+                    gui.setLbl(txt[2], 12, 0.5, 0.72, 'goldenrod', 'gray2')
                     winsound.PlaySound('assets/audios/cookies.wav', winsound.SND_ASYNC) # Reproduce el audio con la explicación de las cookies.
                     def scene4():
                         scenes.scene = 4
@@ -110,7 +118,7 @@ def main():
                     scene4 = Tk()
                     gui.window = scene4
                     gui.setWindow()
-                    bg = PhotoImage(file = 'assets/images/background.png')
+                    bg = PhotoImage(file = bgPath)
                     gui.setImg(bg, 0.5, 0.5)
                     axi = PhotoImage(file = 'assets/images/axi.png')
                     gui.setImg(axi, 0.5, 0.53)
@@ -121,8 +129,10 @@ def main():
                                 scenes.scene = 'window'
                                 winsound.PlaySound('assets/audios/click.wav', winsound.SND_ASYNC)
                                 scene4.destroy()
+
                             winsound.PlaySound('assets/audios/click.wav', winsound.SND_ASYNC)
                             gui.setBtn('Logo\nmodificado', next, 0.13, 0.26, 98, 38, 'black', 'brown1')
+
                         winsound.PlaySound('assets/audios/click.wav', winsound.SND_ASYNC)
                         gui.setBtn('Escudo modificado', next, 0.4, 0.3, 160, 19, 'black', 'brown1')
                     gui.setBtn('Sin Protocolo de transferencia seguro (https)', next, 0.28, 0.17, 380, 19, 'black', 'brown1')
@@ -135,7 +145,7 @@ def main():
                                 window = Tk()
                                 gui.window = window
                                 gui.setWindow()
-                                bg = PhotoImage(file = 'assets/images/background.png')
+                                bg = PhotoImage(file = bgPath)
                                 gui.setImg(bg, 0.5, 0.5)
                                 brwser = PhotoImage(file = 'assets/images/browser.png')
                                 gui.setImg(brwser, 0.5, 0.4)
@@ -157,7 +167,7 @@ def main():
                             bank = Tk()
                             gui.window = bank
                             gui.setWindow()
-                            bg = PhotoImage(file = 'assets/images/background.png')
+                            bg = PhotoImage(file = bgPath)
                             gui.setImg(bg, 0.5, 0.5)
                             bnk = PhotoImage(file = 'assets/images/bank.png')
                             gui.setImg(bnk, 0.5, 0.53)
@@ -174,7 +184,7 @@ def main():
                                 scene5 = Tk()
                                 gui.window = scene5
                                 gui.setWindow()
-                                bg = PhotoImage(file = 'assets/images/background.png')
+                                bg = PhotoImage(file = bgPath)
                                 gui.setImg(bg, 0.5, 0.5)
                                 gui.setLbl('¿Invertiría usted en esta página?', 22, 0.5, 0.2, 'goldenrod', 'gray2')
                                 def reset():
@@ -195,9 +205,9 @@ def main():
                                         window = Tk()
                                         gui.window = window
                                         gui.setWindow()
-                                        bg = PhotoImage(file = 'assets/images/background.png')
+                                        bg = PhotoImage(file = bgPath)
                                         gui.setImg(bg, 0.5, 0.5)
-                                        gui.setLbl('¡Ups! Parece que has tomado una mala decisión.\n\nEl enlace que acabas de hacer clic no era un bono legítimo, sino una trampa diseñada\npara robar tus datos. Las estafas en línea pueden ser muy\nengañosas, y este tipo de fraude es más común de lo que parece.\n\n¿Por qué es una estafa?\n\n1. Los enlaces que prometen bonos irresistibles suelen ser intentos de robar tu\ninformación personal o financiera.\n\n2. Las empresas legítimas nunca pedirán tus datos por medio de enlaces\no correos sospechosos.', 13, 0.5, 0.31, 'goldenrod', 'gray2')
+                                        gui.setLbl(txt[3], 13, 0.5, 0.31, 'goldenrod', 'gray2')
                                         gui.setLbl('¿Reinvirtiría usted en esta página?', 19, 0.5, 0.7, 'goldenrod', 'gray2')
                                         def reset():
                                             scenes.scene = 'window'
@@ -215,12 +225,10 @@ def main():
                                     window = Tk()
                                     gui.window = window
                                     gui.setWindow()
-                                    bg = PhotoImage(file = 'assets/images/background.png')
+                                    bg = PhotoImage(file = bgPath)
                                     gui.setImg(bg, 0.5, 0.5)
-                                    gui.setLbl('¡Ahora sabes cómo identificar una estafa!\n\nPara avanzar en este juego, asegúrate de tomar decisiones más sabias y proteger tus recursos.\nSi haces clic en ofertas dudosas, podrías perder más que solo dinero.\n\n¡Ten cuidado y no dejes que te engañen, recuerda que lo mejor es DENUNCIAR!', 12, 0.5, 0.5, 'goldenrod', 'gray2')
-
+                                    gui.setLbl(txt[4], 12, 0.5, 0.5, 'goldenrod', 'gray2')
                                     window.mainloop()
-
                                     scenes.getScene(6) # Muestra la escena donde Javier está sin dinero, desesperado y sin trabajo.
 
 if __name__ == '__main__':
