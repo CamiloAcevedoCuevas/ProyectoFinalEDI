@@ -16,9 +16,9 @@ def main():
         scenes.addScene(scene, i)
 
     bgPath = 'assets/images/background.png'
-    txt = ['Él es Javier. Javier es un excéntrico empresario de bienes raíces.\nLleva una vida de ensueño en la ciudad de Nueva York y cuenta con innumerables inversiones exitosas.\nPero un día, todo eso cambió... Javier tiene un defecto, no sabe mucho sobre la seguridad en internet.\nTu deberás identificar si las acciones de Javier fueron las mejores o si aún tiene cosas que aprender.',
+    txt = ['Él es Javier. Javier es un excéntrico empresario de bienes raíces. Lleva una vida de ensueño en la ciudad\nde Nueva York y cuenta con innumerables inversiones exitosas. Pero un día, todo eso cambió...\nJavier tiene un defecto, no sabe mucho sobre la seguridad en internet. Tu deberás identificar\nsi las acciones de Javier fueron las mejores o si aún tiene cosas que aprender.',
             'SÍ, cualquier red de internet me sirve lo importante es reunirme a hablar de trabajo, no hay ningún riesgo',
-            'Las cookies son pequeños archivos de texto que los sitios web guardan en tu dispositivo cuando los visitas.\n Sirven para almacenar información sobre tu actividad en línea',
+            'Las cookies son pequeños archivos de texto que\nlos sitios web guardan en tu dispositivo cuando los visitas.\nSirven para almacenar información sobre tu actividad en línea',
             '¡Ups! Parece que has tomado una mala decisión.\n\nEl enlace que acabas de hacer clic no era un bono legítimo, sino una trampa diseñada\npara robar tus datos. Las estafas en línea pueden ser muy\nengañosas, y este tipo de fraude es más común de lo que parece.\n\n¿Por qué es una estafa?\n\n1. Los enlaces que prometen bonos irresistibles suelen ser intentos de robar tu\ninformación personal o financiera.\n\n2. Las empresas legítimas nunca pedirán tus datos por medio de enlaces\no correos sospechosos.',
             '¡Ahora sabes cómo identificar una estafa!\n\nPara avanzar en este juego, asegúrate de tomar decisiones más sabias y proteger tus recursos.\nSi haces clic en ofertas dudosas, podrías perder más que solo dinero.\n\n¡Ten cuidado y no dejes que te engañen, recuerda que lo mejor es DENUNCIAR!']
     
@@ -28,14 +28,15 @@ def main():
     gui.setWindow()
     bg = PhotoImage(file = bgPath)
     gui.setImg(bg, 0.5)
-    gui.setLbl('El Poder De Un Click', 24, 0.15)
+    logo = PhotoImage(file = 'assets/images/logo.png')
+    gui.setImg(logo, 0.32)
     def start():
         scenes.scene = 'start'
         menu.destroy()
     def exit():
         menu.destroy()
-    gui.setBtn('Iniciar Partida', start, 0.4, 0.8)
-    gui.setBtn('Salir', exit, 0.6, 0.8)
+    gui.setBtn('Iniciar Partida', start, 0.5, 0.6)
+    gui.setBtn('Salir', exit, 0.5, 0.7)
     menu.mainloop()
 
     if scenes.scene == 'start':
@@ -46,7 +47,7 @@ def main():
         gui.setImg(bg, 0.5)
         # jvr = PhotoImage(file = 'assets/images/javier.png') # Javier's image
         # gui.setImg(jvr, 0.5, 0.3)
-        gui.setLbl(txt[0], 12, 0.85)
+        gui.setLbl(txt[0], 13, 0.85)
         winsound.PlaySound('assets/audios/javier.wav', winsound.SND_ASYNC) # Reproduce el audio donde se presenta a Javier.
         def scene1():
             scenes.scene = 1
@@ -104,7 +105,7 @@ def main():
                 bg = PhotoImage(file = bgPath)
                 gui.setImg(bg, 0.5)
                 def cookies():
-                    gui.setLbl(txt[2], 12, 0.72)
+                    gui.setLbl(txt[2], 13, 0.72)
                     winsound.PlaySound('assets/audios/cookies.wav', winsound.SND_ASYNC) # Reproduce el audio con la explicación de las cookies.
                     def scene4():
                         scenes.scene = 4
@@ -122,7 +123,7 @@ def main():
                     gui.setImg(bg, 0.5)
                     axi = PhotoImage(file = 'assets/images/axi.png')
                     gui.setImg(axi, 0.53)
-                    gui.setLbl('Hay algo extraño en esta página, identifíquelo:', 12, 0.04)
+                    gui.setLbl('Hay algo extraño en esta página, identifíquelo:', 14, 0.04)
                     def next():
                         def next():
                             def next():
@@ -169,7 +170,7 @@ def main():
                             gui.setImg(bg, 0.5)
                             bnk = PhotoImage(file = 'assets/images/bank.png')
                             gui.setImg(bnk, 0.53)
-                            gui.setLbl('Mire aquí una página de un sitio web oficial de un banco:', 12, 0.04)
+                            gui.setLbl('Mire aquí una página de un sitio web oficial de un banco:', 14, 0.04)
                             def scene5():
                                 scenes.scene = 5
                                 bank.destroy()
