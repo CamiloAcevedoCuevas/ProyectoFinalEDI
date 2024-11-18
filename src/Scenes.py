@@ -8,7 +8,7 @@ class Scenes:
         self.scene = None
         self.head = None
 
-    def add_scene(self, scene, index):
+    def addScene(self, scene, index):
         """Add A Scene
 
         Args:
@@ -24,7 +24,7 @@ class Scenes:
                 current = current.next
             current.next = new_scene
 
-    def play_scene(self, index):
+    def getScene(self, index):
         """Play A Scene
 
         Args:

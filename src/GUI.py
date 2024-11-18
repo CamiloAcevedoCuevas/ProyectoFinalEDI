@@ -5,39 +5,50 @@ class GUI ():
     def __init__(self):
         self.window = None
 
-    def set_window(self):
+    def setWindow(self):
         """Establish A Window."""
         self.window.iconbitmap('assets/images/logo.ico')
         self.window.title('El Poder De Un Click')
         self.window.geometry('1024x576')
         self.window.resizable(False, False)
 
-    def set_lbl(self, text, font_size, relx, rely, fg, bg):
+    def setLbl(self, txt, fs, relx, rely, fg, bg):
         """Establish A Label
 
         Args:
-            text (str): Label Text
-            font_size (int): Font Size
-            relx (float): X Position
-            rely (float): Y Position
+            txt (str): Label Text
+            fs (int): Font Size
+            relx (float): Relative X Position
+            rely (float): Relative Y Position
             fg (str): Label Foreground Color
             bg (str): Label Background Color
         """
-        label = Label(self.window, text = text, fg = fg, bg = bg, font = ('Georgia', font_size, 'bold'))
+        label = Label(self.window, text = txt, fg = fg, bg = bg, font = ('Georgia', fs, 'bold'))
         label.place(relx = relx, rely = rely, anchor = CENTER)
 
-    def set_btn(self, text, command, relx, rely, width, height, fg, bg):
+    def setBtn(self, txt, command, relx, rely, w, h, fg, bg):
         """Establish A Button
 
         Args:
-            text (str): Button Text
+            txt (str): Button Text
             command (function): Button Command
-            relx (float): X Position
-            rely (float): Y Position
-            width (int): Width Size
-            height (int): Height Size
+            relx (float): Relative X Position
+            rely (float): Relative Y Position
+            w (int): Width
+            h (int): Height
             fg (str): Button Foreground Color
             bg (str): Button Background Color
         """
-        button = Button(self.window, text = text, fg = fg, bg = bg, font = ('Georgia', 12, 'bold'), command = command)
-        button.place(relx = relx, rely = rely, width = width, height = height, anchor = CENTER)
+        button = Button(self.window, text = txt, fg = fg, bg = bg, font = ('Georgia', 12, 'bold'), command = command)
+        button.place(relx = relx, rely = rely, width = w, height = h, anchor = CENTER)
+
+    def setImg(self, img, relx, rely):
+        """Establish An Image
+
+        Args:
+            img (str): Image
+            relx (float): Relative X Position
+            rely (float): Relative Y Position
+        """
+        img = Label(self.window, image = img)
+        img.place(relx = relx, rely = rely, anchor = CENTER)
