@@ -12,7 +12,7 @@ class GUI ():
         self.window.geometry('1024x576')
         self.window.resizable(False, False)
 
-    def setLbl(self, txt, fs, relx, rely, fg, bg):
+    def setLbl(self, txt, fs, relx, rely):
         """Establish A Label
 
         Args:
@@ -20,13 +20,11 @@ class GUI ():
             fs (int): Font Size
             relx (float): Relative X Position
             rely (float): Relative Y Position
-            fg (str): Label Foreground Color
-            bg (str): Label Background Color
         """
-        label = Label(self.window, text = txt, fg = fg, bg = bg, font = ('Georgia', fs, 'bold'))
+        label = Label(self.window, text = txt, fg = 'goldenrod', bg = 'gray2', font = ('Georgia', fs, 'bold'))
         label.place(relx = relx, rely = rely, anchor = CENTER)
 
-    def setBtn(self, txt, command, relx, rely, w, h, fg, bg):
+    def setBtn(self, txt, command, relx, rely, w, h):
         """Establish A Button
 
         Args:
@@ -36,10 +34,8 @@ class GUI ():
             rely (float): Relative Y Position
             w (int): Width
             h (int): Height
-            fg (str): Button Foreground Color
-            bg (str): Button Background Color
         """
-        button = Button(self.window, text = txt, fg = fg, bg = bg, font = ('Georgia', 12, 'bold'), command = command)
+        button = Button(self.window, text = txt, fg = 'goldenrod', bg = 'gray10', font = ('Georgia', 12, 'bold'), command = command)
         button.place(relx = relx, rely = rely, width = w, height = h, anchor = CENTER)
 
     def setImg(self, img, relx, rely):

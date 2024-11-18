@@ -28,14 +28,14 @@ def main():
     gui.setWindow()
     bg = PhotoImage(file = bgPath)
     gui.setImg(bg, 0.5, 0.5)
-    gui.setLbl('El Poder De Un Click', 24, 0.5, 0.15, 'goldenrod', 'gray2')
+    gui.setLbl('El Poder De Un Click', 24, 0.5, 0.15)
     def start():
         scenes.scene = 'start'
         menu.destroy()
     def exit():
         menu.destroy()
-    gui.setBtn('Iniciar Partida', start, 0.4, 0.8, 150, 40, 'goldenrod', 'gray10')
-    gui.setBtn('Salir', exit, 0.6, 0.8, 150, 40, 'goldenrod', 'gray10')
+    gui.setBtn('Iniciar Partida', start, 0.4, 0.8, 150, 40)
+    gui.setBtn('Salir', exit, 0.6, 0.8, 150, 40)
     menu.mainloop()
 
     if scenes.scene == 'start':
@@ -46,7 +46,7 @@ def main():
         gui.setImg(bg, 0.5, 0.5)
         # jvr = PhotoImage(file = 'assets/images/javier.png') # Javier's image
         # gui.setImg(jvr, 0.5, 0.3)
-        gui.setLbl(txt[0], 12, 0.5, 0.85, 'goldenrod', 'gray2')
+        gui.setLbl(txt[0], 12, 0.5, 0.85)
         winsound.PlaySound('assets/audios/javier.wav', winsound.SND_ASYNC) # Reproduce el audio donde se presenta a Javier.
         def scene1():
             scenes.scene = 1
@@ -61,15 +61,15 @@ def main():
             gui.setWindow()
             bg = PhotoImage(file = bgPath)
             gui.setImg(bg, 0.5, 0.5)
-            gui.setLbl('¿Usted haría lo mismo que Javier?', 22, 0.5, 0.2, 'goldenrod', 'gray2')
+            gui.setLbl('¿Usted haría lo mismo que Javier?', 22, 0.5, 0.2)
             def scene2():
                 scenes.scene = 2
                 scene1.destroy()
             def scene3():
                 scenes.scene = 3
                 scene1.destroy()
-            gui.setBtn(txt[1], scene2, 0.5, 0.5, 930, 40, 'goldenrod', 'gray10')
-            gui.setBtn('No, es muy sospechoso', scene3, 0.5, 0.65, 250, 40, 'goldenrod', 'gray10')
+            gui.setBtn(txt[1], scene2, 0.5, 0.5, 930, 40)
+            gui.setBtn('No, es muy sospechoso', scene3, 0.5, 0.65, 250, 40)
             scene1.mainloop()
 
             if scenes.scene == 2:
@@ -82,15 +82,15 @@ def main():
                         gui.setWindow()
                         bg = PhotoImage(file = bgPath)
                         gui.setImg(bg, 0.5, 0.5)
-                        gui.setLbl('¿Está seguro de que fue lo correcto?', 22, 0.5, 0.2, 'goldenrod', 'gray2')
+                        gui.setLbl('¿Está seguro de que fue lo correcto?', 22, 0.5, 0.2)
                         def reset():
                             scenes.scene = 2
                             scene2.destroy()
                         def scene3():
                             scenes.scene = 3
                             scene2.destroy()
-                        gui.setBtn(txt[1], reset, 0.5, 0.5, 930, 40, 'goldenrod', 'gray10')
-                        gui.setBtn('No, es muy sospechoso', scene3, 0.5, 0.65, 250, 40, 'goldenrod', 'gray10')
+                        gui.setBtn(txt[1], reset, 0.5, 0.5, 930, 40)
+                        gui.setBtn('No, es muy sospechoso', scene3, 0.5, 0.65, 250, 40)
                         scene2.mainloop()
                     else:
                         break
@@ -104,13 +104,13 @@ def main():
                 bg = PhotoImage(file = bgPath)
                 gui.setImg(bg, 0.5, 0.5)
                 def cookies():
-                    gui.setLbl(txt[2], 12, 0.5, 0.72, 'goldenrod', 'gray2')
+                    gui.setLbl(txt[2], 12, 0.5, 0.72)
                     winsound.PlaySound('assets/audios/cookies.wav', winsound.SND_ASYNC) # Reproduce el audio con la explicación de las cookies.
                     def scene4():
                         scenes.scene = 4
                         scene3.destroy()
                     scene3.after(5000, scene4)
-                gui.setBtn('¿Cookies?', cookies, 0.5, 0.5, 150, 40, 'goldenrod', 'gray10')
+                gui.setBtn('¿Cookies?', cookies, 0.5, 0.5, 150, 40)
                 scene3.mainloop()
                 
                 if scenes.scene == 4:
@@ -122,7 +122,7 @@ def main():
                     gui.setImg(bg, 0.5, 0.5)
                     axi = PhotoImage(file = 'assets/images/axi.png')
                     gui.setImg(axi, 0.5, 0.53)
-                    gui.setLbl('Hay algo extraño en esta página, identifíquelo:', 12, 0.5, 0.04, 'goldenrod', 'gray2')
+                    gui.setLbl('Hay algo extraño en esta página, identifíquelo:', 12, 0.5, 0.04)
                     def next():
                         def next():
                             def next():
@@ -131,11 +131,11 @@ def main():
                                 scene4.destroy()
 
                             winsound.PlaySound('assets/audios/click.wav', winsound.SND_ASYNC)
-                            gui.setBtn('Logo\nmodificado', next, 0.13, 0.26, 98, 38, 'black', 'brown1')
+                            gui.setBtn('Logo\nmodificado', next, 0.13, 0.26, 98, 38)
 
                         winsound.PlaySound('assets/audios/click.wav', winsound.SND_ASYNC)
-                        gui.setBtn('Escudo modificado', next, 0.4, 0.3, 160, 19, 'black', 'brown1')
-                    gui.setBtn('Sin Protocolo de transferencia seguro (https)', next, 0.28, 0.17, 380, 19, 'black', 'brown1')
+                        gui.setBtn('Escudo modificado', next, 0.4, 0.3, 160, 19)
+                    gui.setBtn('Sin Protocolo de transferencia seguro (https)', next, 0.28, 0.17, 380, 19)
                     scene4.mainloop()
 
                     if scenes.scene == 'window':
@@ -149,7 +149,7 @@ def main():
                                 gui.setImg(bg, 0.5, 0.5)
                                 brwser = PhotoImage(file = 'assets/images/browser.png')
                                 gui.setImg(brwser, 0.5, 0.4)
-                                gui.setLbl('¿Invirtiría usted en esta página?', 15, 0.5, 0.8, 'goldenrod', 'gray2')
+                                gui.setLbl('¿Invirtiría usted en esta página?', 15, 0.5, 0.8)
                                 def reset():
                                     scenes.scene = 'window'
                                     scenes.getScene(4)
@@ -157,8 +157,8 @@ def main():
                                 def bank():
                                     scenes.scene = 'bank'
                                     window.destroy()
-                                gui.setBtn('SÍ, es una página segura', reset, 0.35, 0.9, 260, 40, 'goldenrod', 'gray10')
-                                gui.setBtn('No, es muy sospechoso', bank, 0.65, 0.9, 250, 40, 'goldenrod', 'gray10')
+                                gui.setBtn('SÍ, es una página segura', reset, 0.35, 0.9, 260, 40)
+                                gui.setBtn('No, es muy sospechoso', bank, 0.65, 0.9, 250, 40)
                                 window.mainloop()
                             else:
                                 break
@@ -171,7 +171,7 @@ def main():
                             gui.setImg(bg, 0.5, 0.5)
                             bnk = PhotoImage(file = 'assets/images/bank.png')
                             gui.setImg(bnk, 0.5, 0.53)
-                            gui.setLbl('Mire aquí una página de un sitio web oficial de un banco:', 12, 0.5, 0.04, 'goldenrod', 'gray2')
+                            gui.setLbl('Mire aquí una página de un sitio web oficial de un banco:', 12, 0.5, 0.04)
                             def scene5():
                                 scenes.scene = 5
                                 bank.destroy()
@@ -186,7 +186,7 @@ def main():
                                 gui.setWindow()
                                 bg = PhotoImage(file = bgPath)
                                 gui.setImg(bg, 0.5, 0.5)
-                                gui.setLbl('¿Invertiría usted en esta página?', 22, 0.5, 0.2, 'goldenrod', 'gray2')
+                                gui.setLbl('¿Invertiría usted en esta página?', 22, 0.5, 0.2)
                                 def reset():
                                     scenes.getScene(5)
                                     scenes.scene = 'window'
@@ -194,8 +194,8 @@ def main():
                                 def next():
                                     scenes.scene = 'next'
                                     scene5.destroy()
-                                gui.setBtn('Si, y acepto el bono de inversión', reset, 0.35, 0.5, 290, 40, 'goldenrod', 'gray10')
-                                gui.setBtn('No, es muy sospechoso', next, 0.65, 0.5, 230, 40, 'goldenrod', 'gray10')
+                                gui.setBtn('Si, y acepto el bono de inversión', reset, 0.35, 0.5, 290, 40)
+                                gui.setBtn('No, es muy sospechoso', next, 0.65, 0.5, 230, 40)
                                 winsound.PlaySound('assets/audios/audio.wav', winsound.SND_ASYNC) # Reproduce el audio donde se pregunta se teniendo en cuenta lo ocurrido usted habría aceptado el bono.
                                 scene5.mainloop()
 
@@ -207,16 +207,16 @@ def main():
                                         gui.setWindow()
                                         bg = PhotoImage(file = bgPath)
                                         gui.setImg(bg, 0.5, 0.5)
-                                        gui.setLbl(txt[3], 13, 0.5, 0.31, 'goldenrod', 'gray2')
-                                        gui.setLbl('¿Reinvirtiría usted en esta página?', 19, 0.5, 0.7, 'goldenrod', 'gray2')
+                                        gui.setLbl(txt[3], 13, 0.5, 0.31)
+                                        gui.setLbl('¿Reinvirtiría usted en esta página?', 19, 0.5, 0.7)
                                         def reset():
                                             scenes.scene = 'window'
                                             window.destroy()
                                         def next():
                                             scenes.scene = 'next'
                                             window.destroy()
-                                        gui.setBtn('Si, y acepto el bono de inversión', reset, 0.35, 0.9, 270, 40, 'goldenrod', 'gray10')
-                                        gui.setBtn('No, es muy sospechoso', next, 0.65, 0.9, 250, 40, 'goldenrod', 'gray10')
+                                        gui.setBtn('Si, y acepto el bono de inversión', reset, 0.35, 0.9, 270, 40)
+                                        gui.setBtn('No, es muy sospechoso', next, 0.65, 0.9, 250, 40)
                                         window.mainloop()
                                     else:
                                         break
@@ -227,7 +227,7 @@ def main():
                                     gui.setWindow()
                                     bg = PhotoImage(file = bgPath)
                                     gui.setImg(bg, 0.5, 0.5)
-                                    gui.setLbl(txt[4], 12, 0.5, 0.5, 'goldenrod', 'gray2')
+                                    gui.setLbl(txt[4], 12, 0.5, 0.5)
                                     window.mainloop()
                                     scenes.getScene(6) # Muestra la escena donde Javier está sin dinero, desesperado y sin trabajo.
 
