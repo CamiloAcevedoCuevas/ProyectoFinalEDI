@@ -166,56 +166,69 @@ def main():
                         page = Label(bank, image = im)
                         page.place(relx = 0.5, rely = 0.53, anchor = CENTER)
                         gui.set_lbl('Mire aquí una página de un sitio web oficial de un banco:', 12, 0.5, 0.04, 'goldenrod', 'gray2')
-                        bank.after(5000, bank.destroy)
+                        def scene5():
+                            scenes.scene = 5
+                            bank.destroy()
+                        bank.after(5000, scene5)
                         bank.mainloop()
                         
-                        winsound.PlaySound('assets/audios/transition.wav', 0) # Reproduce el audio donde se explica Javier no se dió cuenta que la página era falsa y decidió invertir.
-     
-                        scenes.play_scene(5) # Muestra la escena donde Javier recibe el correo del banco.
-                        scene5 = Tk()
-                        gui.window = scene5
-                        gui.set_window()
-                        img = PhotoImage(file = 'assets/images/background.png')
-                        background = Label(scene5, image = img)
-                        background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
-                        gui.set_lbl('¿Invertiría usted en esta página?', 22, 0.5, 0.2, 'goldenrod', 'gray2')
-                        def reset():
-                            scenes.play_scene(5)
-                            scenes.scene = 'window'
-                            scene5.destroy()
-                        def next():
-                            scenes.scene = 'next'
-                            scene5.destroy()
-                        gui.set_btn('Si, y acepto el bono de inversión', reset, 0.35, 0.5, 290, 40, 'goldenrod', 'gray10')
-                        gui.set_btn('No, es muy sospechoso', next, 0.65, 0.5, 230, 40, 'goldenrod', 'gray10')
-                        scene5.mainloop()
+                        if scenes.scene == 5:
+                            winsound.PlaySound('assets/audios/transition.wav', 0) # Reproduce el audio donde se explica Javier no se dió cuenta que la página era falsa y decidió invertir.
+                            scenes.play_scene(5) # Muestra la escena donde Javier recibe el correo del banco.
+                            scene5 = Tk()
+                            gui.window = scene5
+                            gui.set_window()
+                            img = PhotoImage(file = 'assets/images/background.png')
+                            background = Label(scene5, image = img)
+                            background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
+                            gui.set_lbl('¿Invertiría usted en esta página?', 22, 0.5, 0.2, 'goldenrod', 'gray2')
+                            def reset():
+                                scenes.play_scene(5)
+                                scenes.scene = 'window'
+                                scene5.destroy()
+                            def next():
+                                scenes.scene = 'next'
+                                scene5.destroy()
+                            gui.set_btn('Si, y acepto el bono de inversión', reset, 0.35, 0.5, 290, 40, 'goldenrod', 'gray10')
+                            gui.set_btn('No, es muy sospechoso', next, 0.65, 0.5, 230, 40, 'goldenrod', 'gray10')
+                            scene5.mainloop()
 
-                        while True:
-                            if scenes.scene == 'window':
-                                scenes.scene = None
+                            while True:
+                                if scenes.scene == 'window':
+                                    scenes.scene = None
+                                    window = Tk()
+                                    gui.window = window
+                                    gui.set_window()
+                                    img = PhotoImage(file = 'assets/images/background.png')
+                                    background = Label(window, image = img)
+                                    background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
+                                    gui.set_lbl('¡Ups! Parece que has tomado una mala decisión.\nEl enlace que acabas de hacer clic no era un bono legítimo, sino una trampa diseñada\npara robar tus datos. Las estafas en línea pueden ser muy\nengañosas, y este tipo de fraude es más común de lo que parece.\n\n¿Por qué es una estafa?\n\n-Los enlaces que prometen bonos irresistibles suelen ser intentos de robar tu\ninformación personal o financiera.\n\n-Las empresas legítimas nunca pedirán tus datos por medio de enlaces\no correos sospechosos.', 15, 0.5, 0.25, 'goldenrod', 'gray2')
+                                    gui.set_lbl('¿Reinvirtiría usted en esta página?', 19, 0.5, 0.7, 'goldenrod', 'gray2')
+                                    def reset():
+                                        scenes.scene = 'window'
+                                        scenes.play_scene(5)
+                                        window.destroy()
+                                    def next():
+                                        scenes.scene = 'next'
+                                        window.destroy()
+                                    gui.set_btn('Si, y acepto el bono de inversión', reset, 0.35, 0.9, 270, 40, 'goldenrod', 'gray10')
+                                    gui.set_btn('No, es muy sospechoso', next, 0.65, 0.9, 250, 40, 'goldenrod', 'gray10')
+                                    window.mainloop()
+                                else:
+                                    break
+
+                            if scenes.scene == 'next':
                                 window = Tk()
                                 gui.window = window
                                 gui.set_window()
                                 img = PhotoImage(file = 'assets/images/background.png')
                                 background = Label(window, image = img)
                                 background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
-                                gui.set_lbl('¡Ups! Parece que has tomado una mala decisión.\nEl enlace que acabas de hacer clic no era un bono legítimo, sino una trampa diseñada\npara robar tus datos. Las estafas en línea pueden ser muy\nengañosas, y este tipo de fraude es más común de lo que parece.\n\n¿Por qué es una estafa?\n\n-Los enlaces que prometen bonos irresistibles suelen ser intentos de robar tu\ninformación personal o financiera.\n\n-Las empresas legítimas nunca pedirán tus datos por medio de enlaces\no correos sospechosos.', 12, 0.5, 0.25, 'goldenrod', 'gray2')
-                                gui.set_lbl('¿Reinvirtiría usted en esta página?', 22, 0.5, 0.7, 'goldenrod', 'gray2')
-                                def reset():
-                                    scenes.scene = 'window'
-                                    scenes.play_scene(5)
-                                    window.destroy()
-                                def next():
-                                    scenes.scene = 'next'
-                                    window.destroy()
-                                gui.set_btn('Si, y acepto el bono de inversión', reset, 0.35, 0.9, 270, 40, 'goldenrod', 'gray10')
-                                gui.set_btn('No, es muy sospechoso', next, 0.65, 0.9, 250, 40, 'goldenrod', 'gray10')
+                                gui.set_lbl('¡Ahora sabes cómo identificar una estafa!\n\nPara avanzar en este juego, asegúrate de tomar decisiones más sabias y proteger tus recursos.\nSi haces clic en ofertas dudosas, podrías perder más que solo dinero.\n\n¡Ten cuidado y no dejes que te engañen, recuerda que lo mejor es DENUNCIAR!', 12, 0.5, 0.5, 'goldenrod', 'gray2')
+                                
                                 window.mainloop()
-                            else:
-                                break
 
-                        if scenes.scene == 'next':
-                            pass
+                                scenes.play_scene(6) # Muestra la escena donde Javier está sin dinero, desesperado y sin trabajo.
 
 if __name__ == '__main__':
     main()
