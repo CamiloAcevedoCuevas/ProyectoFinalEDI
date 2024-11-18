@@ -145,8 +145,8 @@ def main():
                                 background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
                                 im = PhotoImage(file = 'assets/images/browser.png')
                                 browser = Label(window, image = im)
-                                browser.place(relx = 0.5, rely = 0.3, anchor = CENTER)
-                                gui.set_lbl('¿Invirtiría usted en esta página?', 15, 0.5, 0.7, 'goldenrod', 'gray2')
+                                browser.place(relx = 0.5, rely = 0.4, anchor = CENTER)
+                                gui.set_lbl('¿Invirtiría usted en esta página?', 15, 0.5, 0.8, 'goldenrod', 'gray2')
                                 def reset():
                                     scenes.scene = 'window'
                                     scenes.play_scene(4)
@@ -208,7 +208,7 @@ def main():
                                         img = PhotoImage(file = 'assets/images/background.png')
                                         background = Label(window, image = img)
                                         background.place(relx = 0.5, rely = 0.5, anchor = CENTER)
-                                        gui.set_lbl('¡Ups! Parece que has tomado una mala decisión.\nEl enlace que acabas de hacer clic no era un bono legítimo, sino una trampa diseñada\npara robar tus datos. Las estafas en línea pueden ser muy\nengañosas, y este tipo de fraude es más común de lo que parece.\n\n¿Por qué es una estafa?\n\n-Los enlaces que prometen bonos irresistibles suelen ser intentos de robar tu\ninformación personal o financiera.\n\n-Las empresas legítimas nunca pedirán tus datos por medio de enlaces\no correos sospechosos.', 13, 0.5, 0.31, 'goldenrod', 'gray2')
+                                        gui.set_lbl('¡Ups! Parece que has tomado una mala decisión.\n\nEl enlace que acabas de hacer clic no era un bono legítimo, sino una trampa diseñada\npara robar tus datos. Las estafas en línea pueden ser muy\nengañosas, y este tipo de fraude es más común de lo que parece.\n\n¿Por qué es una estafa?\n\n1. Los enlaces que prometen bonos irresistibles suelen ser intentos de robar tu\ninformación personal o financiera.\n\n2. Las empresas legítimas nunca pedirán tus datos por medio de enlaces\no correos sospechosos.', 13, 0.5, 0.31, 'goldenrod', 'gray2')
                                         gui.set_lbl('¿Reinvirtiría usted en esta página?', 19, 0.5, 0.7, 'goldenrod', 'gray2')
                                         def reset():
                                             scenes.scene = 'window'
@@ -234,8 +234,6 @@ def main():
                                     window.mainloop()
 
                                     scenes.play_scene(6) # Muestra la escena donde Javier está sin dinero, desesperado y sin trabajo.
-
-        print("xd")
 
 if __name__ == '__main__':
     main()
