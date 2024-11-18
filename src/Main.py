@@ -27,8 +27,8 @@ def main():
     gui.window = menu
     gui.setWindow()
     bg = PhotoImage(file = bgPath)
-    gui.setImg(bg, 0.5, 0.5)
-    gui.setLbl('El Poder De Un Click', 24, 0.5, 0.15)
+    gui.setImg(bg, 0.5)
+    gui.setLbl('El Poder De Un Click', 24, 0.15)
     def start():
         scenes.scene = 'start'
         menu.destroy()
@@ -43,10 +43,10 @@ def main():
         gui.window = start
         gui.setWindow()
         bg = PhotoImage(file = bgPath)
-        gui.setImg(bg, 0.5, 0.5)
+        gui.setImg(bg, 0.5)
         # jvr = PhotoImage(file = 'assets/images/javier.png') # Javier's image
         # gui.setImg(jvr, 0.5, 0.3)
-        gui.setLbl(txt[0], 12, 0.5, 0.85)
+        gui.setLbl(txt[0], 12, 0.85)
         winsound.PlaySound('assets/audios/javier.wav', winsound.SND_ASYNC) # Reproduce el audio donde se presenta a Javier.
         def scene1():
             scenes.scene = 1
@@ -60,8 +60,8 @@ def main():
             gui.window = scene1
             gui.setWindow()
             bg = PhotoImage(file = bgPath)
-            gui.setImg(bg, 0.5, 0.5)
-            gui.setLbl('¿Usted haría lo mismo que Javier?', 22, 0.5, 0.2)
+            gui.setImg(bg, 0.5)
+            gui.setLbl('¿Usted haría lo mismo que Javier?', 22, 0.2)
             def scene2():
                 scenes.scene = 2
                 scene1.destroy()
@@ -81,8 +81,8 @@ def main():
                         gui.window = scene2
                         gui.setWindow()
                         bg = PhotoImage(file = bgPath)
-                        gui.setImg(bg, 0.5, 0.5)
-                        gui.setLbl('¿Está seguro de que fue lo correcto?', 22, 0.5, 0.2)
+                        gui.setImg(bg, 0.5)
+                        gui.setLbl('¿Está seguro de que fue lo correcto?', 22, 0.2)
                         def reset():
                             scenes.scene = 2
                             scene2.destroy()
@@ -102,9 +102,9 @@ def main():
                 gui.window = scene3
                 gui.setWindow()
                 bg = PhotoImage(file = bgPath)
-                gui.setImg(bg, 0.5, 0.5)
+                gui.setImg(bg, 0.5)
                 def cookies():
-                    gui.setLbl(txt[2], 12, 0.5, 0.72)
+                    gui.setLbl(txt[2], 12, 0.72)
                     winsound.PlaySound('assets/audios/cookies.wav', winsound.SND_ASYNC) # Reproduce el audio con la explicación de las cookies.
                     def scene4():
                         scenes.scene = 4
@@ -119,10 +119,10 @@ def main():
                     gui.window = scene4
                     gui.setWindow()
                     bg = PhotoImage(file = bgPath)
-                    gui.setImg(bg, 0.5, 0.5)
+                    gui.setImg(bg, 0.5)
                     axi = PhotoImage(file = 'assets/images/axi.png')
-                    gui.setImg(axi, 0.5, 0.53)
-                    gui.setLbl('Hay algo extraño en esta página, identifíquelo:', 12, 0.5, 0.04)
+                    gui.setImg(axi, 0.53)
+                    gui.setLbl('Hay algo extraño en esta página, identifíquelo:', 12, 0.04)
                     def next():
                         def next():
                             def next():
@@ -144,10 +144,10 @@ def main():
                                 gui.window = window
                                 gui.setWindow()
                                 bg = PhotoImage(file = bgPath)
-                                gui.setImg(bg, 0.5, 0.5)
+                                gui.setImg(bg, 0.5)
                                 brwser = PhotoImage(file = 'assets/images/browser.png')
-                                gui.setImg(brwser, 0.5, 0.4)
-                                gui.setLbl('¿Invirtiría usted en esta página?', 15, 0.5, 0.8)
+                                gui.setImg(brwser, 0.4)
+                                gui.setLbl('¿Invirtiría usted en esta página?', 15, 0.8)
                                 def reset():
                                     scenes.scene = 'window'
                                     scenes.getScene(4)
@@ -166,10 +166,10 @@ def main():
                             gui.window = bank
                             gui.setWindow()
                             bg = PhotoImage(file = bgPath)
-                            gui.setImg(bg, 0.5, 0.5)
+                            gui.setImg(bg, 0.5)
                             bnk = PhotoImage(file = 'assets/images/bank.png')
-                            gui.setImg(bnk, 0.5, 0.53)
-                            gui.setLbl('Mire aquí una página de un sitio web oficial de un banco:', 12, 0.5, 0.04)
+                            gui.setImg(bnk, 0.53)
+                            gui.setLbl('Mire aquí una página de un sitio web oficial de un banco:', 12, 0.04)
                             def scene5():
                                 scenes.scene = 5
                                 bank.destroy()
@@ -183,8 +183,8 @@ def main():
                                 gui.window = scene5
                                 gui.setWindow()
                                 bg = PhotoImage(file = bgPath)
-                                gui.setImg(bg, 0.5, 0.5)
-                                gui.setLbl('¿Invertiría usted en esta página?', 22, 0.5, 0.2)
+                                gui.setImg(bg, 0.5)
+                                gui.setLbl('¿Invertiría usted en esta página?', 22, 0.2)
                                 def reset():
                                     scenes.getScene(5)
                                     scenes.scene = 'window'
@@ -204,9 +204,9 @@ def main():
                                         gui.window = window
                                         gui.setWindow()
                                         bg = PhotoImage(file = bgPath)
-                                        gui.setImg(bg, 0.5, 0.5)
-                                        gui.setLbl(txt[3], 13, 0.5, 0.31)
-                                        gui.setLbl('¿Reinvirtiría usted en esta página?', 19, 0.5, 0.7)
+                                        gui.setImg(bg, 0.5)
+                                        gui.setLbl(txt[3], 13, 0.31)
+                                        gui.setLbl('¿Reinvirtiría usted en esta página?', 19, 0.7)
                                         def reset():
                                             scenes.scene = 'window'
                                             window.destroy()
@@ -224,8 +224,8 @@ def main():
                                     gui.window = window
                                     gui.setWindow()
                                     bg = PhotoImage(file = bgPath)
-                                    gui.setImg(bg, 0.5, 0.5)
-                                    gui.setLbl(txt[4], 12, 0.5, 0.5)
+                                    gui.setImg(bg, 0.5)
+                                    gui.setLbl(txt[4], 12, 0.5)
                                     window.mainloop()
                                     scenes.getScene(6) # Muestra la escena donde Javier está sin dinero, desesperado y sin trabajo.
 

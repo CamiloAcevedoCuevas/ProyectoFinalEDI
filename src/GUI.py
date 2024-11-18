@@ -12,17 +12,16 @@ class GUI ():
         self.window.geometry('1024x576')
         self.window.resizable(False, False)
 
-    def setLbl(self, txt, fs, relx, rely):
+    def setLbl(self, txt, fs, rely):
         """Establish A Label
 
         Args:
             txt (str): Label Text
             fs (int): Font Size
-            relx (float): Relative X Position
             rely (float): Relative Y Position
         """
         label = Label(self.window, text = txt, fg = 'goldenrod', bg = 'gray2', font = ('Georgia', fs, 'bold'))
-        label.place(relx = relx, rely = rely, anchor = CENTER)
+        label.place(relx = 0.5, rely = rely, anchor = CENTER)
 
     def setBtn(self, txt, command, relx, rely):
         """Establish A Button
@@ -36,13 +35,12 @@ class GUI ():
         button = Button(self.window, text = txt, fg = 'goldenrod', bg = 'gray10', font = ('Georgia', 13, 'bold'), command = command)
         button.place(relx = relx, rely = rely, anchor = CENTER)
 
-    def setImg(self, img, relx, rely):
+    def setImg(self, img, rely):
         """Establish An Image
 
         Args:
             img (str): Image
-            relx (float): Relative X Position
             rely (float): Relative Y Position
         """
         img = Label(self.window, image = img)
-        img.place(relx = relx, rely = rely, anchor = CENTER)
+        img.place(relx = 0.5, rely = rely, anchor = CENTER)
