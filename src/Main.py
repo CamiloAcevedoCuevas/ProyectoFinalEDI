@@ -16,7 +16,7 @@ def main():
         scenes.addScene(scene, i)
 
     bgPath = 'assets/images/background.png'
-    txt = ['Él es Javier. Javier es un excéntrico empresario de bienes raíces. Lleva una vida de ensueño en la ciudad\nde Nueva York y cuenta con innumerables inversiones exitosas. Pero un día, todo eso cambió...\nJavier tiene un defecto, no sabe mucho sobre la seguridad en internet. Tu deberás identificar\nsi las acciones de Javier fueron las mejores o si aún tiene cosas que aprender.',
+    txt = ['Él es Javier. Javier es un excéntrico empresario de bienes raíces. Lleva una vida de ensueño en la ciudad\nde Nueva York y cuenta con innumerables inversiones exitosas. Pero un día, todo eso cambió...\nJavier tiene un defecto, no sabe mucho sobre la seguridad en internet. Tu deberás identificar\nsi las acciones de Javier fueron las mejores o si aún tiene cosas que aprender. A través de la historia\nde Javier aprenderás a identificar los riesgos de la navegación en internet.',
             'SÍ, cualquier red de internet me sirve lo importante es reunirme a hablar de trabajo, no hay ningún riesgo',
             'Las cookies son pequeños archivos de texto que\nlos sitios web guardan en tu dispositivo cuando los visitas.\nSirven para almacenar información sobre tu actividad en línea',
             '¡Ups! Parece que has tomado una mala decisión.\n\nEl enlace que acabas de hacer clic no era un bono legítimo, sino una trampa diseñada\npara robar tus datos. Las estafas en línea pueden ser muy\nengañosas, y este tipo de fraude es más común de lo que parece.\n\n¿Por qué es una estafa?\n\n1. Los enlaces que prometen bonos irresistibles suelen ser intentos de robar tu\ninformación personal o financiera.\n\n2. Las empresas legítimas nunca pedirán tus datos por medio de enlaces\no correos sospechosos.',
@@ -52,7 +52,7 @@ def main():
         def scene1():
             scenes.scene = 1
             start.destroy()
-        start.after(5000, scene1)
+        start.after(35000, scene1)
         start.mainloop()
 
         if scenes.scene == 1:
@@ -110,7 +110,7 @@ def main():
                     def scene4():
                         scenes.scene = 4
                         scene3.destroy()
-                    scene3.after(5000, scene4)
+                    scene3.after(10000, scene4)
                 gui.setBtn('¿Cookies?', cookies, 0.5, 0.5)
                 scene3.mainloop()
                 
