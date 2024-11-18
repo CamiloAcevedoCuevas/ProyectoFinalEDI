@@ -98,7 +98,7 @@ def main():
 
             if scenes.scene == 3:
                 scenes.getScene(3) # Muestra la secuencia donde se felicita al jugador por haber identificado la actividad sospechosa.
-                winsound.PlaySound('assets/audios/transicion.wav', 0) # Reproduce el audio donde explica que las cookies de Javier fueron robadas.
+                winsound.PlaySound('assets/audios/transition1.wav', 0) # Reproduce el audio donde explica que las cookies de Javier fueron robadas.
                 scene3 = Tk()
                 gui.window = scene3
                 gui.setWindow()
@@ -178,7 +178,7 @@ def main():
                             bank.mainloop()
 
                             if scenes.scene == 5:
-                                winsound.PlaySound('assets/audios/transition.wav', 0) # Reproduce el audio donde se explica Javier no se dió cuenta que la página era falsa y decidió invertir.
+                                winsound.PlaySound('assets/audios/transition2.wav', 0) # Reproduce el audio donde se explica Javier no se dió cuenta que la página era falsa y decidió invertir.
                                 scenes.getScene(5) # Muestra la escena donde Javier recibe el correo del banco.
                                 scene5 = Tk()
                                 gui.window = scene5
