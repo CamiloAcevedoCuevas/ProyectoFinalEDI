@@ -11,7 +11,7 @@ def main():
     scenes = Scenes()
     gui = GUI()
     
-    for i in range(1, 7): # scenes buffering
+    for i in range(1, 8): # scenes buffering
         scene = cv2.VideoCapture(f'assets/videos/video{i}.mp4')
         scenes.addScene(scene, i)
 
