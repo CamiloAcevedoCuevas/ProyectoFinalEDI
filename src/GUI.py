@@ -24,7 +24,7 @@ class GUI ():
         label = Label(self.window, text = txt, fg = 'goldenrod', bg = 'gray2', font = ('Georgia', fs, 'bold'))
         label.place(relx = relx, rely = rely, anchor = CENTER)
 
-    def setBtn(self, txt, command, relx, rely, w, h):
+    def setBtn(self, txt, command, relx, rely):
         """Establish A Button
 
         Args:
@@ -32,11 +32,9 @@ class GUI ():
             command (function): Button Command
             relx (float): Relative X Position
             rely (float): Relative Y Position
-            w (int): Width
-            h (int): Height
         """
-        button = Button(self.window, text = txt, fg = 'goldenrod', bg = 'gray10', font = ('Georgia', 12, 'bold'), command = command)
-        button.place(relx = relx, rely = rely, width = w, height = h, anchor = CENTER)
+        button = Button(self.window, text = txt, fg = 'goldenrod', bg = 'gray10', font = ('Georgia', 13, 'bold'), command = command)
+        button.place(relx = relx, rely = rely, anchor = CENTER)
 
     def setImg(self, img, relx, rely):
         """Establish An Image
