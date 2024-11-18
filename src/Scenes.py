@@ -33,7 +33,7 @@ class Scenes:
         current = self.head
         while current is not None:
             if current.index == index:
-                winsound.PlaySound(f'assets/audios/audio{index}.wav', winsound.SND_ASYNC) # Here the audio of the scene is played.
+                winsound.PlaySound(f'assets/audios/scene{index}.wav', winsound.SND_ASYNC) # Here the audio of the scene is played.
                 while True:
                     ret, frame = current.scene.read()
                     if ret:
