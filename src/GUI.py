@@ -9,7 +9,7 @@ class GUI ():
         """Establish A Window."""
         self.window.iconbitmap('assets/images/logo.ico')
         self.window.title('El Poder De Un Click')
-        self.window.geometry('1024x576')
+        self.window.geometry('1280x720')
         self.window.resizable(False, False)
 
     def setLbl(self, txt, fs, rely):
@@ -44,4 +44,3 @@ class GUI ():
         """
         img = Label(self.window, image = img)
         img.place(relx = 0.5, rely = rely, anchor = CENTER)
-        
