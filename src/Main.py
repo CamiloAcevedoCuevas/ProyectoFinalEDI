@@ -12,7 +12,7 @@ def main():
     gui = GUI()
     
     for i in range(1, 8): # scenes buffering
-        scene = cv2.VideoCapture(f'assets/videos/video{i}.mp4')
+        scene = cv2.VideoCapture(f'assets/videos/scene{i}.mp4')
         scenes.addScene(scene, i)
 
     bgPath = 'assets/images/background.png'
@@ -45,14 +45,14 @@ def main():
         gui.setWindow()
         bg = PhotoImage(file = bgPath)
         gui.setImg(bg, 0.5)
-        # jvr = PhotoImage(file = 'assets/images/javier.png') # Javier's image
-        # gui.setImg(jvr, 0.5, 0.3)
-        gui.setLbl(txt[0], 13, 0.85)
+        jvr = PhotoImage(file = 'assets/images/javier.png') # Javier's image
+        gui.setImg(jvr, 0.4)
+        gui.setLbl(txt[0], 13, 0.88)
         winsound.PlaySound('assets/audios/javier.wav', winsound.SND_ASYNC) # Reproduce el audio donde se presenta a Javier.
         def scene1():
             scenes.scene = 1
             start.destroy()
-        start.after(35000, scene1)
+        start.after(33000, scene1)
         start.mainloop()
 
         if scenes.scene == 1:

@@ -38,7 +38,7 @@ class Scenes:
                     ret, frame = current.scene.read()
                     if ret:
                         cv2.imshow('El Poder De Un Click', frame)
-                        cv2.waitKey(20)
+                        cv2.waitKey(5)
                     else:
                         break
                 cv2.destroyAllWindows()

@@ -44,3 +44,4 @@ class GUI ():
         """
         img = Label(self.window, image = img)
         img.place(relx = 0.5, rely = rely, anchor = CENTER)
+        
