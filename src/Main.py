@@ -15,18 +15,10 @@ def main():
         scene = cv2.VideoCapture(f'assets/videos/scene{i}.mp4')
         scenes.addScene(scene, i)
 
-    bgPath = 'assets/images/background.png'
-    txt = ['Él es Javier. Javier es un excéntrico empresario de bienes raíces. Lleva una vida de ensueño en la ciudad\nde Nueva York y cuenta con innumerables inversiones exitosas. Pero un día, todo eso cambió...\nJavier tiene un defecto, no sabe mucho sobre la seguridad en internet. Tu deberás identificar\nsi las acciones de Javier fueron las mejores o si aún tiene cosas que aprender. A través de la historia\nde Javier aprenderás a identificar los riesgos de la navegación en internet.',
-            'SÍ, cualquier red de internet me sirve lo importante es reunirme a hablar de trabajo, no hay ningún riesgo',
-            'Las cookies son pequeños archivos de texto que\nlos sitios web guardan en tu dispositivo cuando los visitas.\nSirven para almacenar información sobre tu actividad en línea',
-            '¡Ups! Parece que has tomado una mala decisión.\n\nEl enlace que acabas de hacer clic no era un bono legítimo, sino una trampa diseñada\npara robar tus datos. Las estafas en línea pueden ser muy\nengañosas, y este tipo de fraude es más común de lo que parece.\n\n¿Por qué es una estafa?\n\n1. Los enlaces que prometen bonos irresistibles suelen ser intentos de robar tu\ninformación personal o financiera.\n\n2. Las empresas legítimas nunca pedirán tus datos por medio de enlaces\no correos sospechosos.',
-            '¡Ahora sabes cómo identificar una estafa!\n\nPara avanzar en este juego, asegúrate de tomar decisiones más sabias y proteger tus recursos.\nSi haces clic en ofertas dudosas, podrías perder más que solo dinero.\n\n¡Ten cuidado y no dejes que te engañen, recuerda que lo mejor es DENUNCIAR!']
-    
-
     menu = Tk() # main menu
     gui.window = menu
     gui.setWindow()
-    bg = PhotoImage(file = bgPath)
+    bg = PhotoImage(file = 'assets/images/background.png')
     gui.setImg(bg, 0.5)
     logo = PhotoImage(file = 'assets/images/logo.png')
     gui.setImg(logo, 0.32)
@@ -43,11 +35,11 @@ def main():
         start = Tk()
         gui.window = start
         gui.setWindow()
-        bg = PhotoImage(file = bgPath)
+        bg = PhotoImage(file = 'assets/images/background.png')
         gui.setImg(bg, 0.5)
         jvr = PhotoImage(file = 'assets/images/javier.png') # Javier's image
         gui.setImg(jvr, 0.4)
-        gui.setLbl(txt[0], 13, 0.88)
+        gui.setLbl(scenes.txt[0], 13, 0.88)
         winsound.PlaySound('assets/audios/javier.wav', winsound.SND_ASYNC) # Reproduce el audio donde se presenta a Javier.
         def scene1():
             scenes.scene = 1
@@ -60,7 +52,7 @@ def main():
             scene1 = Tk()
             gui.window = scene1
             gui.setWindow()
-            bg = PhotoImage(file = bgPath)
+            bg = PhotoImage(file = 'assets/images/background.png')
             gui.setImg(bg, 0.5)
             gui.setLbl('¿Usted haría lo mismo que Javier?', 22, 0.2)
             def scene2():
@@ -69,7 +61,7 @@ def main():
             def scene3():
                 scenes.scene = 3
                 scene1.destroy()
-            gui.setBtn(txt[1], scene2, 0.5, 0.5)
+            gui.setBtn(scenes.txt[1], scene2, 0.5, 0.5)
             gui.setBtn('No, es muy sospechoso', scene3, 0.5, 0.65)
             scene1.mainloop()
 
@@ -81,7 +73,7 @@ def main():
                         scene2 = Tk()
                         gui.window = scene2
                         gui.setWindow()
-                        bg = PhotoImage(file = bgPath)
+                        bg = PhotoImage(file = 'assets/images/background.png')
                         gui.setImg(bg, 0.5)
                         gui.setLbl('¿Está seguro de que fue lo correcto?', 22, 0.2)
                         def reset():
@@ -90,7 +82,7 @@ def main():
                         def scene3():
                             scenes.scene = 3
                             scene2.destroy()
-                        gui.setBtn(txt[1], reset, 0.5, 0.5)
+                        gui.setBtn(scenes.txt[1], reset, 0.5, 0.5)
                         gui.setBtn('No, es muy sospechoso', scene3, 0.5, 0.65)
                         scene2.mainloop()
                     else:
@@ -102,10 +94,10 @@ def main():
                 scene3 = Tk()
                 gui.window = scene3
                 gui.setWindow()
-                bg = PhotoImage(file = bgPath)
+                bg = PhotoImage(file = 'assets/images/background.png')
                 gui.setImg(bg, 0.5)
                 def cookies():
-                    gui.setLbl(txt[2], 13, 0.72)
+                    gui.setLbl(scenes.txt[2], 13, 0.72)
                     winsound.PlaySound('assets/audios/cookies.wav', winsound.SND_ASYNC) # Reproduce el audio con la explicación de las cookies.
                     def scene4():
                         scenes.scene = 4
@@ -119,7 +111,7 @@ def main():
                     scene4 = Tk()
                     gui.window = scene4
                     gui.setWindow()
-                    bg = PhotoImage(file = bgPath)
+                    bg = PhotoImage(file = 'assets/images/background.png')
                     gui.setImg(bg, 0.5)
                     axi = PhotoImage(file = 'assets/images/axi.png')
                     gui.setImg(axi, 0.53)
@@ -144,7 +136,7 @@ def main():
                                 window = Tk()
                                 gui.window = window
                                 gui.setWindow()
-                                bg = PhotoImage(file = bgPath)
+                                bg = PhotoImage(file = 'assets/images/background.png')
                                 gui.setImg(bg, 0.5)
                                 brwser = PhotoImage(file = 'assets/images/browser.png')
                                 gui.setImg(brwser, 0.4)
@@ -166,7 +158,7 @@ def main():
                             bank = Tk()
                             gui.window = bank
                             gui.setWindow()
-                            bg = PhotoImage(file = bgPath)
+                            bg = PhotoImage(file = 'assets/images/background.png')
                             gui.setImg(bg, 0.5)
                             bnk = PhotoImage(file = 'assets/images/bank.png')
                             gui.setImg(bnk, 0.53)
@@ -183,7 +175,7 @@ def main():
                                 scene5 = Tk()
                                 gui.window = scene5
                                 gui.setWindow()
-                                bg = PhotoImage(file = bgPath)
+                                bg = PhotoImage(file = 'assets/images/background.png')
                                 gui.setImg(bg, 0.5)
                                 gui.setLbl('¿Invertiría usted en esta página?', 22, 0.2)
                                 def reset():
@@ -204,9 +196,9 @@ def main():
                                         window = Tk()
                                         gui.window = window
                                         gui.setWindow()
-                                        bg = PhotoImage(file = bgPath)
+                                        bg = PhotoImage(file = 'assets/images/background.png')
                                         gui.setImg(bg, 0.5)
-                                        gui.setLbl(txt[3], 13, 0.31)
+                                        gui.setLbl(scenes.txt[3], 13, 0.31)
                                         gui.setLbl('¿Reinvirtiría usted en esta página?', 19, 0.7)
                                         def reset():
                                             scenes.scene = 'window'
@@ -224,11 +216,12 @@ def main():
                                     window = Tk()
                                     gui.window = window
                                     gui.setWindow()
-                                    bg = PhotoImage(file = bgPath)
+                                    bg = PhotoImage(file = 'assets/images/background.png')
                                     gui.setImg(bg, 0.5)
-                                    gui.setLbl(txt[4], 12, 0.5)
+                                    gui.setLbl(scenes.txt[4], 12, 0.5)
                                     window.mainloop()
                                     scenes.getScene(6) # Muestra la escena donde Javier está sin dinero, desesperado y sin trabajo.
 
 if __name__ == '__main__':
     main()
+    
