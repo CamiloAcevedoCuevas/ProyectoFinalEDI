@@ -187,7 +187,6 @@ def main():
                                     scene5.destroy()
                                 gui.setBtn('Si, y acepto el bono de inversión', reset, 0.35, 0.5)
                                 gui.setBtn('No, es muy sospechoso', next, 0.65, 0.5)
-                                winsound.PlaySound('assets/audios/audio.wav', winsound.SND_ASYNC) # Reproduce el audio donde se pregunta se teniendo en cuenta lo ocurrido usted habría aceptado el bono.
                                 scene5.mainloop()
 
                                 while True:
