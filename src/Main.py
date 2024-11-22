@@ -44,9 +44,9 @@ def main():
         def scene1():
             scenes.scene = 1
             start.destroy()
-        start.after(33000, scene1)
+        start.after(34000, scene1)
         start.mainloop()
-        
+
         if scenes.scene == 1:
             scenes.getScene(1, 5) # Reproduce la escena donde Javier se conecta al wifi.
             scene1 = Tk()
@@ -89,7 +89,7 @@ def main():
                         break
 
             if scenes.scene == 3:
-                scenes.getScene(3) # Muestra la secuencia donde se felicita al jugador por haber identificado la actividad sospechosa.
+                scenes.getScene(3, 0) # Muestra la secuencia donde se felicita al jugador por haber identificado la actividad sospechosa.
                 winsound.PlaySound('assets/audios/transition1.wav', 0) # Reproduce el audio donde explica que las cookies de Javier fueron robadas.
                 scene3 = Tk()
                 gui.window = scene3
@@ -105,9 +105,9 @@ def main():
                     scene3.after(10000, scene4)
                 gui.setBtn('¿Cookies?', cookies, 0.5, 0.5)
                 scene3.mainloop()
-                
+
                 if scenes.scene == 4:
-                    scenes.getScene(4) # Muestra la escena donde Javier encuentra Axi.
+                    scenes.getScene(4, 0) # Muestra la escena donde Javier encuentra Axi.
                     scene4 = Tk()
                     gui.window = scene4
                     gui.setWindow()
@@ -123,10 +123,10 @@ def main():
                                 winsound.PlaySound('assets/audios/click.wav', winsound.SND_ASYNC)
                                 scene4.destroy()
                             winsound.PlaySound('assets/audios/click.wav', winsound.SND_ASYNC)
-                            gui.setBtn('Logo\nmodificado', next, 0.17, 0.28)
+                            gui.setBtn('Logo\nmodificado', next, 0.158, 0.28)
                         winsound.PlaySound('assets/audios/click.wav', winsound.SND_ASYNC)
-                        gui.setBtn('Escudo modificado', next, 0.45, 0.31)
-                    gui.setBtn('Sin Protocolo de transferencia seguro (https)', next, 0.32, 0.2)
+                        gui.setBtn('Escudo modificado', next, 0.42, 0.27)
+                    gui.setBtn('Sin Protocolo de transferencia seguro (https)', next, 0.3, 0.205)
                     scene4.mainloop()
 
                     if scenes.scene == 'window':
@@ -143,7 +143,7 @@ def main():
                                 gui.setLbl('¿Invirtiría usted en esta página?', 15, 0.8)
                                 def reset():
                                     scenes.scene = 'window'
-                                    scenes.getScene(4)
+                                    scenes.getScene(4, 0)
                                     window.destroy()
                                 def bank():
                                     scenes.scene = 'bank'
@@ -171,7 +171,7 @@ def main():
 
                             if scenes.scene == 5:
                                 winsound.PlaySound('assets/audios/transition2.wav', 0) # Reproduce el audio donde se explica Javier no se dió cuenta que la página era falsa y decidió invertir.
-                                scenes.getScene(5) # Muestra la escena donde Javier recibe el correo del banco.
+                                scenes.getScene(5, 0) # Muestra la escena donde Javier recibe el correo del banco.
                                 scene5 = Tk()
                                 gui.window = scene5
                                 gui.setWindow()
@@ -179,7 +179,7 @@ def main():
                                 gui.setImg(bg, 0.5)
                                 gui.setLbl('¿Invertiría usted en esta página?', 22, 0.2)
                                 def reset():
-                                    scenes.getScene(5)
+                                    scenes.getScene(5, 0)
                                     scenes.scene = 'window'
                                     scene5.destroy()
                                 def next():
@@ -219,7 +219,7 @@ def main():
                                     gui.setImg(bg, 0.5)
                                     gui.setLbl(scenes.txt[4], 12, 0.5)
                                     window.mainloop()
-                                    scenes.getScene(6) # Muestra la escena donde Javier está sin dinero, desesperado y sin trabajo.
+                                    scenes.getScene(6, 0) # Muestra la escena donde Javier está sin dinero, desesperado y sin trabajo.
 
 if __name__ == '__main__':
     main()
