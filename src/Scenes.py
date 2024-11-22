@@ -31,11 +31,12 @@ class Scenes:
                 current = current.next
             current.next = new_scene
 
-    def getScene(self, index):
+    def getScene(self, index, rr):
         """Play A Scene
 
         Args:
             index (int): Scene Number
+            rr (int): Refresh Rate
         """
         current = self.head
         while current is not None:
@@ -45,7 +46,7 @@ class Scenes:
                     ret, frame = current.scene.read()
                     if ret:
                         cv2.imshow('El Poder De Un Click', frame)
-                        cv2.waitKey(5)
+                        cv2.waitKey(rr)
                     else:
                         break
                 cv2.destroyAllWindows()

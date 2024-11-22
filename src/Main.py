@@ -46,9 +46,9 @@ def main():
             start.destroy()
         start.after(33000, scene1)
         start.mainloop()
-
+        
         if scenes.scene == 1:
-            scenes.getScene(1) # Reproduce la escena donde Javier se conecta al wifi.
+            scenes.getScene(1, 5) # Reproduce la escena donde Javier se conecta al wifi.
             scene1 = Tk()
             gui.window = scene1
             gui.setWindow()
@@ -69,7 +69,7 @@ def main():
                 while True:
                     if scenes.scene == 2:
                         scenes.scene = None
-                        scenes.getScene(2) # Muestra la secuencia donde Javier recuerda la conversación con su primo Juan.
+                        scenes.getScene(2, 9) # Muestra la secuencia donde Javier recuerda la conversación con su primo Juan.
                         scene2 = Tk()
                         gui.window = scene2
                         gui.setWindow()
@@ -123,10 +123,10 @@ def main():
                                 winsound.PlaySound('assets/audios/click.wav', winsound.SND_ASYNC)
                                 scene4.destroy()
                             winsound.PlaySound('assets/audios/click.wav', winsound.SND_ASYNC)
-                            gui.setBtn('Logo\nmodificado', next, 0.13, 0.26)
+                            gui.setBtn('Logo\nmodificado', next, 0.17, 0.28)
                         winsound.PlaySound('assets/audios/click.wav', winsound.SND_ASYNC)
-                        gui.setBtn('Escudo modificado', next, 0.4, 0.3)
-                    gui.setBtn('Sin Protocolo de transferencia seguro (https)', next, 0.28, 0.17)
+                        gui.setBtn('Escudo modificado', next, 0.45, 0.31)
+                    gui.setBtn('Sin Protocolo de transferencia seguro (https)', next, 0.32, 0.2)
                     scene4.mainloop()
 
                     if scenes.scene == 'window':
