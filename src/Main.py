@@ -11,7 +11,7 @@ def main():
     scenes = Scenes()
     gui = GUI()
     
-    for i in range(1, 8): # scenes buffering
+    for i in range(1, 7): # scenes buffering
         scene = cv2.VideoCapture(f'assets/videos/scene{i}.mp4')
         scenes.addScene(scene, i)
 
@@ -79,38 +79,37 @@ def main():
                         def reset():
                             scenes.scene = 2
                             scene2.destroy()
-                        def scene3():
-                            scenes.scene = 3
+                        def next():
+                            scenes.scene = 'congrats'
                             scene2.destroy()
                         gui.setBtn(scenes.txt[1], reset, 0.5, 0.5)
-                        gui.setBtn('No, es muy sospechoso', scene3, 0.5, 0.65)
+                        gui.setBtn('No, es muy sospechoso', next, 0.5, 0.65)
                         scene2.mainloop()
                     else:
                         break
 
-            if scenes.scene == 3:
-                scenes.getScene(3, 0) # Muestra la secuencia donde se felicita al jugador por haber identificado la actividad sospechosa.
-                winsound.PlaySound('assets/audios/transition1.wav', 0) # Reproduce el audio donde explica que las cookies de Javier fueron robadas.
-                scene3 = Tk()
-                gui.window = scene3
+            if scenes.scene == 'congrats':
+                winsound.PlaySound('assets/audios/congrats.wav', 0) # Reproduce el audio donde se felicita al jugador por haber identificado la actividad sospechosa.
+                window = Tk()
+                gui.window = window
                 gui.setWindow()
                 bg = PhotoImage(file = 'assets/images/background.png')
                 gui.setImg(bg, 0.5)
                 def cookies():
                     gui.setLbl(scenes.txt[2], 13, 0.72)
                     winsound.PlaySound('assets/audios/cookies.wav', winsound.SND_ASYNC) # Reproduce el audio con la explicación de las cookies.
-                    def scene4():
-                        scenes.scene = 4
-                        scene3.destroy()
-                    scene3.after(10000, scene4)
+                    def scene3():
+                        scenes.scene = 3
+                        window.destroy()
+                    window.after(10000, scene3)
                 gui.setBtn('¿Cookies?', cookies, 0.5, 0.5)
-                scene3.mainloop()
+                window.mainloop()
 
-                if scenes.scene == 4:
-                    scenes.getScene(4, 12) # Muestra la escena donde Javier encuentra Axi.
+                if scenes.scene == 3:
+                    scenes.getScene(3, 11) # Muestra la escena donde Javier encuentra Axi.
                     winsound.PlaySound('assets/audios/identify.wav', winsound.SND_ASYNC) # Reproduce el audio donde se pide identificar.
-                    scene4 = Tk()
-                    gui.window = scene4
+                    scene3 = Tk()
+                    gui.window = scene3
                     gui.setWindow()
                     bg = PhotoImage(file = 'assets/images/background.png')
                     gui.setImg(bg, 0.5)
@@ -122,13 +121,13 @@ def main():
                             def next():
                                 scenes.scene = 'window'
                                 winsound.PlaySound('assets/audios/click.wav', winsound.SND_ASYNC)
-                                scene4.destroy()
+                                scene3.destroy()
                             winsound.PlaySound('assets/audios/click.wav', winsound.SND_ASYNC)
                             gui.setBtn('Logo\nmodificado', next, 0.158, 0.28)
                         winsound.PlaySound('assets/audios/click.wav', winsound.SND_ASYNC)
                         gui.setBtn('Escudo modificado', next, 0.42, 0.27)
                     gui.setBtn('Sin Protocolo de transferencia seguro (https)', next, 0.3, 0.205)
-                    scene4.mainloop()
+                    scene3.mainloop()
 
                     if scenes.scene == 'window':
                         while True:
@@ -144,7 +143,7 @@ def main():
                                 gui.setLbl('¿Invirtiría usted en esta página?', 15, 0.8)
                                 def reset():
                                     scenes.scene = 'window'
-                                    scenes.getScene(4, 12)
+                                    scenes.getScene(3, 12)
                                     window.destroy()
                                 def bank():
                                     scenes.scene = 'bank'
@@ -164,31 +163,31 @@ def main():
                             bnk = PhotoImage(file = 'assets/images/bank.png')
                             gui.setImg(bnk, 0.53)
                             gui.setLbl('Mire aquí una página de un sitio web oficial de un banco:', 14, 0.04)
-                            def scene5():
-                                scenes.scene = 5
+                            def scene4():
+                                scenes.scene = 4
                                 bank.destroy()
-                            bank.after(5000, scene5)
+                            bank.after(5000, scene4)
                             bank.mainloop()
 
-                            if scenes.scene == 5:
+                            if scenes.scene == 4:
                                 winsound.PlaySound('assets/audios/transition2.wav', 0) # Reproduce el audio donde se explica Javier no se dió cuenta que la página era falsa y decidió invertir.
-                                scenes.getScene(5, 0) # Muestra la escena donde Javier recibe el correo del banco.
-                                scene5 = Tk()
-                                gui.window = scene5
+                                scenes.getScene(4, 13) # Muestra la escena donde Javier recibe el correo del banco.
+                                scene4 = Tk()
+                                gui.window = scene4
                                 gui.setWindow()
                                 bg = PhotoImage(file = 'assets/images/background.png')
                                 gui.setImg(bg, 0.5)
                                 gui.setLbl('¿Invertiría usted en esta página?', 22, 0.2)
                                 def reset():
-                                    scenes.getScene(5, 0)
+                                    scenes.getScene(4, 13)
                                     scenes.scene = 'window'
-                                    scene5.destroy()
+                                    scene4.destroy()
                                 def next():
                                     scenes.scene = 'next'
-                                    scene5.destroy()
+                                    scene4.destroy()
                                 gui.setBtn('Si, y acepto el bono de inversión', reset, 0.35, 0.5)
                                 gui.setBtn('No, es muy sospechoso', next, 0.65, 0.5)
-                                scene5.mainloop()
+                                scene4.mainloop()
 
                                 while True:
                                     if scenes.scene == 'window':
