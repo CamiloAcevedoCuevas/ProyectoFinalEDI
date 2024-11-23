@@ -107,7 +107,8 @@ def main():
                 scene3.mainloop()
 
                 if scenes.scene == 4:
-                    scenes.getScene(4, 0) # Muestra la escena donde Javier encuentra Axi.
+                    scenes.getScene(4, 12) # Muestra la escena donde Javier encuentra Axi.
+                    winsound.PlaySound('assets/audios/identify.wav', winsound.SND_ASYNC) # Reproduce el audio donde se pide identificar.
                     scene4 = Tk()
                     gui.window = scene4
                     gui.setWindow()
@@ -143,7 +144,7 @@ def main():
                                 gui.setLbl('¿Invirtiría usted en esta página?', 15, 0.8)
                                 def reset():
                                     scenes.scene = 'window'
-                                    scenes.getScene(4, 0)
+                                    scenes.getScene(4, 12)
                                     window.destroy()
                                 def bank():
                                     scenes.scene = 'bank'
