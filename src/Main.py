@@ -58,18 +58,18 @@ def main():
             def scene2():
                 scenes.scene = 2
                 scene1.destroy()
-            def scene3():
-                scenes.scene = 3
+            def cograts():
+                scenes.scene = 'congrats'
                 scene1.destroy()
             gui.setBtn(scenes.txt[1], scene2, 0.5, 0.5)
-            gui.setBtn('No, es muy sospechoso', scene3, 0.5, 0.65)
+            gui.setBtn('No, es muy sospechoso', cograts, 0.5, 0.65)
             scene1.mainloop()
 
             if scenes.scene == 2:
                 while True:
                     if scenes.scene == 2:
                         scenes.scene = None
-                        scenes.getScene(2, 9) # Muestra la secuencia donde Javier recuerda la conversación con su primo Juan.
+                        scenes.getScene(2, 12) # Muestra la secuencia donde Javier recuerda la conversación con su primo Juan.
                         scene2 = Tk()
                         gui.window = scene2
                         gui.setWindow()
@@ -101,12 +101,12 @@ def main():
                     def scene3():
                         scenes.scene = 3
                         window.destroy()
-                    window.after(10000, scene3)
+                    window.after(11500, scene3)
                 gui.setBtn('¿Cookies?', cookies, 0.5, 0.5)
                 window.mainloop()
 
                 if scenes.scene == 3:
-                    scenes.getScene(3, 12) # Muestra la escena donde Javier encuentra Axi.
+                    scenes.getScene(3, 13) # Muestra la escena donde Javier encuentra Axi.
                     winsound.PlaySound('assets/audios/identify.wav', winsound.SND_ASYNC) # Reproduce el audio donde se pide identificar.
                     scene3 = Tk()
                     gui.window = scene3
@@ -143,7 +143,7 @@ def main():
                                 gui.setLbl('¿Invirtiría usted en esta página?', 15, 0.8)
                                 def reset():
                                     scenes.scene = 'window'
-                                    scenes.getScene(3, 12)
+                                    scenes.getScene(3, 13)
                                     window.destroy()
                                 def bank():
                                     scenes.scene = 'bank'
@@ -170,7 +170,7 @@ def main():
                             bank.mainloop()
 
                             if scenes.scene == 4:
-                                winsound.PlaySound('assets/audios/transition2.wav', 0) # Reproduce el audio donde se explica Javier no se dió cuenta que la página era falsa y decidió invertir.
+                                winsound.PlaySound('assets/audios/transition.wav', 0) # Reproduce el audio donde se explica Javier no se dió cuenta que la página era falsa y decidió invertir.
                                 scenes.getScene(4, 14) # Muestra la escena donde Javier recibe el correo del banco.
                                 scene4 = Tk()
                                 gui.window = scene4
