@@ -106,7 +106,7 @@ def main():
                 window.mainloop()
 
                 if scenes.scene == 3:
-                    scenes.getScene(3, 11) # Muestra la escena donde Javier encuentra Axi.
+                    scenes.getScene(3, 12) # Muestra la escena donde Javier encuentra Axi.
                     winsound.PlaySound('assets/audios/identify.wav', winsound.SND_ASYNC) # Reproduce el audio donde se pide identificar.
                     scene3 = Tk()
                     gui.window = scene3
@@ -171,7 +171,7 @@ def main():
 
                             if scenes.scene == 4:
                                 winsound.PlaySound('assets/audios/transition2.wav', 0) # Reproduce el audio donde se explica Javier no se dió cuenta que la página era falsa y decidió invertir.
-                                scenes.getScene(4, 13) # Muestra la escena donde Javier recibe el correo del banco.
+                                scenes.getScene(4, 14) # Muestra la escena donde Javier recibe el correo del banco.
                                 scene4 = Tk()
                                 gui.window = scene4
                                 gui.setWindow()
@@ -179,7 +179,7 @@ def main():
                                 gui.setImg(bg, 0.5)
                                 gui.setLbl('¿Invertiría usted en esta página?', 22, 0.2)
                                 def reset():
-                                    scenes.getScene(4, 13)
+                                    scenes.getScene(4, 14)
                                     scenes.scene = 'window'
                                     scene4.destroy()
                                 def next():
@@ -219,7 +219,7 @@ def main():
                                     gui.setImg(bg, 0.5)
                                     gui.setLbl(scenes.txt[4], 12, 0.5)
                                     window.mainloop()
-                                    scenes.getScene(6, 0) # Muestra la escena donde Javier está sin dinero, desesperado y sin trabajo.
+                                    scenes.getScene(5, 0) # Muestra la escena donde Javier está sin dinero, desesperado y sin trabajo.
 
 if __name__ == '__main__':
     main()
