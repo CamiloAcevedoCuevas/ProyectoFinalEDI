@@ -214,6 +214,7 @@ def main():
                                             break
 
                                 if scenes.scene == 'next':
+                                    winsound.PlaySound('.', 0)
                                     window = Tk()
                                     gui.window = window
                                     gui.setWindow()
@@ -227,7 +228,6 @@ def main():
                                     window.mainloop()
 
                                     if scenes.scene == 5:
-                                        winsound.PlaySound('.', 0)
                                         scenes.getScene(5, 10) # Muestra la escena donde Javier está sin dinero, desesperado y sin trabajo.
                                         window = Tk()
                                         gui.window = window
