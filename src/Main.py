@@ -69,7 +69,7 @@ def main():
                 while True:
                     if scenes.scene == 2:
                         scenes.scene = None
-                        scenes.getScene(2, 12) # Muestra la secuencia donde Javier recuerda la conversación con su primo Juan.
+                        scenes.getScene(2, 11) # Muestra la secuencia donde Javier recuerda la conversación con su primo Juan.
                         scene2 = Tk()
                         gui.window = scene2
                         gui.setWindow()
@@ -155,6 +155,7 @@ def main():
                                 break
 
                         if scenes.scene == 'bank':
+                            winsound.PlaySound('.', 0)
                             bank = Tk()
                             gui.window = bank
                             gui.setWindow()
@@ -171,7 +172,7 @@ def main():
 
                             if scenes.scene == 4:
                                 winsound.PlaySound('assets/audios/transition.wav', 0) # Reproduce el audio donde se explica Javier no se dió cuenta que la página era falsa y decidió invertir.
-                                scenes.getScene(4, 12) # Muestra la escena donde Javier recibe el correo del banco.
+                                scenes.getScene(4, 14) # Muestra la escena donde Javier recibe el correo del banco.
                                 scene4 = Tk()
                                 gui.window = scene4
                                 gui.setWindow()
@@ -179,7 +180,7 @@ def main():
                                 gui.setImg(bg, 0.5)
                                 gui.setLbl('¿Invertiría usted en esta página?', 22, 0.2)
                                 def reset():
-                                    scenes.getScene(4, 12)
+                                    scenes.getScene(4, 14)
                                     scenes.scene = 'window'
                                     scene4.destroy()
                                 def next():
@@ -212,7 +213,7 @@ def main():
                                         else:
                                             break
 
-                                elif scenes.scene == 'next':
+                                if scenes.scene == 'next':
                                     window = Tk()
                                     gui.window = window
                                     gui.setWindow()
@@ -226,21 +227,22 @@ def main():
                                     window.mainloop()
 
                                     if scenes.scene == 5:
+                                        winsound.PlaySound('.', 0)
                                         scenes.getScene(5, 10) # Muestra la escena donde Javier está sin dinero, desesperado y sin trabajo.
                                         window = Tk()
                                         gui.window = window
                                         gui.setWindow()
                                         bg = PhotoImage(file = 'assets/images/background.png')
                                         gui.setImg(bg, 0.5)
-                                        gui.setLbl('Javier se encuentra frente a una nueva decisión. ¿Qué haría usted? Un solo clic podría cambiar todo.', 22, 0.2)
+                                        gui.setLbl(scenes.txt[5], 22, 0.2)
                                         def scene6():
                                             scenes.scene = 'op1'
                                             window.destroy()
                                         def next():
                                             scenes.scene = 'op2'
                                             window.destroy()
-                                        gui.setBtn('Hacer clic en el enlace y registrarse', scene6, 0.5, 0.9)
-                                        gui.setBtn('Ignorar el correo y no hacer clic', next, 0.5, 0.9)
+                                        gui.setBtn('Hacer clic en el enlace y registrarse', scene6, 0.5, 0.6)
+                                        gui.setBtn('Ignorar el correo y no hacer clic', next, 0.5, 0.8)
                                         window.mainloop()
                                         
                                         if scenes.scene == 'op1':
@@ -271,7 +273,7 @@ def main():
                                                 gui.setWindow()
                                                 bg = PhotoImage(file = 'assets/images/background.png')
                                                 gui.setImg(bg, 0.5)
-                                                gui.setLbl(scenes.txt[5], 16, 0.5)
+                                                gui.setLbl(scenes.txt[6], 16, 0.5)
                                                 def exit():
                                                     window.destroy()
                                                 gui.setBtn('Salir', exit, 0.5, 0.9)
