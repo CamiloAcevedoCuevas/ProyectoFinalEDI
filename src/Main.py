@@ -220,7 +220,7 @@ def main():
                                     gui.setWindow()
                                     bg = PhotoImage(file = 'assets/images/background.png')
                                     gui.setImg(bg, 0.5)
-                                    gui.setLbl(scenes.txt[4], 12, 0.5)
+                                    gui.setLbl(scenes.txt[4], 16, 0.5)
                                     def scene5():
                                         scenes.scene = 5
                                         window.destroy()
@@ -228,7 +228,7 @@ def main():
                                     window.mainloop()
 
                                     if scenes.scene == 5:
-                                        scenes.getScene(5, 10) # Muestra la escena donde Javier está sin dinero, desesperado y sin trabajo.
+                                        scenes.getScene(5, 11) # Muestra la escena donde Javier está sin dinero, desesperado y sin trabajo.
                                         window = Tk()
                                         gui.window = window
                                         gui.setWindow()
