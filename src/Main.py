@@ -15,24 +15,24 @@ def main():
         scene = cv2.VideoCapture(f'assets/videos/scene{i}.mp4')
         scenes.addScene(scene, i)
 
-    while True:
-        menu = Tk() # main menu
-        gui.window = menu
-        gui.setWindow()
-        bg = PhotoImage(file = 'assets/images/background.png')
-        gui.setImg(bg, 0.5)
-        logo = PhotoImage(file = 'assets/images/logo.png')
-        gui.setImg(logo, 0.32)
-        def start():
-            scenes.scene = 'start'
-            menu.destroy()
-        def exit():
-            menu.destroy()
-        gui.setBtn('Iniciar Partida', start, 0.5, 0.6)
-        gui.setBtn('Salir', exit, 0.5, 0.7)
-        menu.mainloop()
+    menu = Tk() # main menu
+    gui.window = menu
+    gui.setWindow()
+    bg = PhotoImage(file = 'assets/images/background.png')
+    gui.setImg(bg, 0.5)
+    logo = PhotoImage(file = 'assets/images/logo.png')
+    gui.setImg(logo, 0.32)
+    def start():
+        scenes.scene = 'start'
+        menu.destroy()
+    def exit():
+        menu.destroy()
+    gui.setBtn('Iniciar Partida', start, 0.5, 0.6)
+    gui.setBtn('Salir', exit, 0.5, 0.7)
+    menu.mainloop()
 
-        if scenes.scene == 'start':
+    if scenes.scene == 'start':
+        while True:
             start = Tk()
             gui.window = start
             gui.setWindow()
@@ -55,7 +55,7 @@ def main():
                 gui.setWindow()
                 bg = PhotoImage(file = 'assets/images/background.png')
                 gui.setImg(bg, 0.5)
-                gui.setLbl('¿Usted haría lo mismo que Javier?', 22, 0.2)
+                gui.setLbl('¿Usted haría lo mismo que Javier?', 24, 0.2)
                 def scene2():
                     scenes.scene = 2
                     scene1.destroy()
@@ -64,13 +64,13 @@ def main():
                     scene1.destroy()
                 gui.setBtn(scenes.txt[1], scene2, 0.5, 0.5)
                 gui.setBtn('No, es muy sospechoso', cograts, 0.5, 0.65)
-                scene1.mainloop()
+                scene1.mainloop()   
 
                 if scenes.scene == 2:
                     while True:
                         if scenes.scene == 2:
                             scenes.scene = None
-                            scenes.getScene(2, 11) # Muestra la secuencia donde Javier recuerda la conversación con su primo Juan.
+                            scenes.getScene(2, 9) # Muestra la secuencia donde Javier recuerda la conversación con su primo Juan.
                             scene2 = Tk()
                             gui.window = scene2
                             gui.setWindow()
@@ -87,7 +87,7 @@ def main():
                             gui.setBtn('No, es muy sospechoso', next, 0.5, 0.65)
                             scene2.mainloop()
                         else:
-                            break
+                            break  
 
                 if scenes.scene == 'congrats':
                     winsound.PlaySound('assets/audios/congrats.wav', 0) # Reproduce el audio donde se felicita al jugador por haber identificado la actividad sospechosa.
@@ -104,7 +104,7 @@ def main():
                             window.destroy()
                         window.after(11000, scene3)
                     gui.setBtn('¿Cookies?', cookies, 0.5, 0.5)
-                    window.mainloop()
+                    window.mainloop() 
 
                     if scenes.scene == 3:
                         scenes.getScene(3, 12) # Muestra la escena donde Javier encuentra Axi.
@@ -128,7 +128,7 @@ def main():
                             winsound.PlaySound('assets/audios/click.wav', winsound.SND_ASYNC)
                             gui.setBtn('Escudo modificado', next, 0.42, 0.27)
                         gui.setBtn('Sin Protocolo de transferencia seguro (https)', next, 0.3, 0.205)
-                        scene3.mainloop()
+                        scene3.mainloop() 
 
                         if scenes.scene == 'window':
                             while True:
@@ -153,7 +153,7 @@ def main():
                                     gui.setBtn('No, es muy sospechoso', bank, 0.65, 0.9)
                                     window.mainloop()
                                 else:
-                                    break
+                                    break   
 
                             if scenes.scene == 'bank':
                                 winsound.PlaySound('assets/audios/stop.wav', winsound.SND_ASYNC) 
@@ -169,11 +169,11 @@ def main():
                                     scenes.scene = 4
                                     bank.destroy()
                                 gui.setBtn('Continuar', scene4, 0.5, 0.9)
-                                bank.mainloop()
+                                bank.mainloop()     
 
                                 if scenes.scene == 4:
                                     winsound.PlaySound('assets/audios/transition.wav', 0) # Reproduce el audio donde se explica Javier no se dió cuenta que la página era falsa y decidió invertir.
-                                    scenes.getScene(4, 14) # Muestra la escena donde Javier recibe el correo del banco.
+                                    scenes.getScene(4, 12) # Muestra la escena donde Javier recibe el correo del banco.
                                     scene4 = Tk()
                                     gui.window = scene4
                                     gui.setWindow()
@@ -189,7 +189,7 @@ def main():
                                         scene4.destroy()
                                     gui.setBtn('Si, y acepto el bono de inversión', reset, 0.35, 0.5)
                                     gui.setBtn('No, es muy sospechoso', next, 0.65, 0.5)
-                                    scene4.mainloop()
+                                    scene4.mainloop() 
 
                                     if scenes.scene == 'window':
                                         while True:
@@ -212,7 +212,7 @@ def main():
                                                 gui.setBtn('No, es muy sospechoso', next, 0.65, 0.9)
                                                 window.mainloop()
                                             else:
-                                                break
+                                                break 
 
                                     if scenes.scene == 'next':
                                         winsound.PlaySound('assets/audios/stop.wav', winsound.SND_ASYNC)
@@ -226,7 +226,7 @@ def main():
                                             scenes.scene = 5
                                             window.destroy()
                                         gui.setBtn('Continuar', scene5, 0.5, 0.9)
-                                        window.mainloop()
+                                        window.mainloop() 
 
                                         if scenes.scene == 5:
                                             scenes.getScene(5, 11) # Muestra la escena donde Javier está sin dinero, desesperado y sin trabajo.
@@ -244,7 +244,7 @@ def main():
                                                 window.destroy()
                                             gui.setBtn('Hacer clic en el enlace y registrarse', op1, 0.5, 0.6)
                                             gui.setBtn('Ignorar el correo y no hacer clic', op2, 0.5, 0.8)
-                                            window.mainloop()
+                                            window.mainloop()  
 
                                             if scenes.scene == 'op1':
                                                 window = Tk()
@@ -266,10 +266,10 @@ def main():
                                                     gui.setBtn('Continuar', destroy, 0.5, 0.9)
                                                 gui.setBtn('Si', txt, 0.3, 0.9)
                                                 gui.setBtn('No', last, 0.7, 0.9)
-                                                window.mainloop()
+                                                window.mainloop()  
 
                                             elif scenes.scene == 'op2':
-                                                pass
+                                                pass  
 
                                             if scenes.scene == 'last':
                                                 window = Tk()
@@ -285,7 +285,7 @@ def main():
                                                     window.destroy()
                                                 gui.setBtn('Si', reset, 0.35, 0.7)
                                                 gui.setBtn('No', exit, 0.65, 0.7)
-                                                window.mainloop()
+                                                window.mainloop()  
 
                                                 if scenes.scene == 'exit':
                                                     break
@@ -307,8 +307,6 @@ def main():
                     break
             else:
                 break
-        else:
-            break
 
 if __name__ == '__main__':
     main()
