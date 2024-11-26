@@ -11,7 +11,9 @@ class Scenes:
             '¡Ups! Parece que has tomado una mala decisión.\n\nEl enlace que acabas de hacer clic no era un bono legítimo, sino una trampa diseñada\npara robar tus datos. Las estafas en línea pueden ser muy\nengañosas, y este tipo de fraude es más común de lo que parece.\n\n¿Por qué es una estafa?\n\n1. Los enlaces que prometen bonos irresistibles suelen ser intentos de robar tu\ninformación personal o financiera.\n\n2. Las empresas legítimas nunca pedirán tus datos por medio de enlaces\no correos sospechosos.',
             '¡Ahora sabes cómo identificar una estafa!\n\nPara avanzar en este juego, asegúrate de tomar decisiones más sabias y proteger tus recursos.\nSi haces clic en ofertas dudosas, podrías perder más que solo dinero.\n\n¡Ten cuidado y no dejes que te engañen, recuerda que lo mejor es DENUNCIAR!',
             'Javier se encuentra frente a una nueva decisión. ¿Qué haría usted?\nUn solo clic podría cambiar todo.',
-            'Muy bien, lograste que Javier cerrara la página, investigara\nsobre la empresa y descubriera que era una estafa.\n¡Bien hecho! Evitó que se repitiera el fracaso.']
+            '¡Atención! El enlace que acabas de hacer clic es de nuevo una trampa.\nAunque parecía legítimo, al ingresar a este sitio estás compartiendo\ninformación personal y podrías perder todas tus ganancias.',
+            'Muy bien, lograste que Javier cerrara la página, investigara\nsobre la empresa y descubriera que era una estafa.\n¡Bien hecho! Evitó que se repitiera el fracaso.',
+            'Hemos aprendido a no confiar en correos de desconocidos que\nprometen trabajos fáciles o recompensas muy buenas.\nLa seguridad en línea depende de la precaución.\n¡Felicidades, has evitado la estafa!, ¡El objetivo del juego se ha\nlogrado y con esta enseñanza preservarás las monedas que tengas!']
     
     def __init__(self):
         self.scene = None
