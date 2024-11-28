@@ -98,6 +98,7 @@ def main():
                     gui.setImg(bg, 0.5)
                     def cookies():
                         gui.setLbl(scenes.txt[2], 16, 0.72)
+                        gui.setBtn('¿Cookies?', None, 0.5, 0.5)
                         winsound.PlaySound('assets/audios/cookies.wav', winsound.SND_ASYNC) # Reproduce el audio con la explicación de las cookies.
                         def scene3():
                             scenes.scene = 3
@@ -107,7 +108,7 @@ def main():
                     window.mainloop() 
 
                     if scenes.scene == 3:
-                        scenes.getScene(3, 12) # Muestra la escena donde Javier encuentra Axi.
+                        scenes.getScene(3, 11) # Muestra la escena donde Javier encuentra Axi.
                         winsound.PlaySound('assets/audios/identify.wav', winsound.SND_ASYNC) # Reproduce el audio donde se pide identificar.
                         scene3 = Tk()
                         gui.window = scene3
@@ -229,7 +230,7 @@ def main():
                                         window.mainloop() 
 
                                         if scenes.scene == 5:
-                                            scenes.getScene(5, 11) # Muestra la escena donde Javier está sin dinero, desesperado y sin trabajo.
+                                            scenes.getScene(5, 10) # Muestra la escena donde Javier está sin dinero, desesperado y sin trabajo.
                                             window = Tk()
                                             gui.window = window
                                             gui.setWindow()
@@ -246,50 +247,43 @@ def main():
                                             gui.setBtn('Ignorar el correo y no hacer clic', op2, 0.5, 0.8)
                                             window.mainloop()  
 
-                                            if scenes.scene == 'op1':
+                                            if scenes.scene != 5:
                                                 window = Tk()
                                                 gui.window = window
                                                 gui.setWindow()
                                                 bg = PhotoImage(file = 'assets/images/background.png')
                                                 gui.setImg(bg, 0.5)
-                                                # ws = PhotoImage(file = 'assets/images/website.png')
-                                                # gui.setImg(ws, 0.4)
-                                                gui.setLbl('¿ingresaría usted sus datos?', 22, 0.2)
-                                                def txt():
-                                                    gui.setLbl(scenes.txt[6], 13, 0.75)
-                                                def last():
-                                                    gui.setBtn('Si', None, 0.3, 0.9)
-                                                    gui.setLbl(scenes.txt[7], 16, 0.75)
-                                                    def destroy():
-                                                        scenes.scene = 'last'
+                                                if scenes.scene == 'op1':
+                                                    # ws = PhotoImage(file = 'assets/images/website.png')
+                                                    # gui.setImg(ws, 0.4)
+                                                    gui.setLbl('¿ingresaría usted sus datos?', 22, 0.2)
+                                                    def txt():
+                                                        gui.setLbl(scenes.txt[6], 13, 0.75)
+                                                    def end():
+                                                        gui.setLbl('¿Desea jugar de nuevo?', 26, 0.2)
+                                                        gui.setLbl(scenes.txt[7], 16, 0.75)
+                                                        def reset():
+                                                            window.destroy()
+                                                        def exit():
+                                                            scenes.scene = 'exit'
+                                                            window.destroy()
+                                                        gui.setBtn('Si', reset, 0.3, 0.9)    
+                                                        gui.setBtn('No', exit, 0.7, 0.9)
+                                                    gui.setBtn('Si', txt, 0.3, 0.9)
+                                                    gui.setBtn('No', end, 0.7, 0.9)
+                                                else:
+                                                    gui.setLbl(scenes.txt[8], 13, 0.75)
+                                                    gui.setLbl('¿Desea jugar de nuevo?', 26, 0.2)
+                                                    def reset():
                                                         window.destroy()
-                                                    gui.setBtn('Continuar', destroy, 0.5, 0.9)
-                                                gui.setBtn('Si', txt, 0.3, 0.9)
-                                                gui.setBtn('No', last, 0.7, 0.9)
-                                                window.mainloop()  
+                                                    def exit():
+                                                        scenes.scene = 'exit'
+                                                        window.destroy()
+                                                    gui.setBtn('Si', reset, 0.3, 0.9)    
+                                                    gui.setBtn('No', exit, 0.5, 0.9)
+                                                window.mainloop()
 
-                                            elif scenes.scene == 'op2':
-                                                pass  
-
-                                            if scenes.scene == 'last':
-                                                window = Tk()
-                                                gui.window = window
-                                                gui.setWindow()
-                                                bg = PhotoImage(file = 'assets/images/background.png')
-                                                gui.setImg(bg, 0.5)
-                                                gui.setLbl('¿Desea jugar de nuevo?', 16, 0.5)
-                                                def reset():
-                                                    window.destroy()
-                                                def exit():
-                                                    scenes.scene = 'exit'
-                                                    window.destroy()
-                                                gui.setBtn('Si', reset, 0.35, 0.7)
-                                                gui.setBtn('No', exit, 0.65, 0.7)
-                                                window.mainloop()  
-
-                                                if scenes.scene == 'exit':
-                                                    break
-                                            else: 
+                                            if scenes.scene == 5 or scenes.scene == 'exit':
                                                 break
                                         else:
                                             break
