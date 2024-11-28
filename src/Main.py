@@ -35,7 +35,6 @@ def main():
 
     if scenes.scene == 'start':
         while True:
-            scorage = 0
             start = Tk()
             gui.window = start
             gui.set_window()
@@ -126,20 +125,22 @@ def main():
                         axi = PhotoImage(file = 'assets/images/axi.png')
                         gui.set_img(axi, 0.53)
                         gui.set_lbl('Hay algo extraño en esta página, identifíquelo:', 14, 0.04)
-                        def next():
-                            scores.add_score(12000)
+                        def btn():
                             def next():
                                 scores.add_score(12000)
                                 def next():
                                     scores.add_score(12000)
-                                    scenes.scene = 'window'
+                                    def next():
+                                        scores.add_score(12000)
+                                        winsound.PlaySound('assets/audios/click.wav', winsound.SND_ASYNC)
+                                        scenes.scene = 'window'
+                                        scene3.destroy()
                                     winsound.PlaySound('assets/audios/click.wav', winsound.SND_ASYNC)
-                                    scene3.destroy()
+                                    gui.set_btn('Logo\nmodificado', next, 0.158, 0.28)
                                 winsound.PlaySound('assets/audios/click.wav', winsound.SND_ASYNC)
-                                gui.set_btn('Logo\nmodificado', next, 0.158, 0.28)
-                            winsound.PlaySound('assets/audios/click.wav', winsound.SND_ASYNC)
-                            gui.set_btn('Escudo modificado', next, 0.42, 0.27)
-                        gui.set_btn('Sin Protocolo de transferencia seguro (https)', next, 0.3, 0.205)
+                                gui.set_btn('Escudo modificado', next, 0.42, 0.27)
+                            gui.set_btn('Sin Protocolo de transferencia seguro (https)', next, 0.3, 0.205)
+                        scene3.after(3500, btn)
                         scene3.mainloop() 
 
                         if scenes.scene == 'window':
@@ -188,7 +189,7 @@ def main():
 
                                 if scenes.scene == 4:
                                     winsound.PlaySound('assets/audios/transition.wav', 0) # Reproduce el audio donde se explica Javier no se dió cuenta que la página era falsa y decidió invertir.
-                                    scenes.get_scene(4, 13) # Muestra la escena donde Javier recibe el correo del banco.
+                                    scenes.get_scene(4, 14) # Muestra la escena donde Javier recibe el correo del banco.
                                     scene4 = Tk()
                                     gui.window = scene4
                                     gui.set_window()
@@ -197,7 +198,7 @@ def main():
                                     gui.set_lbl('¿Invertiría usted en esta página?', 22, 0.2)
                                     def reset():
                                         scores.add_score(-20000)
-                                        scenes.get_scene(4, 13)
+                                        scenes.get_scene(4, 14)
                                         scenes.scene = 'window'
                                         scene4.destroy()
                                     def next():
@@ -240,7 +241,7 @@ def main():
                                         window.mainloop() 
 
                                         if scenes.scene == 5:
-                                            scenes.get_scene(5, 10) # Muestra la escena donde Javier está sin dinero, desesperado y sin trabajo.
+                                            scenes.get_scene(5, 12) # Muestra la escena donde Javier está sin dinero, desesperado y sin trabajo.
                                             window = Tk()
                                             gui.window = window
                                             gui.set_window()
@@ -270,14 +271,17 @@ def main():
                                                     # gui.set_img(ws, 0.4)
                                                     gui.set_lbl('¿ingresaría usted sus datos?', 22, 0.2)
                                                     def txt():
+                                                        scores.add_score(-20000)
                                                         gui.set_lbl(scenes.txt[6], 13, 0.75)
                                                     def end():
                                                         gui.set_lbl('¿Desea jugar de nuevo?', 26, 0.75)
                                                         gui.set_lbl(scenes.txt[7], 18, 0.3)
+                                                        scorage = str(scores.get_scorage())
+                                                        gui.set_lbl('Puntaje:\n\n' + scorage, 18, 0.5)
                                                         def reset():
+                                                            scenes.scene = 'play'
                                                             window.destroy()
                                                         def exit():
-                                                            scenes.scene = 'exit'
                                                             window.destroy()
                                                         gui.set_btn('Si', reset, 0.3, 0.9)    
                                                         gui.set_btn('No', exit, 0.7, 0.9)
@@ -286,18 +290,20 @@ def main():
                                                 else:
                                                     gui.set_lbl('¿Desea jugar de nuevo?', 26, 0.75)
                                                     gui.set_lbl(scenes.txt[8], 18, 0.3)
+                                                    scorage = str(scores.get_scorage())
+                                                    gui.set_lbl('Puntaje:\n\n' + scorage, 18, 0.5)
                                                     def reset():
+                                                        scenes.scene = 'play'
                                                         window.destroy()
                                                     def exit():
-                                                        scenes.scene = 'exit'
                                                         window.destroy()
                                                     gui.set_btn('Si', reset, 0.35, 0.9)    
                                                     gui.set_btn('No', exit, 0.65, 0.9)
                                                 window.mainloop()
 
-                                            if scenes.scene == 5 or scenes.scene == 'exit':
-                                                scorage = scores.get_scorage()
-                                                print(scorage)
+                                                scores.add_score(-scores.get_scorage()) # Reinicia el puntaje.
+
+                                            if scenes.scene != 'play':
                                                 break
                                         else:
                                             break
