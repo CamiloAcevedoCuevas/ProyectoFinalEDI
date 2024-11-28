@@ -1,5 +1,4 @@
 # Project Rubric:
-    For this project it was requested:
     1. Use at least two data structures seen during the semester.
     2. Use Object Oriented Programming.
     3. Implement at least two game mechanics.
