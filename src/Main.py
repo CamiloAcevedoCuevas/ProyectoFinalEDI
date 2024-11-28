@@ -174,7 +174,7 @@ def main():
 
                                 if scenes.scene == 4:
                                     winsound.PlaySound('assets/audios/transition.wav', 0) # Reproduce el audio donde se explica Javier no se dió cuenta que la página era falsa y decidió invertir.
-                                    scenes.get_scene(4, 12) # Muestra la escena donde Javier recibe el correo del banco.
+                                    scenes.get_scene(4, 13) # Muestra la escena donde Javier recibe el correo del banco.
                                     scene4 = Tk()
                                     gui.window = scene4
                                     gui.set_window()
@@ -182,7 +182,7 @@ def main():
                                     gui.set_img(bg, 0.5)
                                     gui.set_lbl('¿Invertiría usted en esta página?', 22, 0.2)
                                     def reset():
-                                        scenes.get_scene(4, 14)
+                                        scenes.get_scene(4, 13)
                                         scenes.scene = 'window'
                                         scene4.destroy()
                                     def next():
@@ -267,15 +267,15 @@ def main():
                                                     gui.set_btn('Si', txt, 0.3, 0.9)
                                                     gui.set_btn('No', end, 0.7, 0.9)
                                                 else:
-                                                    gui.set_lbl(scenes.txt[8], 13, 0.75)
-                                                    gui.set_lbl('¿Desea jugar de nuevo?', 26, 0.2)
+                                                    gui.set_lbl(scenes.txt[8], 18, 0.3)
+                                                    gui.set_lbl('¿Desea jugar de nuevo?', 26, 0.75)
                                                     def reset():
                                                         window.destroy()
                                                     def exit():
                                                         scenes.scene = 'exit'
                                                         window.destroy()
-                                                    gui.set_btn('Si', reset, 0.3, 0.9)    
-                                                    gui.set_btn('No', exit, 0.5, 0.9)
+                                                    gui.set_btn('Si', reset, 0.35, 0.9)    
+                                                    gui.set_btn('No', exit, 0.65, 0.9)
                                                 window.mainloop()
 
                                             if scenes.scene == 5 or scenes.scene == 'exit':
