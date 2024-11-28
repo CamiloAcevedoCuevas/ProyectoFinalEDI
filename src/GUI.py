@@ -5,14 +5,14 @@ class GUI ():
     def __init__(self):
         self.window = None
 
-    def setWindow(self):
+    def set_window(self):
         """Establish A Window."""
         self.window.iconbitmap('assets/images/logo.ico')
         self.window.title('El Poder De Un Click')
         self.window.geometry('1280x720')
         self.window.resizable(False, False)
 
-    def setLbl(self, txt, fs, rely):
+    def set_lbl(self, txt, fs, rely):
         """Establish A Label
 
         Args:
@@ -23,7 +23,7 @@ class GUI ():
         label = Label(self.window, text = txt, fg = 'goldenrod', bg = 'gray2', font = ('Georgia', fs, 'bold'))
         label.place(relx = 0.5, rely = rely, anchor = CENTER)
 
-    def setBtn(self, txt, command, relx, rely):
+    def set_btn(self, txt, command, relx, rely):
         """Establish A Button
 
         Args:
@@ -35,7 +35,7 @@ class GUI ():
         button = Button(self.window, text = txt, fg = 'goldenrod', bg = 'gray10', font = ('Georgia', 13, 'bold'), command = command)
         button.place(relx = relx, rely = rely, anchor = CENTER)
 
-    def setImg(self, img, rely):
+    def set_img(self, img, rely):
         """Establish An Image
 
         Args:

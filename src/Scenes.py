@@ -3,7 +3,7 @@ import cv2
 import winsound
 
 class Scenes:
-    """Scenes Class"""
+    """Class that represents a simple linked list of scenes."""
 
     txt = ['Él es Javier. Javier es un excéntrico empresario de bienes raíces. Lleva una vida de ensueño en la ciudad\nde Nueva York y cuenta con innumerables inversiones exitosas. Pero un día, todo eso cambió...\nJavier tiene un defecto, no sabe mucho sobre la seguridad en internet. Tu deberás identificar\nsi las acciones de Javier fueron las mejores o si aún tiene cosas que aprender. A través de la historia\nde Javier aprenderás a identificar los riesgos de la navegación en internet.',
             'SÍ, cualquier red de internet me sirve lo importante es reunirme a hablar de trabajo, no hay ningún riesgo',
@@ -19,7 +19,7 @@ class Scenes:
         self.scene = None
         self.head = None
         
-    def addScene(self, scene, index):
+    def add_scene(self, scene, index):
         """Add A Scene
 
         Args:
@@ -35,7 +35,7 @@ class Scenes:
                 current = current.next
             current.next = new_scene
 
-    def getScene(self, index, rr):
+    def get_scene(self, index, rr):
         """Play A Scene
 
         Args:
