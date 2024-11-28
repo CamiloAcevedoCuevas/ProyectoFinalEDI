@@ -6,10 +6,10 @@ class Scores:
         self.head = None
 
     def add_score(self, score):
-        """
+        """Link a new score to the list.
 
         Args:
-            score (int): _description_
+            score (int): Score in the game
         """
         new_score = Score(score)
         if self.head is None:
@@ -25,8 +25,12 @@ class Scores:
             self.head = new_score
 
     def get_scorage(self):
+        """Returns the total score of the game."""
         current = self.head
         scorage = 0
+        if current is not None:
+            scorage += current.score
+            current = current.next
         while current != self.head:
             scorage += current.score
             current = current.next

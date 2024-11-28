@@ -2,14 +2,16 @@
 # By Nebula Games®
 
 import cv2
-from tkinter import *
-from Scenes import Scenes
-from GUI import GUI
 import winsound
-
+from tkinter import *
+from GUI import GUI
+from Scenes import Scenes
+from Scores import Scores
+    
 def main():
-    scenes = Scenes()
     gui = GUI()
+    scenes = Scenes()
+    scores = Scores()
     
     for i in range(1, 6): # scenes buffering
         scene = cv2.VideoCapture(f'assets/videos/scene{i}.mp4')
@@ -33,6 +35,7 @@ def main():
 
     if scenes.scene == 'start':
         while True:
+            scorage = 0
             start = Tk()
             gui.window = start
             gui.set_window()
@@ -57,9 +60,11 @@ def main():
                 gui.set_img(bg, 0.5)
                 gui.set_lbl('¿Usted haría lo mismo que Javier?', 24, 0.2)
                 def scene2():
+                    scores.add_score(-5000)
                     scenes.scene = 2
                     scene1.destroy()
                 def cograts():
+                    scores.add_score(10000)
                     scenes.scene = 'congrats'
                     scene1.destroy()
                 gui.set_btn(scenes.txt[1], scene2, 0.5, 0.5)
@@ -78,9 +83,11 @@ def main():
                             gui.set_img(bg, 0.5)
                             gui.set_lbl('¿Está seguro de que fue lo correcto?', 22, 0.2)
                             def reset():
+                                scores.add_score(-5000)
                                 scenes.scene = 2
                                 scene2.destroy()
                             def next():
+                                scores.add_score(10000)
                                 scenes.scene = 'congrats'
                                 scene2.destroy()
                             gui.set_btn(scenes.txt[1], reset, 0.5, 0.5)
@@ -97,6 +104,7 @@ def main():
                     bg = PhotoImage(file = 'assets/images/background.png')
                     gui.set_img(bg, 0.5)
                     def cookies():
+                        scores.add_score(5000)
                         gui.set_lbl(scenes.txt[2], 16, 0.72)
                         gui.set_btn('¿Cookies?', None, 0.5, 0.5)
                         winsound.PlaySound('assets/audios/cookies.wav', winsound.SND_ASYNC) # Reproduce el audio con la explicación de las cookies.
@@ -119,8 +127,11 @@ def main():
                         gui.set_img(axi, 0.53)
                         gui.set_lbl('Hay algo extraño en esta página, identifíquelo:', 14, 0.04)
                         def next():
+                            scores.add_score(12000)
                             def next():
+                                scores.add_score(12000)
                                 def next():
+                                    scores.add_score(12000)
                                     scenes.scene = 'window'
                                     winsound.PlaySound('assets/audios/click.wav', winsound.SND_ASYNC)
                                     scene3.destroy()
@@ -144,10 +155,12 @@ def main():
                                     gui.set_img(brwser, 0.4)
                                     gui.set_lbl('¿Invirtiría usted en esta página?', 15, 0.8)
                                     def reset():
+                                        scores.add_score(-5000)
                                         scenes.scene = 'window'
                                         scenes.get_scene(3, 11)
                                         window.destroy()
                                     def bank():
+                                        scores.add_score(10000)
                                         scenes.scene = 'bank'
                                         window.destroy()
                                     gui.set_btn('SÍ, es una página segura', reset, 0.35, 0.9)
@@ -167,6 +180,7 @@ def main():
                                 gui.set_img(bnk, 0.53)
                                 gui.set_lbl('Mire aquí una página de un sitio web oficial de un banco:', 14, 0.04)
                                 def scene4():
+                                    scores.add_score(2000)
                                     scenes.scene = 4
                                     bank.destroy()
                                 gui.set_btn('Continuar', scene4, 0.5, 0.9)
@@ -182,10 +196,12 @@ def main():
                                     gui.set_img(bg, 0.5)
                                     gui.set_lbl('¿Invertiría usted en esta página?', 22, 0.2)
                                     def reset():
+                                        scores.add_score(-20000)
                                         scenes.get_scene(4, 13)
                                         scenes.scene = 'window'
                                         scene4.destroy()
                                     def next():
+                                        scores.add_score(4000)
                                         scenes.scene = 'next'
                                         scene4.destroy()
                                     gui.set_btn('Si, y acepto el bono de inversión', reset, 0.35, 0.5)
@@ -193,7 +209,6 @@ def main():
                                     scene4.mainloop() 
 
                                     if scenes.scene == 'window':
-                                        scenes.scene = None
                                         window = Tk()
                                         gui.window = window
                                         gui.set_window()
@@ -202,7 +217,7 @@ def main():
                                         gui.set_lbl(scenes.txt[3], 13, 0.31)
                                         gui.set_lbl('¿Reinvirtiría usted en esta página?', 19, 0.7)
                                         def reset():
-                                            pass
+                                            scores.add_score(-15000)
                                         def next():
                                             scenes.scene = 'next'
                                             window.destroy()
@@ -233,9 +248,11 @@ def main():
                                             gui.set_img(bg, 0.5)
                                             gui.set_lbl(scenes.txt[5], 22, 0.2)
                                             def op1():
+                                                scores.add_score(-5000)
                                                 scenes.scene = 'op1'
                                                 window.destroy()
                                             def op2():
+                                                scores.add_score(50000)
                                                 scenes.scene = 'op2'
                                                 window.destroy()
                                             gui.set_btn('Hacer clic en el enlace y registrarse', op1, 0.5, 0.6)
@@ -255,8 +272,8 @@ def main():
                                                     def txt():
                                                         gui.set_lbl(scenes.txt[6], 13, 0.75)
                                                     def end():
-                                                        gui.set_lbl('¿Desea jugar de nuevo?', 26, 0.2)
-                                                        gui.set_lbl(scenes.txt[7], 16, 0.75)
+                                                        gui.set_lbl('¿Desea jugar de nuevo?', 26, 0.75)
+                                                        gui.set_lbl(scenes.txt[7], 18, 0.3)
                                                         def reset():
                                                             window.destroy()
                                                         def exit():
@@ -267,8 +284,8 @@ def main():
                                                     gui.set_btn('Si', txt, 0.3, 0.9)
                                                     gui.set_btn('No', end, 0.7, 0.9)
                                                 else:
-                                                    gui.set_lbl(scenes.txt[8], 18, 0.3)
                                                     gui.set_lbl('¿Desea jugar de nuevo?', 26, 0.75)
+                                                    gui.set_lbl(scenes.txt[8], 18, 0.3)
                                                     def reset():
                                                         window.destroy()
                                                     def exit():
@@ -279,6 +296,8 @@ def main():
                                                 window.mainloop()
 
                                             if scenes.scene == 5 or scenes.scene == 'exit':
+                                                scorage = scores.get_scorage()
+                                                print(scorage)
                                                 break
                                         else:
                                             break
