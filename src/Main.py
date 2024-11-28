@@ -145,7 +145,7 @@ def main():
                                     gui.setLbl('¿Invirtiría usted en esta página?', 15, 0.8)
                                     def reset():
                                         scenes.scene = 'window'
-                                        scenes.getScene(3, 12)
+                                        scenes.getScene(3, 11)
                                         window.destroy()
                                     def bank():
                                         scenes.scene = 'bank'
@@ -193,27 +193,22 @@ def main():
                                     scene4.mainloop() 
 
                                     if scenes.scene == 'window':
-                                        while True:
-                                            if scenes.scene == 'window':
-                                                scenes.scene = None
-                                                window = Tk()
-                                                gui.window = window
-                                                gui.setWindow()
-                                                bg = PhotoImage(file = 'assets/images/background.png')
-                                                gui.setImg(bg, 0.5)
-                                                gui.setLbl(scenes.txt[3], 13, 0.31)
-                                                gui.setLbl('¿Reinvirtiría usted en esta página?', 19, 0.7)
-                                                def reset():
-                                                    scenes.scene = 'window'
-                                                    window.destroy()
-                                                def next():
-                                                    scenes.scene = 'next'
-                                                    window.destroy()
-                                                gui.setBtn('Si, y acepto el bono de inversión', reset, 0.35, 0.9)
-                                                gui.setBtn('No, es muy sospechoso', next, 0.65, 0.9)
-                                                window.mainloop()
-                                            else:
-                                                break 
+                                        scenes.scene = None
+                                        window = Tk()
+                                        gui.window = window
+                                        gui.setWindow()
+                                        bg = PhotoImage(file = 'assets/images/background.png')
+                                        gui.setImg(bg, 0.5)
+                                        gui.setLbl(scenes.txt[3], 13, 0.31)
+                                        gui.setLbl('¿Reinvirtiría usted en esta página?', 19, 0.7)
+                                        def reset():
+                                            pass
+                                        def next():
+                                            scenes.scene = 'next'
+                                            window.destroy()
+                                        gui.setBtn('Si, y acepto el bono de inversión', reset, 0.35, 0.9)
+                                        gui.setBtn('No, es muy sospechoso', next, 0.65, 0.9)
+                                        window.mainloop()
 
                                     if scenes.scene == 'next':
                                         winsound.PlaySound('assets/audios/stop.wav', winsound.SND_ASYNC)
